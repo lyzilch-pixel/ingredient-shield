@@ -178,6 +178,13 @@
   /* 溯源信息 */
   .prov { font-size: 12.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; border-top: 1px dashed var(--line); padding-top: 6px; }
   .prov .src { color: var(--accent); font-weight: 600; }
+  /* 窄屏：数据来源区域改为纵向堆叠，分段控件占满宽度并允许内部换行，避免撑破外框 */
+  @media (max-width: 560px){
+    .ds-toggle { flex-direction: column; align-items: stretch; gap: 8px; }
+    .seg { width: 100%; flex-wrap: wrap; }
+    .seg-item { flex: 1 1 0; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; padding: 9px 10px; }
+    .tabs { flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body>
