@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "version": "2.0.0",
+    "updated_at": "2026-10-26",
+    "source": "开源演示知识库：跨品类召回 / 预警示例数据，非官方渠道",
+    "disclaimer": "本文件为演示用途。真实召回 / 预警请以国家市场监管总局、药监局、疾控中心及品牌官方公告为准。采集时间见 collected_at 字段。"
+  },
+  "alerts": [
+    {
+      "id": "alert-20261020-01",
+      "category": "food",
+      "level": "info",
+      "title": "示例：某品牌调味酱自检提示（旧数据，超出 24h）",
+      "scope": "影响范围：示例条目，不涉及真实在售产品",
+      "collected_at": "2026-10-20T09:00:00+08:00",
+      "advice": "演示数据，无需采取任何行动",
+      "is_demo": true
+    },
+    {
+      "id": "alert-20261026-02",
+      "category": "daily_chem",
+      "level": "watch",
+      "title": "示例：某批次湿巾防腐剂超标风险提示（近 24h 内）",
+      "scope": "影响范围：示例条目",
+      "collected_at": "2026-10-26T08:00:00+08:00",
+      "advice": "演示数据，建议关注但不必恐慌",
+      "is_demo": true
+    },
+    {
+      "id": "alert-20261026-03",
+      "category": "drug",
+      "level": "warning",
+      "title": "示例：某抗生素药品说明书修订（近 24h 内）",
+      "scope": "影响范围：示例条目",
+      "collected_at": "2026-10-26T10:00:00+08:00",
+      "advice": "演示数据，用药请遵医嘱",
+      "is_demo": true
+    }
+  ]
+}

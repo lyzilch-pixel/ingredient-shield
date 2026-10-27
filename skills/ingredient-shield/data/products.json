@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "source": "演示用多品类产品库（常见食品 / 日化个护 / 药品），非任何品牌官方数据",
+    "note": "真实接入时可由公开食品成分库、化妆品成分数据库、药品说明书库等可插拔数据源替换。营养值为近似值，仅供演示。"
+  },
+  "products": [
+    {"id": "whole-wheat-bread", "name": "全麦面包", "category": "food", "components": ["全麦", "面粉", "芝麻", "黄油"], "nutrition": {"calories": 250, "protein": 9, "fat": 4, "carbs": 46, "sodium": 380, "sugar": 5, "trans_fat": 0.2}},
+    {"id": "milk-cup", "name": "一杯牛奶", "category": "food", "components": ["牛奶"], "nutrition": {"calories": 150, "protein": 8, "fat": 8, "carbs": 12, "sodium": 100, "sugar": 12, "trans_fat": 0}},
+    {"id": "boiled-egg", "name": "水煮蛋", "category": "food", "components": ["鸡蛋"], "nutrition": {"calories": 78, "protein": 6, "fat": 5, "carbs": 1, "sodium": 62, "sugar": 1, "trans_fat": 0}},
+    {"id": "peanut-butter", "name": "花生酱", "category": "food", "components": ["花生", "大豆油", "糖"], "nutrition": {"calories": 590, "protein": 25, "fat": 50, "carbs": 20, "sodium": 420, "sugar": 8, "trans_fat": 0}},
+    {"id": "salmon-sashimi", "name": "三文鱼刺身", "category": "food", "components": ["三文鱼", "酱油", "芥末"], "nutrition": {"calories": 208, "protein": 22, "fat": 13, "carbs": 0, "sodium": 350, "sugar": 0, "trans_fat": 0}},
+    {"id": "garlic-shrimp", "name": "蒜蓉虾", "category": "food", "components": ["虾", "大蒜", "黄油", "芝麻"], "nutrition": {"calories": 220, "protein": 24, "fat": 12, "carbs": 4, "sodium": 680, "sugar": 2, "trans_fat": 0.3}},
+    {"id": "nut-bar", "name": "坚果能量棒", "category": "food", "components": ["杏仁", "核桃", "腰果", "蜂蜜", "燕麦"], "nutrition": {"calories": 460, "protein": 14, "fat": 26, "carbs": 44, "sodium": 90, "sugar": 22, "trans_fat": 0}},
+    {"id": "soy-noodles", "name": "酱油拌面", "category": "food", "components": ["面条", "酱油", "芝麻", "葱花"], "nutrition": {"calories": 430, "protein": 12, "fat": 10, "carbs": 72, "sodium": 1100, "sugar": 6, "trans_fat": 0.5}},
+    {"id": "cola", "name": "可乐", "category": "food", "components": ["水", "糖", "高果糖浆"], "nutrition": {"calories": 210, "protein": 0, "fat": 0, "carbs": 55, "sodium": 15, "sugar": 55, "trans_fat": 0}},
+    {"id": "apple", "name": "苹果", "category": "food", "components": ["苹果"], "nutrition": {"calories": 95, "protein": 0, "fat": 0, "carbs": 25, "sodium": 2, "sugar": 19, "trans_fat": 0}},
+
+    {"id": "shampoo-a", "name": "清爽去屑洗发水", "category": "daily_chem", "components": ["水", "十二烷基硫酸钠", "香精", "甲基异噻唑啉酮", "甘油"]},
+    {"id": "cream-b", "name": "保湿面霜", "category": "daily_chem", "components": ["水", "甘油", "对羟基苯甲酸酯", "香精"]},
+    {"id": "sunscreen-c", "name": "清爽防晒喷雾", "category": "daily_chem", "components": ["水", "氧苯酮", "香精", "酒精"]},
+    {"id": "wipes-d", "name": "婴儿手口湿巾", "category": "daily_chem", "components": ["水", "甘油", "甲基异噻唑啉酮", "dmdm乙内酰脲"]},
+    {"id": "toothpaste-e", "name": "美白牙膏", "category": "daily_chem", "components": ["水", "十二烷基硫酸钠", "三氯生", "香精"]},
+
+    {"id": "ibuprofen", "name": "布洛芬缓释胶囊", "category": "drug", "components": ["布洛芬", "淀粉"], "contraindications": ["pregnancy", "kidney"], "warnings": "消化道溃疡、心肾功能不全者慎用；避免与其他解热镇痛药同服。"},
+    {"id": "amoxicillin", "name": "阿莫西林胶囊", "category": "drug", "components": ["阿莫西林", "青霉素", "淀粉"], "contraindications": [], "warnings": "青霉素过敏者禁用；用药前需确认过敏史。"},
+    {"id": "levofloxacin", "name": "左氧氟沙星片", "category": "drug", "components": ["左氧氟沙星"], "contraindications": ["minors", "driving", "kidney"], "warnings": "18 岁以下禁用；用药期间避免驾驶与紫外线曝晒。"},
+    {"id": "loratadine", "name": "氯雷他定片", "category": "drug", "components": ["氯雷他定", "淀粉"], "contraindications": [], "warnings": "常规剂量安全性高；偶见轻度嗜睡，驾驶前慎用。"},
+    {"id": "vitc", "name": "维生素C片", "category": "drug", "components": ["维生素C", "淀粉"], "contraindications": [], "warnings": "常规剂量安全性高，结石患者遵医嘱。"},
+    {"id": "metronidazole", "name": "甲硝唑片", "category": "drug", "components": ["甲硝唑"], "contraindications": ["alcohol", "pregnancy"], "warnings": "用药期间及停药后 3 日内严格禁酒；孕妇禁用。"},
+
+    {"id": "beef-burger", "name": "牛肉汉堡", "category": "food", "components": ["面包", "牛肉", "芝士", "芝麻"], "nutrition": {"calories": 550, "protein": 28, "fat": 30, "carbs": 40, "sodium": 900, "sugar": 8, "trans_fat": 1.0}},
+    {"id": "egg-pancake", "name": "鸡蛋灌饼", "category": "food", "components": ["面粉", "鸡蛋", "葱", "油"], "nutrition": {"calories": 320, "protein": 12, "fat": 15, "carbs": 35, "sodium": 600, "sugar": 3, "trans_fat": 0.5}},
+    {"id": "cheesecake", "name": "芝士蛋糕", "category": "food", "components": ["面粉", "芝士", "鸡蛋", "黄油", "糖"], "nutrition": {"calories": 380, "protein": 8, "fat": 22, "carbs": 38, "sodium": 300, "sugar": 25, "trans_fat": 0.8}},
+    {"id": "crab-porridge", "name": "蟹粥", "category": "food", "components": ["蟹", "米"], "nutrition": {"calories": 180, "protein": 14, "fat": 4, "carbs": 22, "sodium": 500, "sugar": 1, "trans_fat": 0}},
+    {"id": "cod-fillet", "name": "鳕鱼排", "category": "food", "components": ["鳕鱼", "面粉", "黄油"], "nutrition": {"calories": 200, "protein": 24, "fat": 10, "carbs": 8, "sodium": 450, "sugar": 0, "trans_fat": 0.3}},
+    {"id": "celery-salad", "name": "凉拌芹菜", "category": "food", "components": ["芹菜", "芝麻", "酱油"], "nutrition": {"calories": 60, "protein": 2, "fat": 4, "carbs": 5, "sodium": 400, "sugar": 2, "trans_fat": 0}},
+    {"id": "yogurt", "name": "风味酸奶", "category": "food", "components": ["牛奶", "糖"], "nutrition": {"calories": 120, "protein": 4, "fat": 3, "carbs": 18, "sodium": 60, "sugar": 15, "trans_fat": 0}},
+    {"id": "soy-milk", "name": "豆浆", "category": "food", "components": ["大豆"], "nutrition": {"calories": 80, "protein": 6, "fat": 3, "carbs": 6, "sodium": 5, "sugar": 2, "trans_fat": 0}},
+    {"id": "almond-drink", "name": "杏仁露", "category": "food", "components": ["杏仁", "糖"], "nutrition": {"calories": 90, "protein": 2, "fat": 3, "carbs": 15, "sodium": 10, "sugar": 12, "trans_fat": 0}},
+    {"id": "sushi-platter", "name": "寿司拼盘", "category": "food", "components": ["三文鱼", "酱油", "芥末", "米饭"], "nutrition": {"calories": 300, "protein": 15, "fat": 6, "carbs": 45, "sodium": 700, "sugar": 8, "trans_fat": 0}},
+    {"id": "caesar-salad", "name": "凯撒沙拉", "category": "food", "components": ["沙拉", "鸡蛋", "芝士", "面包"], "nutrition": {"calories": 250, "protein": 10, "fat": 18, "carbs": 12, "sodium": 650, "sugar": 3, "trans_fat": 0.4}},
+    {"id": "popcorn", "name": "黄油爆米花", "category": "food", "components": ["玉米", "黄油", "盐"], "nutrition": {"calories": 400, "protein": 8, "fat": 22, "carbs": 44, "sodium": 800, "sugar": 0, "trans_fat": 0.5}},
+    {"id": "shrimp-cashew", "name": "腰果虾仁", "category": "food", "components": ["腰果", "虾", "鸡蛋"], "nutrition": {"calories": 260, "protein": 20, "fat": 14, "carbs": 10, "sodium": 500, "sugar": 3, "trans_fat": 0}},
+    {"id": "fried-rice", "name": "酱油炒饭", "category": "food", "components": ["米饭", "酱油", "鸡蛋", "葱"], "nutrition": {"calories": 420, "protein": 10, "fat": 12, "carbs": 65, "sodium": 900, "sugar": 4, "trans_fat": 0.3}},
+
+    {"id": "hair-dye", "name": "植物染发剂", "category": "daily_chem", "components": ["水", "对苯二胺", "煤焦油", "香精"]},
+    {"id": "laundry-liquid", "name": "洗衣液", "category": "daily_chem", "components": ["水", "十二烷基硫酸钠", "香精"]},
+    {"id": "hand-cream", "name": "护手霜", "category": "daily_chem", "components": ["水", "甘油", "对羟基苯甲酸酯", "香精"]},
+    {"id": "lipstick", "name": "口红", "category": "daily_chem", "components": ["蜡", "香精", "煤焦油"]},
+    {"id": "makeup-remover", "name": "卸妆水", "category": "daily_chem", "components": ["水", "香精", "酒精"]},
+    {"id": "perfume", "name": "香水", "category": "daily_chem", "components": ["酒精", "香精", "定香剂"]},
+    {"id": "body-lotion", "name": "身体乳", "category": "daily_chem", "components": ["水", "甘油", "对羟基苯甲酸酯", "香精"]},
+    {"id": "hand-soap", "name": "洗手液", "category": "daily_chem", "components": ["水", "十二烷基硫酸钠", "香精", "甲基异噻唑啉酮"]},
+    {"id": "nail-polish", "name": "指甲油", "category": "daily_chem", "components": ["乙酸乙酯", "邻苯二甲酸酯", "定香剂"]},
+
+    {"id": "aspirin", "name": "阿司匹林肠溶片", "category": "drug", "components": ["阿司匹林", "淀粉"], "contraindications": [], "warnings": "消化道溃疡、出血性疾病患者禁用；与抗凝药同服需遵医嘱。"},
+    {"id": "cefixime", "name": "头孢克肟颗粒", "category": "drug", "components": ["头孢克肟", "糖"], "contraindications": [], "warnings": "头孢类过敏者禁用；用药前确认过敏史。"},
+    {"id": "paracetamol", "name": "对乙酰氨基酚片", "category": "drug", "components": ["对乙酰氨基酚", "淀粉"], "contraindications": [], "warnings": "肝功能不全者慎用，避免超量。"},
+    {"id": "smecta", "name": "蒙脱石散", "category": "drug", "components": ["蒙脱石", "糖"], "contraindications": [], "warnings": "用于急性腹泻，需与其他药物间隔服用。"},
+    {"id": "digestive-tablet", "name": "健胃消食片", "category": "drug", "components": ["山楂", "麦芽", "糖"], "contraindications": [], "warnings": "健胃消食类，孕妇及糖尿病患者遵医嘱。"},
+    {"id": "vitamin-d", "name": "维生素D滴剂", "category": "drug", "components": ["维生素D", "植物油"], "contraindications": [], "warnings": "常规剂量安全，高钙血症者慎用。"},
+    {"id": "calcium", "name": "碳酸钙D3片", "category": "drug", "components": ["碳酸钙", "维生素D"], "contraindications": [], "warnings": "高钙血症、肾结石患者慎用。"},
+    {"id": "nitroglycerin", "name": "硝酸甘油片", "category": "drug", "components": ["硝酸甘油"], "contraindications": ["driving", "hypertension"], "warnings": "低血压、严重贫血患者禁用；服药后起身宜缓，避免驾驶。"},
+    {"id": "erythromycin", "name": "红霉素软膏", "category": "drug", "components": ["红霉素"], "contraindications": [], "warnings": "外用抗生素，过敏者禁用，避免大面积长期使用。"}
+  ]
+}

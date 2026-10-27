@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "version": "2.0.0",
+    "updated_at": "2026-10-26",
+    "source": "跨品类危害注册表：食品过敏原（Codex/EU 14 类 + 中国 GB 7718 强制 8 类）、日化致敏原/风险物质（公开成分安全资料整理）、药品过敏/健康禁忌（药品说明书共识整理）",
+    "disclaimer": "本文件为开源演示知识库，非任何品牌或监管官方数据，仅供参考，不构成医疗、用药或法律建议。"
+  },
+  "hazards": [
+    {"id": "gluten", "zh": "麸质谷物", "en": "Cereals containing gluten", "category": "allergen", "mandatory_china": true, "common_sources": ["小麦", "黑麦", "大麦", "燕麦"]},
+    {"id": "crustaceans", "zh": "甲壳类", "en": "Crustaceans", "category": "allergen", "mandatory_china": true, "common_sources": ["虾", "蟹", "龙虾"]},
+    {"id": "fish", "zh": "鱼类", "en": "Fish", "category": "allergen", "mandatory_china": true, "common_sources": ["鱼", "鳕鱼", "三文鱼"]},
+    {"id": "eggs", "zh": "蛋类", "en": "Eggs", "category": "allergen", "mandatory_china": true, "common_sources": ["鸡蛋", "蛋黄", "蛋白"]},
+    {"id": "peanuts", "zh": "花生", "en": "Peanuts", "category": "allergen", "mandatory_china": true, "common_sources": ["花生", "花生酱"]},
+    {"id": "soy", "zh": "大豆", "en": "Soybeans", "category": "allergen", "mandatory_china": true, "common_sources": ["大豆", "酱油", "豆制品", "大豆油"]},
+    {"id": "milk", "zh": "乳及乳制品", "en": "Milk", "category": "allergen", "mandatory_china": true, "common_sources": ["牛奶", "奶酪", "芝士", "黄油", "乳清"]},
+    {"id": "treenuts", "zh": "坚果", "en": "Tree nuts", "category": "allergen", "mandatory_china": true, "common_sources": ["杏仁", "核桃", "腰果", "榛子"]},
+    {"id": "celery", "zh": "芹菜", "en": "Celery", "category": "allergen", "mandatory_china": false, "common_sources": ["芹菜", "芹菜盐"]},
+    {"id": "mustard", "zh": "芥末", "en": "Mustard", "category": "allergen", "mandatory_china": false, "common_sources": ["芥末", "芥末酱"]},
+    {"id": "sesame", "zh": "芝麻", "en": "Sesame", "category": "allergen", "mandatory_china": false, "common_sources": ["芝麻", "芝麻酱"]},
+    {"id": "sulphites", "zh": "亚硫酸盐", "en": "Sulphites", "category": "allergen", "mandatory_china": false, "common_sources": ["亚硫酸盐", "二氧化硫", "干果防腐剂"]},
+    {"id": "lupin", "zh": "羽扇豆", "en": "Lupin", "category": "allergen", "mandatory_china": false, "common_sources": ["羽扇豆", "羽扇豆粉"]},
+    {"id": "molluscs", "zh": "软体动物", "en": "Molluscs", "category": "allergen", "mandatory_china": false, "common_sources": ["贝类", "鱿鱼", "章鱼", "蚝"]},
+
+    {"id": "mit", "zh": "甲基异噻唑啉酮(MIT)", "en": "Methylisothiazolinone", "category": "sensitizer", "mandatory_china": false, "common_sources": ["洗发水", "湿巾", "化妆品防腐剂"]},
+    {"id": "parabens", "zh": "对羟基苯甲酸酯", "en": "Parabens", "category": "sensitizer", "mandatory_china": false, "common_sources": ["保湿霜", "彩妆防腐剂"]},
+    {"id": "sls", "zh": "十二烷基硫酸盐(SLS)", "en": "SLS/SLES", "category": "sensitizer", "mandatory_china": false, "common_sources": ["洗发水", "牙膏表面活性剂"]},
+    {"id": "fragrance", "zh": "香精/香料", "en": "Fragrance/Parfum", "category": "sensitizer", "mandatory_china": false, "common_sources": ["香水", "护肤品", "洗护用品"]},
+    {"id": "formaldehyde_releaser", "zh": "甲醛释放体", "en": "Formaldehyde releaser", "category": "substance", "mandatory_china": false, "common_sources": ["DMDM 乙内酰脲", "季铵盐-15", "咪唑烷基脲"]},
+    {"id": "triclosan", "zh": "三氯生", "en": "Triclosan", "category": "substance", "mandatory_china": false, "common_sources": ["抗菌牙膏", "抑菌洗手液"]},
+    {"id": "phthalates", "zh": "邻苯二甲酸酯", "en": "Phthalates", "category": "substance", "mandatory_china": false, "common_sources": ["香水定香剂", "塑料软化剂"]},
+    {"id": "oxybenzone", "zh": "氧苯酮", "en": "Oxybenzone", "category": "substance", "mandatory_china": false, "common_sources": ["化学防晒剂"]},
+    {"id": "coal_tar", "zh": "煤焦油/染发剂", "en": "Coal tar dye", "category": "substance", "mandatory_china": false, "common_sources": ["永久染发剂", "焦油洗发水"]},
+    {"id": "bha_bht", "zh": "丁基羟基茴香醚/甲苯", "en": "BHA/BHT", "category": "substance", "mandatory_china": false, "common_sources": ["油脂抗氧化剂", "口红"]},
+
+    {"id": "penicillin", "zh": "青霉素类", "en": "Penicillins", "category": "drug_allergy", "mandatory_china": false, "common_sources": ["阿莫西林", "青霉素注射剂"]},
+    {"id": "aspirin", "zh": "阿司匹林/水杨酸类", "en": "Aspirin/Salicylates", "category": "drug_allergy", "mandatory_china": false, "common_sources": ["阿司匹林", "水杨酸甲酯"]},
+    {"id": "sulfa", "zh": "磺胺类", "en": "Sulfonamides", "category": "drug_allergy", "mandatory_china": false, "common_sources": ["磺胺甲噁唑", "复方新诺明"]},
+
+    {"id": "pregnancy", "zh": "孕期", "en": "Pregnancy", "category": "condition", "mandatory_china": false, "common_sources": ["孕妇用药禁忌"]},
+    {"id": "lactation", "zh": "哺乳期", "en": "Lactation", "category": "condition", "mandatory_china": false, "common_sources": ["哺乳期用药"]},
+    {"id": "hypertension", "zh": "高血压", "en": "Hypertension", "category": "condition", "mandatory_china": false, "common_sources": ["慎用升压强心类"]},
+    {"id": "diabetes", "zh": "糖尿病", "en": "Diabetes", "category": "condition", "mandatory_china": false, "common_sources": ["注意含糖制剂/相互作用"]},
+    {"id": "kidney", "zh": "肾功能不全", "en": "Impaired kidney function", "category": "condition", "mandatory_china": false, "common_sources": ["慎用经肾代谢药"]},
+    {"id": "minors", "zh": "未成年人", "en": "Minors", "category": "condition", "mandatory_china": false, "common_sources": ["喹诺酮类等未成年禁用"]},
+    {"id": "alcohol", "zh": "服药禁酒", "en": "Avoid alcohol", "category": "condition", "mandatory_china": false, "common_sources": ["甲硝唑/头孢类用药期间禁酒"]},
+    {"id": "driving", "zh": "服药勿驾驶", "en": "Do not drive", "category": "condition", "mandatory_china": false, "common_sources": ["抗组胺/镇静类用药"]}
+  ],
+  "component_hazard_rules": {
+    "小麦": ["gluten"], "面粉": ["gluten"], "面包": ["gluten"], "面团": ["gluten"], "麦": ["gluten"], "面糊": ["gluten"], "酱油": ["soy", "gluten"], "麸": ["gluten"],
+    "芝麻": ["sesame"], "白芝麻": ["sesame"], "黑芝麻": ["sesame"],
+    "牛肉": [], "鸡肉": [], "猪肉": [], "土豆": [], "玉米": [], "苹果": [], "生菜": [], "洋葱": [], "番茄": [], "黄瓜": [], "番茄酱": [],
+    "鱼": ["fish"], "鳕鱼": ["fish"], "三文鱼": ["fish"], "虾": ["crustaceans"], "蟹": ["crustaceans"], "龙虾": ["crustaceans"],
+    "芝士": ["milk"], "奶酪": ["milk"], "牛奶": ["milk"], "乳": ["milk"], "黄油": ["milk"], "乳清": ["milk"], "冰淇淋": ["milk"], "奶昔": ["milk"],
+    "鸡蛋": ["eggs"], "蛋黄": ["eggs"], "蛋白": ["eggs"], "蛋": ["eggs"],
+    "花生": ["peanuts"], "花生酱": ["peanuts"],
+    "大豆": ["soy"], "豆制品": ["soy"], "大豆油": ["soy"], "味噌": ["soy"],
+    "杏仁": ["treenuts"], "核桃": ["treenuts"], "腰果": ["treenuts"], "榛子": ["treenuts"],
+    "芹菜": ["celery"], "芥末": ["mustard"], "亚硫酸盐": ["sulphites"], "羽扇豆": ["lupin"], "贝类": ["molluscs"], "鱿鱼": ["molluscs"], "章鱼": ["molluscs"],
+    "全麦": ["gluten"], "意面": ["gluten"], "燕麦": ["gluten"],
+
+    "甲基异噻唑啉酮": ["mit"], "卡松": ["mit"], "凯松": ["mit"],
+    "香精": ["fragrance"], "香料": ["fragrance"], "parfum": ["fragrance"],
+    "十二烷基硫酸钠": ["sls"], "月桂醇硫酸酯钠": ["sls"], "sls": ["sls"],
+    "对羟基苯甲酸酯": ["parabens"], "羟苯甲酯": ["parabens"], "paraben": ["parabens"],
+    "dmdm乙内酰脲": ["formaldehyde_releaser"], "咪唑烷基脲": ["formaldehyde_releaser"], "季铵盐-15": ["formaldehyde_releaser"],
+    "三氯生": ["triclosan"],
+    "邻苯二甲酸二乙酯": ["phthalates"], "邻苯二甲酸酯": ["phthalates"], "定香剂": ["phthalates"],
+    "氧苯酮": ["oxybenzone"], "二苯酮-3": ["oxybenzone"],
+    "煤焦油": ["coal_tar"], "对苯二胺": ["coal_tar"], "ppd": ["coal_tar"],
+    "丁基羟基茴香醚": ["bha_bht"], "二丁基羟基甲苯": ["bha_bht"], "bha": ["bha_bht"], "bht": ["bha_bht"],
+
+    "阿莫西林": ["penicillin"], "青霉素": ["penicillin"],
+    "阿司匹林": ["aspirin"], "水杨酸": ["aspirin"],
+    "磺胺": ["sulfa"], "磺胺甲噁唑": ["sulfa"]
+  },
+  "cross_contact_risks": [
+    {"equipment": "油炸设备", "note": "薯条与炸鸡、鱼柳等共用油炸设备，存在鱼/甲壳类交叉污染风险", "related_hazards": ["fish", "crustaceans"], "applies_to_keyword": ["薯条", "炸鸡"]},
+    {"equipment": "面包房设备", "note": "面包/糕点制作设备可能残留坚果、芝麻碎屑", "related_hazards": ["treenuts", "sesame"], "applies_to_keyword": ["面包", "糕点"]},
+    {"equipment": "酱料管线", "note": "同一酱料管线可能交替使用含蛋/乳/大豆配方", "related_hazards": ["eggs", "milk", "soy"], "applies_to_keyword": ["酱", "沙拉"]}
+  ]
+}
