@@ -83,12 +83,12 @@ class GovPublicDataSource(BaseDataSource):
     def _load(self):
         ext = _p.splitext(self._path)[1].lower()
         if ext == ".json":
-            with open(self._path, "r", encoding="utf-8") as f:
+            with open(self._path, "r", encoding="utf-8-sig") as f:
                 data = json.load(f)
             products = data.get("products", []) if isinstance(data, dict) else data
         elif ext == ".csv":
             products = []
-            with open(self._path, "r", encoding="utf-8") as f:
+            with open(self._path, "r", encoding="utf-8-sig") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
                     products.append(self._normalize_row(row))

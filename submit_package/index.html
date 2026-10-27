@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>成分避雷 · 跨品类消费品安全决策</title>
+<style>
+  :root {
+    --accent: #0f766e; --accent-2: #0b5d56; --ink: #1c2024; --gray: #6b7280; --bg: #f1f3f1;
+    --card: #ffffff; --line: #e4e7e3;
+    --ok: #15803d; --ok-bg: #e7f4ec;
+    --warn: #c2410c; --warn-bg: #fbece2;
+    --high: #d62828; --high-bg: #fceaec; --tint: #e6f1ee;
+    --radius: 12px; --shadow: 0 1px 2px rgba(20,30,25,.06);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  /* Header hero */
+  header { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+    padding: 26px 18px 22px; text-align: center; position: relative; overflow: hidden; }
+  header::after { content: ""; position: absolute; right: -44px; top: -44px; width: 170px; height: 170px;
+    background: rgba(255,255,255,.12); border-radius: 50%; }
+  header h1 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: .5px;
+    display: flex; align-items: center; justify-content: center; gap: 8px; }
+  header p { margin: 8px 0 0; font-size: 13px; opacity: .92; font-weight: 500; }
+  .hero-tag { display: inline-block; margin-top: 13px; font-size: 11px; background: rgba(255,255,255,.18);
+    padding: 5px 13px; border-radius: 999px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 16px; }
+  .card { background: var(--card); border-radius: var(--radius); padding: 18px; margin-bottom: 14px;
+    box-shadow: var(--shadow); }
+  .card h2 { margin: 0 0 14px; font-size: 17px; font-weight: 800; display: flex; align-items: center; gap: 9px; }
+  .card h2 .num { display: inline-flex; align-items: center; justify-content: center; width: 25px; height: 25px;
+    border-radius: 8px; background: var(--tint); color: var(--accent); font-size: 13px; flex: none; }
+  .disclaimer { font-size: 11.5px; color: var(--gray); background: var(--tint); border: 1px solid #dbe2ff;
+    border-radius: 10px; padding: 10px 12px; margin-bottom: 14px; line-height: 1.55; }
+  .disclaimer b { color: var(--accent); }
+  .sec-title { font-size: 12.5px; color: var(--gray); margin: 2px 0 10px; }
+  .group-label { font-size: 12px; font-weight: 700; color: var(--accent); margin: 14px 0 8px;
+    display: flex; align-items: center; gap: 7px; }
+  .group-label::before { content: ""; width: 4px; height: 13px; border-radius: 2px; background: var(--accent); }
+  .allergen-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px,1fr)); gap: 8px; }
+  .allergen-grid label { display: flex; align-items: center; gap: 7px; font-size: 12.5px;
+    background: var(--bg); border-radius: 10px; padding: 9px 10px; cursor: pointer;
+    border: 1px solid transparent; transition: .15s; }
+  .allergen-grid label:hover { background: #ececf1; }
+  .allergen-grid input { accent-color: var(--accent); width: 15px; height: 15px; flex: none; }
+  .allergen-grid label:has(input:checked) { border-color: var(--accent); background: var(--tint);
+    box-shadow: inset 0 0 0 1px var(--accent); }
+  .allergen-grid input:checked + span { font-weight: 700; color: var(--accent); }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .chip { font-size: 12.5px; padding: 7px 13px; border-radius: 999px; background: var(--bg);
+    border: 1px solid var(--line); cursor: pointer; user-select: none; transition: .15s; }
+  .chip:hover { background: #ececf1; }
+  .chip.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700;
+    box-shadow: 0 2px 8px rgba(79,70,229,.35); }
+  .constraint-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px;
+    padding-top: 14px; border-top: 1px dashed var(--line); }
+  .constraint-row label { font-size: 13px; display: flex; align-items: center; gap: 6px; color: var(--ink); }
+  .constraint-row input[type=number] { width: 72px; padding: 7px 8px; border: 1px solid var(--line);
+    border-radius: 9px; font-size: 13px; }
+  .constraint-row input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 12px; position: sticky; top: 0; z-index: 5;
+    background: var(--card); padding: 4px 0; }
+  .tab { flex: 1; text-align: center; padding: 11px; border-radius: 11px; background: var(--bg);
+    border: 1px solid var(--line); font-size: 14px; cursor: pointer; font-weight: 600; color: var(--gray);
+    transition: .15s; }
+  .tab:hover { background: #ececf1; }
+  .tab.on { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+    border-color: transparent; box-shadow: 0 3px 10px rgba(79,70,229,.3); }
+  .item { border: 1px solid var(--line); border-left-width: 4px; border-radius: 14px; padding: 13px 14px;
+    margin-bottom: 10px; transition: .15s; background: #fff; }
+  .item.safe { border-left-color: var(--ok); }
+  .item.warn { border-left-color: var(--warn); }
+  .item.block { border-left-color: var(--high); background: var(--high-bg); }
+  .item:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+  .item .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .item .name { font-weight: 700; font-size: 15px; }
+  .badge { font-size: 11px; padding: 4px 10px; border-radius: 999px; font-weight: 800; white-space: nowrap; }
+  .badge.safe { background: var(--ok-bg); color: var(--ok); }
+  .badge.warn { background: var(--warn-bg); color: var(--warn); }
+  .badge.block { background: var(--high); color: #fff; }
+  .tags { margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 11px; padding: 3px 9px; border-radius: 7px; background: var(--bg); color: var(--gray); font-weight: 500; }
+  .tag.a { background: var(--high-bg); color: var(--high); font-weight: 600; }
+  .tag.s { background: var(--warn-bg); color: var(--warn); font-weight: 600; }
+  .tag.h { background: var(--high-bg); color: var(--high); font-weight: 600; }
+  .reason { margin-top: 8px; font-size: 12px; color: var(--high); font-weight: 600;
+    background: var(--high-bg); padding: 6px 9px; border-radius: 8px; }
+  .alert-banner { background: var(--warn-bg); border: 1px solid #fbe2b0; border-radius: 11px; padding: 11px 13px;
+    font-size: 13px; margin-bottom: 8px; line-height: 1.5; }
+  .alert-banner b { color: var(--warn); }
+  .btn { display: block; width: 100%; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff; border: none; border-radius: 13px; padding: 15px; font-size: 15px; font-weight: 800;
+    cursor: pointer; box-shadow: 0 4px 14px rgba(79,70,229,.35); transition: .15s; }
+  .btn:active { transform: scale(.98); opacity: .9; }
+  .hidden { display: none; }
+  #shareCanvas { width: 100%; max-width: 320px; border-radius: 14px; display: block; margin: 14px auto;
+    box-shadow: 0 6px 20px rgba(17,17,26,.12); }
+  footer { text-align: center; font-size: 11px; color: var(--gray); padding: 22px; }
+  .pill { display: inline-block; background: var(--tint); color: var(--accent); font-size: 11px;
+    padding: 3px 10px; border-radius: 999px; font-weight: 700; }
+  /* 筛选栏 */
+  .filter-bar { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
+  .search { flex: 1; min-width: 150px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 10px;
+    font-size: 13px; background: var(--bg); outline: none; transition: .15s; }
+  .search:focus { border-color: var(--accent); background: #fff; box-shadow: 0 0 0 3px rgba(79,70,229,.12); }
+  .status-filter { display: flex; gap: 6px; }
+  .sf { font-size: 12.5px; padding: 7px 12px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line);
+    cursor: pointer; color: var(--gray); transition: .15s; user-select: none; white-space: nowrap; }
+  .sf:hover { background: #ececf1; }
+  .sf.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700;
+    box-shadow: 0 2px 8px rgba(79,70,229,.3); }
+  .cat-div { font-size: 12px; font-weight: 800; color: var(--gray); margin: 16px 0 9px;
+    padding-left: 3px; letter-spacing: .6px; display: flex; align-items: center; gap: 8px; }
+  .cat-div::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .cat-pill { display: inline-block; font-size: 10.5px; font-weight: 700; color: var(--accent);
+    background: var(--tint); padding: 2px 8px; border-radius: 999px; margin-right: 7px; vertical-align: middle; }
+  .empty { text-align: center; color: var(--gray); font-size: 13px; padding: 30px 0; }
+
+  /* ===== 重新排版：控制栏 + 结果栏 双栏平衡布局 ===== */
+  .app { max-width: 1080px; margin: 0 auto; padding: 0 16px 16px; display: grid;
+    grid-template-columns: 332px 1fr; gap: 16px; align-items: start; }
+  .rail { position: sticky; top: 12px; display: flex; flex-direction: column; gap: 14px; min-width: 0;
+    max-height: calc(100vh - 24px); overflow-y: auto; overscroll-behavior: contain;
+    padding-right: 6px; scrollbar-width: thin; scrollbar-color: #cfd4cf transparent;
+    -webkit-overflow-scrolling: touch; }
+  .rail::-webkit-scrollbar { width: 8px; }
+  .rail::-webkit-scrollbar-track { background: transparent; }
+  .rail::-webkit-scrollbar-thumb { background: #cfd4cf; border-radius: 999px; border: 2px solid transparent;
+    background-clip: padding-box; }
+  .rail::-webkit-scrollbar-thumb:hover { background: #b4bbb4; }
+  .results-col { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+  @media (max-width: 860px){
+    .app { grid-template-columns: 1fr; }
+    .rail { position: static; max-height: none; overflow: visible; padding-right: 0; }
+  }
+  /* 画像分组可折叠，减少长板感 */
+  details.group { border: 1px solid var(--line); border-radius: 10px; margin: 10px 0; overflow: hidden; background: var(--bg); }
+  details.group>summary { list-style: none; cursor: pointer; padding: 10px 12px; font-size: 12px; font-weight: 700;
+    color: var(--accent); display: flex; align-items: center; gap: 7px; user-select: none; }
+  details.group>summary::-webkit-details-marker { display: none; }
+  details.group>summary::before { content: "▸"; transition: .15s; color: var(--gray); font-size: 11px; }
+  details.group[open]>summary::before { transform: rotate(90deg); }
+  details.group>summary::after { content: ""; flex: 1; height: 1px; background: var(--line); margin-left: 4px; }
+  details.group .body { padding: 4px 10px 12px; }
+  /* 工具栏吸顶：滚动长结果时筛选/搜索始终可见 */
+  .toolbar { position: sticky; top: 0; z-index: 6; background: var(--card); padding: 6px 0 10px;
+    border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+  .tabs { position: static; margin-bottom: 10px; }
+  /* 结果汇总条：即时反馈，无需滚完全部 */
+  .sum-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 10px; }
+  .stat { font-size: 12.5px; padding: 6px 12px; border-radius: 999px; background: var(--bg);
+    border: 1px solid var(--line); color: var(--gray); font-weight: 600; }
+  .stat b { font-size: 15px; margin-right: 3px; font-weight: 800; }
+  .stat.safe { background: var(--ok-bg); color: var(--ok); border-color: transparent; }
+  .stat.warn { background: var(--warn-bg); color: var(--warn); border-color: transparent; }
+  .stat.block { background: var(--high-bg); color: var(--high); border-color: transparent; }
+  .stat.total { background: transparent; border-color: transparent; }
+  /* 结果网格：桌面多列，显著减少滚动 */
+  .result-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(212px, 1fr)); gap: 12px; }
+  .result-grid .item { margin-bottom: 0; }
+  .cat-div { grid-column: 1 / -1; margin: 14px 0 8px; }
+  .result-grid .empty { grid-column: 1 / -1; }
+  /* 卡片内边距收紧，整体更紧凑 */
+  .results-col .card, .rail .card { padding: 16px; }
+  /* 焦点可见，无障碍基线 */
+  a:focus-visible, button:focus-visible, input:focus-visible, .chip:focus-visible,
+  .tab:focus-visible, .sf:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce){ * { transition: none !important; } }
+  /* 数据源切换 */
+  .ds-toggle { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .ds-label { font-size: 13px; color: var(--gray); font-weight: 600; }
+  .seg { display: inline-flex; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .seg-item { font-size: 13px; padding: 7px 14px; border-radius: 999px; cursor: pointer; color: var(--gray); user-select: none; transition: .15s; white-space: nowrap; }
+  .seg-item.on { background: var(--accent); color: #fff; font-weight: 700; box-shadow: 0 2px 8px rgba(79,70,229,.25); }
+  .ds-note { font-size: 12px; color: var(--gray); }
+  /* 溯源信息 */
+  .prov { font-size: 12.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; border-top: 1px dashed var(--line); padding-top: 6px; }
+  .prov .src { color: var(--accent); font-weight: 600; }
+  .prov a.src { color: var(--accent); font-weight: 600; text-decoration: underline; }
+  /* 窄屏：数据来源区域改为纵向堆叠，分段控件占满宽度并允许内部换行，避免撑破外框 */
+  @media (max-width: 560px){
+    .ds-toggle { flex-direction: column; align-items: stretch; gap: 8px; }
+    .seg { width: 100%; flex-wrap: wrap; }
+    .seg-item { flex: 1 1 0; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; padding: 9px 10px; }
+    .tabs { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>🛡️ 成分避雷</h1>
+  <p>跨品类消费品安全决策引擎 · 食品 / 日化个护 / 药品</p>
+  <div class="hero-tag">开源演示 · 本地计算，安全画像不上传</div>
+</header>
+
+<div class="wrap">
+  <div class="disclaimer">
+    ⚠️ 本页为开源演示。数据来自内置开源知识库，<b>非任何品牌或监管官方数据</b>，仅供参考，不构成医疗、用药或法律建议。所有计算均在你的设备本地完成，安全画像不上传。
+  </div>
+
+  <div class="app">
+  <aside class="rail">
+
+  <!-- 1. 跨品类安全画像 -->
+  <div class="card">
+    <h2><span class="num">1</span>我的安全画像</h2>
+    <details class="group" open>
+      <summary>食品过敏原（GB 7718 强制 8 类 + 国际常见）</summary>
+      <div class="body"><div class="allergen-grid" id="foodGrid"></div></div>
+    </details>
+    <details class="group" open>
+      <summary>日化致敏原 / 风险物质</summary>
+      <div class="body"><div class="allergen-grid" id="chemGrid"></div></div>
+    </details>
+    <details class="group" open>
+      <summary>药品过敏</summary>
+      <div class="body"><div class="allergen-grid" id="drugGrid"></div></div>
+    </details>
+    <details class="group" open>
+      <summary>健康状态（药品禁忌）</summary>
+      <div class="body">
+        <div class="chip-row" id="condChips"></div>
+        <div class="constraint-row">
+          <label>钠上限 <input type="number" id="cSodium" placeholder="800" />mg</label>
+          <label>糖上限 <input type="number" id="cSugar" placeholder="10" />g</label>
+          <label>反式脂肪 = 0 <input type="checkbox" id="cTf" /></label>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  </aside>
+  <main class="results-col">
+
+  <!-- 2. 跨品类预警 -->
+  <div class="card">
+    <h2><span class="num">2</span>跨品类召回预警 <span class="pill">近 24h</span></h2>
+    <div id="alertBox"></div>
+  </div>
+
+  <!-- 3. 查询结果 -->
+  <div class="card">
+    <h2><span class="num">3</span>安全分析</h2>
+    <div class="ds-toggle">
+      <span class="ds-label">数据来源</span>
+      <div class="seg" id="dsSeg">
+        <span class="seg-item on" data-ds="demo">演示库（53 项）</span>
+        <span class="seg-item" data-ds="gov">国家公开数据（同步中…）</span>
+      </div>
+      <span class="ds-note" id="dsNote">内置开源演示数据，覆盖食品 / 日化 / 药品</span>
+    </div>
+    <div class="toolbar">
+      <div class="tabs">
+        <div class="tab on" data-cat="all">全部</div>
+        <div class="tab" data-cat="food">食品</div>
+        <div class="tab" data-cat="daily_chem">日化个护</div>
+        <div class="tab" data-cat="drug">药品</div>
+      </div>
+      <div class="filter-bar">
+        <input id="searchInput" class="search" type="search" placeholder="搜索名称或成分…" />
+        <div class="status-filter" id="statusFilter">
+          <span class="sf on" data-st="all">全部</span>
+          <span class="sf" data-st="safe">安全</span>
+          <span class="sf" data-st="warn">留意</span>
+          <span class="sf" data-st="block">排除</span>
+        </div>
+      </div>
+    </div>
+    <div class="sum-bar" id="sumBar"></div>
+    <div class="sec-title">根据画像自动标注每个产品的风险等级（可按品类 / 状态 / 关键词筛选）</div>
+    <div id="resultBox" class="result-grid"></div>
+  </div>
+
+  <!-- 4. 分享卡 -->
+  <div class="card">
+    <h2><span class="num">4</span>我的安全清单</h2>
+    <button class="btn" id="genBtn">生成可分享清单卡片（跨品类）</button>
+    <canvas id="shareCanvas" class="hidden" width="640" height="1000"></canvas>
+    <div id="dlWrap" class="hidden" style="text-align:center;margin-top:10px;">
+      <a id="dlLink" download="我的安全消费清单.png" class="btn" style="text-decoration:none;display:inline-block;width:auto;padding:10px 20px;">保存图片</a>
+    </div>
+  </div>
+
+  </main>
+  </div>
+
+  <footer>成分避雷 IngredientShield · 开源跨品类消费品安全决策引擎（演示版）</footer>
+</div>
+
+<script>
+// ===== 内置知识库（与 Python 引擎一致，纯前端本地运行）=====
+const HAZ = {
+  gluten:{zh:"麸质谷物",cat:"allergen"},crustaceans:{zh:"甲壳类",cat:"allergen"},fish:{zh:"鱼类",cat:"allergen"},
+  eggs:{zh:"蛋类",cat:"allergen"},peanuts:{zh:"花生",cat:"allergen"},soy:{zh:"大豆",cat:"allergen"},
+  milk:{zh:"乳及乳制品",cat:"allergen"},treenuts:{zh:"坚果",cat:"allergen"},celery:{zh:"芹菜",cat:"allergen"},
+  mustard:{zh:"芥末",cat:"allergen"},sesame:{zh:"芝麻",cat:"allergen"},sulphites:{zh:"亚硫酸盐",cat:"allergen"},
+  lupin:{zh:"羽扇豆",cat:"allergen"},molluscs:{zh:"软体动物",cat:"allergen"},
+  mit:{zh:"甲基异噻唑啉酮",cat:"sensitizer"},parabens:{zh:"对羟基苯甲酸酯",cat:"sensitizer"},
+  sls:{zh:"十二烷基硫酸盐",cat:"sensitizer"},fragrance:{zh:"香精/香料",cat:"sensitizer"},
+  formaldehyde_releaser:{zh:"甲醛释放体",cat:"substance"},triclosan:{zh:"三氯生",cat:"substance"},
+  phthalates:{zh:"邻苯二甲酸酯",cat:"substance"},oxybenzone:{zh:"氧苯酮",cat:"substance"},
+  coal_tar:{zh:"煤焦油/染发剂",cat:"substance"},bha_bht:{zh:"BHA/BHT",cat:"substance"},
+  penicillin:{zh:"青霉素类",cat:"drug_allergy"},aspirin:{zh:"阿司匹林类",cat:"drug_allergy"},sulfa:{zh:"磺胺类",cat:"drug_allergy"},
+  pregnancy:{zh:"孕期",cat:"condition"},lactation:{zh:"哺乳期",cat:"condition"},hypertension:{zh:"高血压",cat:"condition"},
+  diabetes:{zh:"糖尿病",cat:"condition"},kidney:{zh:"肾功能不全",cat:"condition"},minors:{zh:"未成年",cat:"condition"},
+  alcohol:{zh:"服药禁酒",cat:"condition"},driving:{zh:"服药勿驾驶",cat:"condition"}
+};
+const FOOD_ALLERGEN = ["gluten","crustaceans","fish","eggs","peanuts","soy","milk","treenuts","celery","mustard","sesame","sulphites","lupin","molluscs"];
+const CHEM_HAZ = ["mit","parabens","sls","fragrance","formaldehyde_releaser","triclosan","phthalates","oxybenzone","coal_tar","bha_bht"];
+const DRUG_ALLERGY = ["penicillin","aspirin","sulfa"];
+const CONDITIONS = ["pregnancy","lactation","hypertension","diabetes","kidney","minors","alcohol","driving"];
+const HIGH_SUB = {"formaldehyde_releaser":1,"coal_tar":1};
+
+const ING_RULES = {
+  "小麦":["gluten"],"面粉":["gluten"],"面包":["gluten"],"面团":["gluten"],"麦":["gluten"],"面糊":["gluten"],"酱油":["soy","gluten"],"麸":["gluten"],"全麦":["gluten"],"意面":["gluten"],"燕麦":["gluten"],
+  "芝麻":["sesame"],"白芝麻":["sesame"],"黑芝麻":["sesame"],
+  "牛肉":[],"鸡肉":[],"猪肉":[],"土豆":[],"玉米":[],"苹果":[],"生菜":[],"洋葱":[],"番茄":[],"黄瓜":[],"番茄酱":[],
+  "鱼":["fish"],"鳕鱼":["fish"],"三文鱼":["fish"],"虾":["crustaceans"],"蟹":["crustaceans"],"龙虾":["crustaceans"],
+  "芝士":["milk"],"奶酪":["milk"],"牛奶":["milk"],"乳":["milk"],"黄油":["milk"],"乳清":["milk"],"冰淇淋":["milk"],"奶昔":["milk"],
+  "鸡蛋":["eggs"],"蛋黄":["eggs"],"蛋白":["eggs"],"蛋":["eggs"],
+  "花生":["peanuts"],"花生酱":["peanuts"],
+  "大豆":["soy"],"豆制品":["soy"],"大豆油":["soy"],"味噌":["soy"],
+  "杏仁":["treenuts"],"核桃":["treenuts"],"腰果":["treenuts"],"榛子":["treenuts"],
+  "芹菜":["celery"],"芥末":["mustard"],"亚硫酸盐":["sulphites"],"羽扇豆":["lupin"],"贝类":["molluscs"],"鱿鱼":["molluscs"],"章鱼":["molluscs"],
+  "甲基异噻唑啉酮":["mit"],"卡松":["mit"],"凯松":["mit"],
+  "香精":["fragrance"],"香料":["fragrance"],"parfum":["fragrance"],
+  "十二烷基硫酸钠":["sls"],"月桂醇硫酸酯钠":["sls"],"sls":["sls"],
+  "对羟基苯甲酸酯":["parabens"],"羟苯甲酯":["parabens"],"paraben":["parabens"],
+  "dmdm乙内酰脲":["formaldehyde_releaser"],"咪唑烷基脲":["formaldehyde_releaser"],"季铵盐-15":["formaldehyde_releaser"],
+  "三氯生":["triclosan"],"邻苯二甲酸二乙酯":["phthalates"],"邻苯二甲酸酯":["phthalates"],"定香剂":["phthalates"],
+  "氧苯酮":["oxybenzone"],"二苯酮-3":["oxybenzone"],"煤焦油":["coal_tar"],"对苯二胺":["coal_tar"],"ppd":["coal_tar"],
+  "丁基羟基茴香醚":["bha_bht"],"二丁基羟基甲苯":["bha_bht"],"bha":["bha_bht"],"bht":["bha_bht"],
+  "阿莫西林":["penicillin"],"青霉素":["penicillin"],"阿司匹林":["aspirin"],"水杨酸":["aspirin"],"磺胺":["sulfa"],"磺胺甲噁唑":["sulfa"]
+};
+const CROSS = [
+  {note:"油炸设备共用，存在鱼/甲壳类交叉污染风险",rel:["fish","crustaceans"],kw:["薯条","炸鸡"]},
+  {note:"面包/糕点设备可能残留坚果、芝麻碎屑",rel:["treenuts","sesame"],kw:["面包","糕点"]},
+  {note:"酱料管线可能交替使用含蛋/乳/大豆配方",rel:["eggs","milk","soy"],kw:["酱","沙拉"]}
+];
+const PRODUCTS = [
+  {id:"whole-wheat-bread",name:"全麦面包",cat:"food",comp:["全麦","面粉","芝麻","黄油"],n:{calories:250,protein:9,fat:4,carbs:46,sodium:380,sugar:5,trans_fat:0.2}},
+  {id:"milk-cup",name:"一杯牛奶",cat:"food",comp:["牛奶"],n:{calories:150,protein:8,fat:8,carbs:12,sodium:100,sugar:12,trans_fat:0}},
+  {id:"boiled-egg",name:"水煮蛋",cat:"food",comp:["鸡蛋"],n:{calories:78,protein:6,fat:5,carbs:1,sodium:62,sugar:1,trans_fat:0}},
+  {id:"peanut-butter",name:"花生酱",cat:"food",comp:["花生","大豆油","糖"],n:{calories:590,protein:25,fat:50,carbs:20,sodium:420,sugar:8,trans_fat:0}},
+  {id:"salmon-sashimi",name:"三文鱼刺身",cat:"food",comp:["三文鱼","酱油","芥末"],n:{calories:208,protein:22,fat:13,carbs:0,sodium:350,sugar:0,trans_fat:0}},
+  {id:"garlic-shrimp",name:"蒜蓉虾",cat:"food",comp:["虾","大蒜","黄油","芝麻"],n:{calories:220,protein:24,fat:12,carbs:4,sodium:680,sugar:2,trans_fat:0.3}},
+  {id:"nut-bar",name:"坚果能量棒",cat:"food",comp:["杏仁","核桃","腰果","蜂蜜","燕麦"],n:{calories:460,protein:14,fat:26,carbs:44,sodium:90,sugar:22,trans_fat:0}},
+  {id:"soy-noodles",name:"酱油拌面",cat:"food",comp:["面条","酱油","芝麻","葱花"],n:{calories:430,protein:12,fat:10,carbs:72,sodium:1100,sugar:6,trans_fat:0.5}},
+  {id:"cola",name:"可乐",cat:"food",comp:["水","糖","高果糖浆"],n:{calories:210,protein:0,fat:0,carbs:55,sodium:15,sugar:55,trans_fat:0}},
+  {id:"apple",name:"苹果",cat:"food",comp:["苹果"],n:{calories:95,protein:0,fat:0,carbs:25,sodium:2,sugar:19,trans_fat:0}},
+  {id:"shampoo-a",name:"清爽去屑洗发水",cat:"daily_chem",comp:["水","十二烷基硫酸钠","香精","甲基异噻唑啉酮","甘油"]},
+  {id:"cream-b",name:"保湿面霜",cat:"daily_chem",comp:["水","甘油","对羟基苯甲酸酯","香精"]},
+  {id:"sunscreen-c",name:"清爽防晒喷雾",cat:"daily_chem",comp:["水","氧苯酮","香精","酒精"]},
+  {id:"wipes-d",name:"婴儿手口湿巾",cat:"daily_chem",comp:["水","甘油","甲基异噻唑啉酮","dmdm乙内酰脲"]},
+  {id:"toothpaste-e",name:"美白牙膏",cat:"daily_chem",comp:["水","十二烷基硫酸钠","三氯生","香精"]},
+  {id:"ibuprofen",name:"布洛芬缓释胶囊",cat:"drug",comp:["布洛芬","淀粉"],contra:["pregnancy","kidney"]},
+  {id:"amoxicillin",name:"阿莫西林胶囊",cat:"drug",comp:["阿莫西林","青霉素","淀粉"],contra:[]},
+  {id:"levofloxacin",name:"左氧氟沙星片",cat:"drug",comp:["左氧氟沙星"],contra:["minors","driving","kidney"]},
+  {id:"loratadine",name:"氯雷他定片",cat:"drug",comp:["氯雷他定","淀粉"],contra:[]},
+  {id:"vitc",name:"维生素C片",cat:"drug",comp:["维生素C","淀粉"],contra:[]},
+  {id:"metronidazole",name:"甲硝唑片",cat:"drug",comp:["甲硝唑"],contra:["alcohol","pregnancy"]},
+  {id:"beef-burger",name:"牛肉汉堡",cat:"food",comp:["面包","牛肉","芝士","芝麻"],n:{calories:550,protein:28,fat:30,carbs:40,sodium:900,sugar:8,trans_fat:1.0}},
+  {id:"egg-pancake",name:"鸡蛋灌饼",cat:"food",comp:["面粉","鸡蛋","葱","油"],n:{calories:320,protein:12,fat:15,carbs:35,sodium:600,sugar:3,trans_fat:0.5}},
+  {id:"cheesecake",name:"芝士蛋糕",cat:"food",comp:["面粉","芝士","鸡蛋","黄油","糖"],n:{calories:380,protein:8,fat:22,carbs:38,sodium:300,sugar:25,trans_fat:0.8}},
+  {id:"crab-porridge",name:"蟹粥",cat:"food",comp:["蟹","米"],n:{calories:180,protein:14,fat:4,carbs:22,sodium:500,sugar:1,trans_fat:0}},
+  {id:"cod-fillet",name:"鳕鱼排",cat:"food",comp:["鳕鱼","面粉","黄油"],n:{calories:200,protein:24,fat:10,carbs:8,sodium:450,sugar:0,trans_fat:0.3}},
+  {id:"celery-salad",name:"凉拌芹菜",cat:"food",comp:["芹菜","芝麻","酱油"],n:{calories:60,protein:2,fat:4,carbs:5,sodium:400,sugar:2,trans_fat:0}},
+  {id:"yogurt",name:"风味酸奶",cat:"food",comp:["牛奶","糖"],n:{calories:120,protein:4,fat:3,carbs:18,sodium:60,sugar:15,trans_fat:0}},
+  {id:"soy-milk",name:"豆浆",cat:"food",comp:["大豆"],n:{calories:80,protein:6,fat:3,carbs:6,sodium:5,sugar:2,trans_fat:0}},
+  {id:"almond-drink",name:"杏仁露",cat:"food",comp:["杏仁","糖"],n:{calories:90,protein:2,fat:3,carbs:15,sodium:10,sugar:12,trans_fat:0}},
+  {id:"sushi-platter",name:"寿司拼盘",cat:"food",comp:["三文鱼","酱油","芥末","米饭"],n:{calories:300,protein:15,fat:6,carbs:45,sodium:700,sugar:8,trans_fat:0}},
+  {id:"caesar-salad",name:"凯撒沙拉",cat:"food",comp:["沙拉","鸡蛋","芝士","面包"],n:{calories:250,protein:10,fat:18,carbs:12,sodium:650,sugar:3,trans_fat:0.4}},
+  {id:"popcorn",name:"黄油爆米花",cat:"food",comp:["玉米","黄油","盐"],n:{calories:400,protein:8,fat:22,carbs:44,sodium:800,sugar:0,trans_fat:0.5}},
+  {id:"shrimp-cashew",name:"腰果虾仁",cat:"food",comp:["腰果","虾","鸡蛋"],n:{calories:260,protein:20,fat:14,carbs:10,sodium:500,sugar:3,trans_fat:0}},
+  {id:"fried-rice",name:"酱油炒饭",cat:"food",comp:["米饭","酱油","鸡蛋","葱"],n:{calories:420,protein:10,fat:12,carbs:65,sodium:900,sugar:4,trans_fat:0.3}},
+  {id:"hair-dye",name:"植物染发剂",cat:"daily_chem",comp:["水","对苯二胺","煤焦油","香精"]},
+  {id:"laundry-liquid",name:"洗衣液",cat:"daily_chem",comp:["水","十二烷基硫酸钠","香精"]},
+  {id:"hand-cream",name:"护手霜",cat:"daily_chem",comp:["水","甘油","对羟基苯甲酸酯","香精"]},
+  {id:"lipstick",name:"口红",cat:"daily_chem",comp:["蜡","香精","煤焦油"]},
+  {id:"makeup-remover",name:"卸妆水",cat:"daily_chem",comp:["水","香精","酒精"]},
+  {id:"perfume",name:"香水",cat:"daily_chem",comp:["酒精","香精","定香剂"]},
+  {id:"body-lotion",name:"身体乳",cat:"daily_chem",comp:["水","甘油","对羟基苯甲酸酯","香精"]},
+  {id:"hand-soap",name:"洗手液",cat:"daily_chem",comp:["水","十二烷基硫酸钠","香精","甲基异噻唑啉酮"]},
+  {id:"nail-polish",name:"指甲油",cat:"daily_chem",comp:["乙酸乙酯","邻苯二甲酸酯","定香剂"]},
+  {id:"aspirin",name:"阿司匹林肠溶片",cat:"drug",comp:["阿司匹林","淀粉"],contra:[]},
+  {id:"cefixime",name:"头孢克肟颗粒",cat:"drug",comp:["头孢克肟","糖"],contra:[]},
+  {id:"paracetamol",name:"对乙酰氨基酚片",cat:"drug",comp:["对乙酰氨基酚","淀粉"],contra:[]},
+  {id:"smecta",name:"蒙脱石散",cat:"drug",comp:["蒙脱石","糖"],contra:[]},
+  {id:"digestive-tablet",name:"健胃消食片",cat:"drug",comp:["山楂","麦芽","糖"],contra:[]},
+  {id:"vitamin-d",name:"维生素D滴剂",cat:"drug",comp:["维生素D","植物油"],contra:[]},
+  {id:"calcium",name:"碳酸钙D3片",cat:"drug",comp:["碳酸钙","维生素D"],contra:[]},
+  {id:"nitroglycerin",name:"硝酸甘油片",cat:"drug",comp:["硝酸甘油"],contra:["driving","hypertension"]},
+  {id:"erythromycin",name:"红霉素软膏",cat:"drug",comp:["红霉素"],contra:[]}
+];
+// 国家公开数据样例：从 NMPA / 市场监管公开公告清洗后的结构化数据（演示用，成分已归一化为可识别 token）
+// 运行时优先拉取同目录下的 gov_products.json（由同步管线定期生成）；拉取失败则回退到下方内嵌样例。
+let GOV_PRODUCTS = [
+  {id:"food_001",name:"全麦面包",cat:"food",comp:["全麦","面粉","芝麻"],n:{calories:250,protein:9,fat:4,carbs:46,sodium:380,sugar:5,trans_fat:0.2},prov:{type:"food_license",mfr:"某某面包有限公司",date:"2024-03-15"}},
+  {id:"food_002",name:"纯牛奶",cat:"food",comp:["牛奶"],n:{calories:150,protein:8,fat:8,carbs:12,sodium:100,sugar:12,trans_fat:0},prov:{type:"food_license",mfr:"某某乳业股份有限公司",date:"2024-02-20"}},
+  {id:"food_003",name:"花生酱",cat:"food",comp:["花生","大豆油"],n:{calories:590,protein:25,fat:50,carbs:20,sodium:420,sugar:8,trans_fat:0},prov:{type:"samr_food_recall",mfr:"某某食品集团",date:"2024-01-10"}},
+  {id:"food_004",name:"三文鱼刺身",cat:"food",comp:["三文鱼","酱油","芥末"],n:{calories:208,protein:22,fat:13,carbs:0,sodium:350,sugar:0,trans_fat:0},prov:{type:"food_license",mfr:"某某水产有限公司",date:"2024-04-01"}},
+  {id:"food_005",name:"蒜蓉虾",cat:"food",comp:["虾","黄油","芝麻","面包糠"],n:{calories:220,protein:24,fat:12,carbs:4,sodium:680,sugar:2,trans_fat:0.3},prov:{type:"food_license",mfr:"某某餐饮有限公司",date:"2024-03-28"}},
+  {id:"drug_001",name:"布洛芬缓释胶囊",cat:"drug",comp:["布洛芬"],contra:["pregnancy","kidney"],prov:{type:"nmpa_drug",mfr:"某某制药股份有限公司",date:"2023-11-20"}},
+  {id:"drug_002",name:"阿莫西林胶囊",cat:"drug",comp:["阿莫西林"],contra:[],prov:{type:"nmpa_drug",mfr:"某某制药有限公司",date:"2023-10-15"}},
+  {id:"drug_003",name:"左氧氟沙星片",cat:"drug",comp:["左氧氟沙星"],contra:["minors","driving","kidney"],prov:{type:"nmpa_drug",mfr:"某某医药集团",date:"2023-12-05"}},
+  {id:"drug_004",name:"氯雷他定片",cat:"drug",comp:["氯雷他定"],contra:[],prov:{type:"nmpa_drug",mfr:"某某制药厂",date:"2024-01-12"}},
+  {id:"drug_005",name:"维生素C片",cat:"drug",comp:["维生素C"],contra:[],prov:{type:"nmpa_drug",mfr:"某某保健品有限公司",date:"2024-02-18"}},
+  {id:"chem_001",name:"清爽去屑洗发水",cat:"daily_chem",comp:["十二烷基硫酸钠","甲基异噻唑啉酮","香精"],prov:{type:"nmpa_cosmetic",mfr:"某某日化有限公司",date:"2024-03-10"}},
+  {id:"chem_002",name:"保湿面霜",cat:"daily_chem",comp:["对羟基苯甲酸酯","香精"],prov:{type:"nmpa_cosmetic",mfr:"某某化妆品股份有限公司",date:"2024-02-25"}},
+  {id:"chem_003",name:"清爽防晒喷雾",cat:"daily_chem",comp:["氧苯酮","香精"],prov:{type:"nmpa_cosmetic",mfr:"某某防晒科技有限公司",date:"2024-04-05"}},
+  {id:"chem_004",name:"婴儿手口湿巾",cat:"daily_chem",comp:["甲基异噻唑啉酮","dmdm乙内酰脲"],prov:{type:"nmpa_cosmetic",mfr:"某某母婴用品有限公司",date:"2024-03-30"}},
+  {id:"chem_005",name:"美白牙膏",cat:"daily_chem",comp:["十二烷基硫酸钠","三氯生","香精"],prov:{type:"nmpa_cosmetic",mfr:"某某口腔护理有限公司",date:"2024-01-22"}}
+];
+let GOV_META = null; // 同步元数据：{ synced_at, total, source, counts } 等
+let DATASET = PRODUCTS; // 当前分析使用的数据集（可在演示库 / 国家公开数据样例间切换）
+
+// ===== 国家公开数据：运行时拉取 + 归一化 + 兜底 =====
+function normalizeGov(rawList){
+  return (rawList||[]).map(p=>({
+    id: p.id,
+    name: p.name,
+    cat: p.category,
+    comp: p.components || [],
+    n: p.nutrition || undefined,
+    contra: (p.contraindications && p.contraindications.length) ? p.contraindications : undefined,
+    prov: { type: p.source_type, mfr: p.manufacturer, date: p.approved_date, url: p.source_url || null }
+  }));
+}
+function fmtSync(s){
+  if(!s) return '—';
+  // "2026-10-27T14:40:02Z" -> "2026-10-27 14:40 (UTC)"
+  const m = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/.exec(s);
+  return m ? `${m[1]} ${m[2]} (UTC)` : s;
+}
+function dsNoteFor(ds){
+  if(ds==='gov'){
+    if(GOV_META){
+      return `已同步 ${GOV_PRODUCTS.length} 项 · 更新于 ${fmtSync(GOV_META.synced_at)}（国家公开公告清洗，非官方演示数据）`;
+    }
+    return `内嵌样例 ${GOV_PRODUCTS.length} 项（实时同步暂不可用，已回退到本地样例）`;
+  }
+  return `内置开源演示数据，覆盖食品 / 日化 / 药品（${PRODUCTS.length} 项）`;
+}
+function updateGovUI(){
+  const govSeg = document.querySelector('#dsSeg .seg-item[data-ds="gov"]');
+  if(govSeg) govSeg.textContent = `国家公开数据（${GOV_PRODUCTS.length} 项）`;
+  const onGov = govSeg && govSeg.classList.contains('on');
+  if(onGov) document.getElementById('dsNote').textContent = dsNoteFor('gov');
+}
+async function loadGov(){
+  try{
+    const res = await fetch('gov_products.json', { cache: 'no-cache' });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if(data && Array.isArray(data.products)){
+      const norm = normalizeGov(data.products);
+      if(norm.length){
+        GOV_PRODUCTS = norm;
+        GOV_META = data._meta || null;
+      }
+    }
+  }catch(e){
+    // 拉取失败（如本地 file:// 打开、离线）：保留内嵌兜底，不阻断页面
+    console.warn('[gov] 拉取 gov_products.json 失败，使用内嵌样例：', e);
+    GOV_META = null;
+  }
+  updateGovUI();
+}
+const ALERTS = [
+  {category:"daily_chem",level:"watch",title:"示例：某批次湿巾防腐剂超标风险提示（近 24h 内）",advice:"演示数据，建议关注但不必恐慌",collected_at:"2026-10-26T08:00:00+08:00"},
+  {category:"drug",level:"warning",title:"示例：某抗生素药品说明书修订（近 24h 内）",advice:"演示数据，用药请遵医嘱",collected_at:"2026-10-26T10:00:00+08:00"},
+  {category:"food",level:"info",title:"示例：某品牌调味酱自检提示（旧数据）",advice:"演示数据",collected_at:"2026-10-20T09:00:00+08:00"}
+];
+
+// ===== 引擎逻辑（与 Python 对齐）=====
+function matchHazards(comp){
+  const r={}; (comp||[]).forEach(c=>{ if(ING_RULES[c]) ING_RULES[c].forEach(h=>{ if(h)(r[h]=r[h]||[]).push(c); }); }); return r;
+}
+function matchCross(comp,name){
+  const text=(name||"")+" "+(comp||[]).join(" "); const r={};
+  CROSS.forEach(x=>{ if(x.kw.some(k=>text.includes(k))) x.rel.forEach(h=>{ if(!r[h]) r[h]=x.note; }); });
+  return r;
+}
+function analyzeItem(it){
+  const contains=matchHazards(it.comp), may=matchCross(it.comp,it.name);
+  const names=[...new Set([...Object.keys(contains),...Object.keys(may)])].map(id=>HAZ[id]?HAZ[id].zh:id);
+  return {contains,may,names};
+}
+function nutritionFlags(n){
+  const flags=[]; const T={sodium:{h:800,w:600},sugar:{h:15,w:10},trans_fat:{h:0.5,w:0},calories:{h:700,w:500},fat:{h:30,w:25}};
+  for(const k in T){ const v=n[k]; if(v==null) continue; let lv=null; if(v>T[k].h)lv="high"; else if(v>T[k].w)lv="warn";
+    if(lv){ const L={sodium:lv==="high"?"高钠":"钠偏高",sugar:lv==="high"?"高糖":"糖偏高",trans_fat:"含反式脂肪",calories:lv==="high"?"高热量":"热量偏高",fat:lv==="high"?"高脂":"脂肪偏高"};
+      flags.push({k,lv,label:L[k],v}); } }
+  return flags;
+}
+function getProfile(){
+  const ids=[];
+  document.querySelectorAll('#foodGrid input:checked,#chemGrid input:checked,#drugGrid input:checked').forEach(c=>ids.push(c.value));
+  const conds=[]; document.querySelectorAll('#condChips .chip.on').forEach(c=>conds.push(c.dataset.id));
+  const cons={};
+  const s=document.getElementById('cSodium').value; if(s)cons.sodium_max=+s;
+  const g=document.getElementById('cSugar').value; if(g)cons.sugar_max=+g;
+  if(document.getElementById('cTf').checked)cons.trans_fat_max=0;
+  return {ids,conds,cons};
+}
+function evaluate(it,prof){
+  const a=analyzeItem(it); const cat=it.cat; const reasons=[]; let status;
+  if(cat==="food"){
+    const blocked=prof.ids.filter(id=>a.contains[id]);
+    const warn=prof.ids.filter(id=>a.may[id] && !a.contains[id]);
+    const n=it.n||{}; let nutFail=false;
+    if(prof.cons.sodium_max!=null && n.sodium>prof.cons.sodium_max)nutFail=true;
+    if(prof.cons.sugar_max!=null && n.sugar>prof.cons.sugar_max)nutFail=true;
+    if(prof.cons.trans_fat_max!=null && n.trans_fat>prof.cons.trans_fat_max)nutFail=true;
+    if(prof.cons.calories_max!=null && n.calories>prof.cons.calories_max)nutFail=true;
+    status = (blocked.length||nutFail)?"block":(warn.length?"warn":"safe");
+    reasons.push(...warn.map(id=>"可能含:"+(HAZ[id]?HAZ[id].zh:id)));
+    if(nutFail)reasons.push("营养约束未满足");
+  } else if(cat==="daily_chem"){
+    const blocked=prof.ids.filter(id=>a.contains[id]);
+    const warn=prof.ids.filter(id=>a.may[id] && !a.contains[id]);
+    const subFlags=[...new Set([...Object.keys(a.contains),...Object.keys(a.may)])].filter(h=>HAZ[h]&&(HAZ[h].cat==="sensitizer"||HAZ[h].cat==="substance"));
+    subFlags.forEach(h=>reasons.push((HIGH_SUB[h]?"高风险物质:":"风险物质:")+(HAZ[h]?HAZ[h].zh:h)));
+    status = blocked.length?"block":((warn.length||subFlags.length)?"warn":"safe");
+  } else if(cat==="drug"){
+    const bCond=(it.contra||[]).filter(c=>prof.conds.includes(c));
+    const bHaz=prof.ids.filter(id=>a.contains[id]);
+    const wHaz=prof.ids.filter(id=>a.may[id] && !a.contains[id]);
+    bCond.forEach(c=>reasons.push("禁忌:"+(HAZ[c]?HAZ[c].zh:c)));
+    bHaz.forEach(h=>reasons.push("成分过敏:"+(HAZ[h]?HAZ[h].zh:h)));
+    wHaz.forEach(h=>reasons.push("可能含:"+(HAZ[h]?HAZ[h].zh:h)));
+    status = (bCond.length||bHaz.length)?"block":(wHaz.length?"warn":"safe");
+  } else { status="safe"; }
+  return {status, reasons, hazardNames:a.names};
+}
+
+// ===== 渲染 =====
+let curCat="all", curStatus="all", curQuery="";
+const CAT_ORDER={food:0,daily_chem:1,drug:2};
+const CAT_NAME={food:"食品",daily_chem:"日化个护",drug:"药品"};
+function renderGrid(elId, ids){
+  document.getElementById(elId).innerHTML = ids.map(id=>`<label><input type="checkbox" value="${id}"><span>${HAZ[id].zh}</span></label>`).join('');
+}
+function renderChips(){
+  document.getElementById('condChips').innerHTML = CONDITIONS.map(id=>`<div class="chip" data-id="${id}">${HAZ[id].zh}</div>`).join('');
+  document.querySelectorAll('#condChips .chip').forEach(c=>c.addEventListener('click',()=>{c.classList.toggle('on');renderResults();}));
+}
+function renderAlerts(){
+  const box=document.getElementById('alertBox');
+  const now=new Date(); const rec=ALERTS.filter(a=>{ const ct=new Date(a.collected_at); return (now-ct)<=24*3600*1000; });
+  if(!rec.length){ box.innerHTML='<div class="alert-banner">近 24h 无新增预警 ✅</div>'; return; }
+  const catName={food:"食品",daily_chem:"日化",drug:"药品"};
+  box.innerHTML=rec.map(a=>`<div class="alert-banner"><b>● [${catName[a.category]||a.category}] ${a.title}</b><br>建议：${a.advice}</div>`).join('');
+}
+function renderResults(){
+  const prof=getProfile();
+  const box=document.getElementById('resultBox'); box.innerHTML='';
+  let items=DATASET.filter(it=> curCat==="all" || it.cat===curCat);
+  const q=curQuery.trim().toLowerCase();
+  if(q) items=items.filter(it=> it.name.toLowerCase().includes(q) || (it.comp||[]).join(" ").toLowerCase().includes(q));
+  let evs=items.map(it=>({it,ev:evaluate(it,prof)}));
+  const c={safe:0,warn:0,block:0}; evs.forEach(x=>c[x.ev.status]++); updateSummary(c, items.length);
+  if(curStatus!=="all") evs=evs.filter(x=>x.ev.status===curStatus);
+  evs.sort((a,b)=> (CAT_ORDER[a.it.cat]-CAT_ORDER[b.it.cat]) || (rank(a.ev.status)-rank(b.ev.status)) || a.it.name.localeCompare(b.it.name));
+  if(!evs.length){ box.innerHTML='<div class="empty">没有匹配的产品，试试调整筛选条件或搜索关键词。</div>'; return; }
+  let lastCat=null;
+  evs.forEach(({it,ev})=>{
+    if(curCat==="all" && it.cat!==lastCat){ lastCat=it.cat;
+      const d=document.createElement('div'); d.className='cat-div'; d.textContent=CAT_NAME[it.cat]; box.appendChild(d); }
+    const cls=ev.status==='block'?'block':ev.status==='warn'?'warn':'safe';
+    const label=ev.status==='block'?'⛔ 排除':ev.status==='warn'?'⚠️ 留意':'✅ 安全';
+    const aTags=ev.hazardNames.map(n=>`<span class="tag a">${n}</span>`).join('')||'<span class="tag">无主要危害</span>';
+    const el=document.createElement('div'); el.className='item '+cls;
+    let extra='';
+    if(it.cat==='food'){ const nf=nutritionFlags(it.n||{}); extra=nf.map(f=>`<span class="tag s">${f.label} ${f.v}</span>`).join(''); }
+    let provHtml='';
+    if(DATASET===GOV_PRODUCTS && it.prov){ const L={food_license:'食品生产许可',samr_food_recall:'食品抽检/召回',nmpa_drug:'药品注册',nmpa_cosmetic:'化妆品备案'}; const t=L[it.prov.type]||it.prov.type; const url=it.prov.url&&/^https?:\/\//i.test(it.prov.url)?it.prov.url:null; const srcHtml=url?`<a class="src" href="${url}" target="_blank" rel="noopener">${t}</a>`:`<span class="src">${t}</span>`; provHtml=`<div class="prov">📄 溯源：${srcHtml} · ${it.prov.mfr||'—'} · ${it.prov.date||''}</div>`; }
+    const catPill = curCat==="all"?`<span class="cat-pill">${CAT_NAME[it.cat]}</span>`:'';
+    el.innerHTML=`<div class="top"><span class="name">${catPill}${it.name}</span><span class="badge ${cls}">${label}</span></div>
+      <div class="tags">${aTags}${extra}</div>
+      ${ev.reasons.length?`<div class="reason">${ev.reasons.join('；')}</div>`:''}${provHtml}`;
+    box.appendChild(el);
+  });
+}
+function rank(s){ return s==='safe'?0:s==='warn'?1:2; }
+function updateSummary(c,total){
+  const el=document.getElementById('sumBar'); if(!el) return;
+  el.innerHTML=`<span class="stat safe"><b>${c.safe}</b>安全</span><span class="stat warn"><b>${c.warn}</b>留意</span><span class="stat block"><b>${c.block}</b>排除</span><span class="stat total">共 ${total} 项</span>`;
+}
+
+function generateCard(){
+  const prof=getProfile();
+  const c=document.getElementById('shareCanvas'); const ctx=c.getContext('2d');
+  const W=640, H=1000;
+  ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H);
+  // header gradient
+  const g=ctx.createLinearGradient(0,0,W,170);
+  g.addColorStop(0,'#4f46e5'); g.addColorStop(1,'#7c3aed');
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,170);
+  ctx.fillStyle='rgba(255,255,255,.12)'; ctx.beginPath(); ctx.arc(585,28,82,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.08)'; ctx.beginPath(); ctx.arc(70,152,58,0,Math.PI*2); ctx.fill();
+  ctx.textBaseline='alphabetic';
+  ctx.fillStyle='#fff'; ctx.font='bold 34px sans-serif';
+  ctx.fillText('🛡️ 我的安全消费清单',38,82);
+  ctx.fillStyle='rgba(255,255,255,.92)'; ctx.font='16px sans-serif';
+  ctx.fillText('成分避雷 IngredientShield · 跨品类安全决策',38,116);
+  // 规避危害 pills
+  ctx.fillStyle='#1d1d1f'; ctx.font='bold 18px sans-serif';
+  ctx.fillText('规避危害',38,205);
+  const hz=prof.ids.length?prof.ids.map(id=>HAZ[id]?HAZ[id].zh:id):['（未设置）'];
+  let px=38, py=218; ctx.font='14px sans-serif';
+  hz.slice(0,8).forEach(t=>{ const w=ctx.measureText(t).width+22; if(px+w>W-20){px=38;py+=36;} roundRect(ctx,px,py,w,30,15); ctx.fillStyle='#eef2ff'; ctx.fill(); ctx.fillStyle='#4f46e5'; ctx.fillText(t,px+11,py+20); px+=w+8; });
+  let y=py+30+30;
+  // 健康状态
+  const cd=prof.conds.length?prof.conds.map(id=>HAZ[id]?HAZ[id].zh:id):['无'];
+  ctx.fillStyle='#1d1d1f'; ctx.font='bold 18px sans-serif';
+  ctx.fillText('健康状态',38,y);
+  ctx.font='15px sans-serif'; ctx.fillStyle='#6e6e73';
+  wrapText(ctx, cd.join('、'),38,y+24,W-76,22); y+=24+34;
+  // 品类面板
+  const cats=[['food','食品','#16a34a'],['daily_chem','日化个护','#d97706'],['drug','药品','#ef4444']];
+  cats.forEach(([cat,name,col])=>{
+    const all=DATASET.filter(it=>it.cat===cat).map(it=>({it,ev:evaluate(it,prof)}));
+    const safe=all.filter(x=>x.ev.status==='safe').map(x=>x.it.name);
+    const warn=all.filter(x=>x.ev.status==='warn').map(x=>x.it.name);
+    const block=all.filter(x=>x.ev.status==='block').map(x=>x.it.name);
+    const CAP=14, total=safe.length+warn.length+block.length;
+    let dSafe=safe,dWarn=warn,dBlock=block,more=0;
+    if(total>CAP){ dBlock=block; dWarn=warn; dSafe=safe.slice(0,Math.max(0,CAP-block.length-warn.length)); more=total-(dBlock.length+dWarn.length+dSafe.length); }
+    const lineCount=dSafe.length+dWarn.length+dBlock.length+(more>0?1:0);
+    const panelH=46 + lineCount*24 + 14;
+    const drawH=Math.min(panelH, H-y-56);
+    roundRect(ctx,24,y,W-48,drawH,14); ctx.fillStyle='#fafafe'; ctx.fill();
+    ctx.strokeStyle='#eceef5'; ctx.lineWidth=1; ctx.stroke();
+    ctx.fillStyle=col; roundRect(ctx,38,y+15,6,22,3); ctx.fill();
+    ctx.fillStyle='#1d1d1f'; ctx.font='bold 18px sans-serif'; ctx.fillText(name,54,y+32);
+    const stat=`安全 ${safe.length}　留意 ${warn.length}　排除 ${block.length}`;
+    ctx.font='13px sans-serif'; ctx.fillStyle=col;
+    ctx.fillText(stat, W-38-ctx.measureText(stat).width, y+32);
+    let ly=y+52;
+    dSafe.forEach(it=>{ ctx.fillStyle='#16a34a'; ctx.font='15px sans-serif'; ctx.fillText('✅ '+it,42,ly); ly+=24; });
+    dWarn.forEach(it=>{ ctx.fillStyle='#b7791f'; ctx.font='14px sans-serif'; ctx.fillText('⚠ '+it,42,ly); ly+=24; });
+    dBlock.forEach(it=>{ ctx.fillStyle='#ef4444'; ctx.font='15px sans-serif'; ctx.fillText('⛔ '+it,42,ly); ly+=24; });
+    if(more>0){ ctx.fillStyle='#9aa0ac'; ctx.font='13px sans-serif'; ctx.fillText('… 等共 '+total+' 项（详见页面）',42,ly); }
+    y+=drawH+14;
+  });
+  // 页脚声明
+  if(y<H-46){ ctx.fillStyle='#9aa0ac'; ctx.font='12px sans-serif';
+    wrapText(ctx,'数据来自开源知识库，非官方，仅供参考，不构成医疗、用药或法律建议。本卡片仅本地生成，未上传。',38,y+8,W-76,20); }
+  c.classList.remove('hidden');
+  document.getElementById('dlLink').href=c.toDataURL('image/png');
+  document.getElementById('dlWrap').classList.remove('hidden');
+}
+function wrapText(ctx,text,x,y,maxW,lh){
+  const chars=text.split(''); let line=''; let yy=y;
+  chars.forEach(ch=>{ if(ctx.measureText(line+ch).width>maxW){ ctx.fillText(line,x,yy); line=ch; yy+=lh; } else line+=ch; });
+  ctx.fillText(line,x,yy);
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+
+// 初始化
+renderGrid('foodGrid',FOOD_ALLERGEN);
+renderGrid('chemGrid',CHEM_HAZ);
+renderGrid('drugGrid',DRUG_ALLERGY);
+renderChips();
+renderAlerts();
+renderResults();
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  t.classList.add('on'); curCat=t.dataset.cat; renderResults();
+}));
+document.querySelectorAll('#statusFilter .sf').forEach(s=>s.addEventListener('click',()=>{
+  document.querySelectorAll('#statusFilter .sf').forEach(x=>x.classList.remove('on'));
+  s.classList.add('on'); curStatus=s.dataset.st; renderResults();
+}));
+// 初始备注 + 运行时拉取国家公开数据（带内嵌兜底）
+document.getElementById('dsNote').textContent = dsNoteFor('demo');
+loadGov();
+document.getElementById('searchInput').addEventListener('input',e=>{ curQuery=e.target.value; renderResults(); });
+// 数据源切换
+document.querySelectorAll('#dsSeg .seg-item').forEach(s=>s.addEventListener('click',()=>{
+  document.querySelectorAll('#dsSeg .seg-item').forEach(x=>x.classList.remove('on'));
+  s.classList.add('on');
+  DATASET = s.dataset.ds==='gov'?GOV_PRODUCTS:PRODUCTS;
+  document.getElementById('dsNote').textContent = dsNoteFor(s.dataset.ds);
+  curCat='all';
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  document.querySelector('.tab[data-cat="all"]').classList.add('on');
+  renderResults();
+}));
+['foodGrid','chemGrid','drugGrid'].forEach(id=>document.querySelectorAll('#'+id+' input').forEach(i=>i.addEventListener('change',renderResults)));
+['cSodium','cSugar','cTf'].forEach(id=>document.getElementById(id).addEventListener('input',renderResults));
+document.getElementById('genBtn').addEventListener('click',generateCard);
+</script>
+</body>
+</html>
