@@ -1,0 +1,16 @@
+﻿id,name,category,components,nutrition,contraindications,warnings,source_url,source_type,approved_date,manufacturer
+food_001,全麦面包,food,"全麦面粉;水;酵母;食盐;芝麻","{""calories"":250,""protein"":9,""fat"":4,""carbs"":46,""sodium"":380,""sugar"":5,""trans_fat"":0.2}",,,https://www.samr.gov.cn/food/license/xxxxx,food_license,2024-03-15,某某面包有限公司
+food_002,纯牛奶,food,"生牛乳","{""calories"":150,""protein"":8,""fat"":8,""carbs"":12,""sodium"":100,""sugar"":12,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/yyyyy,food_license,2024-02-20,某某乳业股份有限公司
+food_003,花生酱,food,"花生;大豆油;白糖;食盐","{""calories"":590,""protein"":25,""fat"":50,""carbs"":20,""sodium"":420,""sugar"":8,""trans_fat"":0}",,,https://www.samr.gov.cn/food/recall/zzzzz,samr_food_recall,2024-01-10,某某食品集团
+food_004,三文鱼刺身,food,"三文鱼;酱油;芥末","{""calories"":208,""protein"":22,""fat"":13,""carbs"":0,""sodium"":350,""sugar"":0,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/aaaaa,food_license,2024-04-01,某某水产有限公司
+food_005,蒜蓉虾,food,"虾;大蒜;黄油;芝麻;面包糠","{""calories"":220,""protein"":24,""fat"":12,""carbs"":4,""sodium"":680,""sugar"":2,""trans_fat"":0.3}",,,https://www.samr.gov.cn/food/license/bbbbb,food_license,2024-03-28,某某餐饮有限公司
+drug_001,布洛芬缓释胶囊,drug,"布洛芬;微晶纤维素;羟丙甲纤维素",,"pregnancy;kidney","孕妇及哺乳期妇女禁用；肾功能不全者慎用",https://www.nmpa.gov.cn/drug/approval/ccccc,nmpa_drug,2023-11-20,某某制药股份有限公司
+drug_002,阿莫西林胶囊,drug,"阿莫西林三水合物;玉米淀粉;硬脂酸镁",,,https://www.nmpa.gov.cn/drug/approval/ddddd,nmpa_drug,2023-10-15,某某制药有限公司
+drug_003,左氧氟沙星片,drug,"左氧氟沙星;微晶纤维素;羧甲淀粉钠",,"minors;driving;kidney","未成年人禁用；服药期间禁止驾驶；肾功能不全调整剂量",https://www.nmpa.gov.cn/drug/approval/eeeee,nmpa_drug,2023-12-05,某某医药集团
+drug_004,氯雷他定片,drug,"氯雷他定;乳糖;玉米淀粉",,,https://www.nmpa.gov.cn/drug/approval/fffff,nmpa_drug,2024-01-12,某某制药厂
+drug_005,维生素C片,drug,"维生素C;淀粉;糊精",,,https://www.nmpa.gov.cn/drug/approval/ggggg,nmpa_drug,2024-02-18,某某保健品有限公司
+chem_001,清爽去屑洗发水,daily_chem,"水;十二烷基硫酸钠;月桂酰胺丙基甜菜碱;甲基异噻唑啉酮;香精;甘油","","","",https://www.nmpa.gov.cn/cosmetic/filing/hhhhh,nmpa_cosmetic,2024-03-10,某某日化有限公司
+chem_002,保湿面霜,daily_chem,"水;甘油;二甲基硅油;对羟基苯甲酸酯;香精;维生素E","","","",https://www.nmpa.gov.cn/cosmetic/filing/iiiii,nmpa_cosmetic,2024-02-25,某某化妆品股份有限公司
+chem_003,清爽防晒喷雾,daily_chem,"水;氧苯酮-3;辛酸/癸酸甘油三酯;酒精;香精","","","",https://www.nmpa.gov.cn/cosmetic/filing/jjjjj,nmpa_cosmetic,2024-04-05,某某防晒科技有限公司
+chem_004,婴儿手口湿巾,daily_chem,"水;甘油;甲基异噻唑啉酮;DMDM乙内酰脲;柠檬酸","","","",https://www.nmpa.gov.cn/cosmetic/filing/kkkkk,nmpa_cosmetic,2024-03-30,某某母婴用品有限公司
+chem_005,美白牙膏,daily_chem,"水;水合硅石;十二烷基硫酸钠;三氯生;香精;氟化钠","","","",https://www.nmpa.gov.cn/cosmetic/filing/lllll,nmpa_cosmetic,2024-01-22,某某口腔护理有限公司

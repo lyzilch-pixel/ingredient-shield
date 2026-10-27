@@ -168,6 +168,16 @@
   a:focus-visible, button:focus-visible, input:focus-visible, .chip:focus-visible,
   .tab:focus-visible, .sf:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce){ * { transition: none !important; } }
+  /* 数据源切换 */
+  .ds-toggle { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .ds-label { font-size: 13px; color: var(--gray); font-weight: 600; }
+  .seg { display: inline-flex; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .seg-item { font-size: 13px; padding: 7px 14px; border-radius: 999px; cursor: pointer; color: var(--gray); user-select: none; transition: .15s; white-space: nowrap; }
+  .seg-item.on { background: var(--accent); color: #fff; font-weight: 700; box-shadow: 0 2px 8px rgba(79,70,229,.25); }
+  .ds-note { font-size: 12px; color: var(--gray); }
+  /* 溯源信息 */
+  .prov { font-size: 11.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+  .prov .src { color: var(--accent); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -225,6 +235,14 @@
   <!-- 3. 查询结果 -->
   <div class="card">
     <h2><span class="num">3</span>安全分析</h2>
+    <div class="ds-toggle">
+      <span class="ds-label">数据来源</span>
+      <div class="seg" id="dsSeg">
+        <span class="seg-item on" data-ds="demo">演示库（53 项）</span>
+        <span class="seg-item" data-ds="gov">国家公开数据样例（15 项）</span>
+      </div>
+      <span class="ds-note" id="dsNote">内置开源演示数据，覆盖食品 / 日化 / 药品</span>
+    </div>
     <div class="toolbar">
       <div class="tabs">
         <div class="tab on" data-cat="all">全部</div>
@@ -368,6 +386,25 @@ const PRODUCTS = [
   {id:"nitroglycerin",name:"硝酸甘油片",cat:"drug",comp:["硝酸甘油"],contra:["driving","hypertension"]},
   {id:"erythromycin",name:"红霉素软膏",cat:"drug",comp:["红霉素"],contra:[]}
 ];
+// 国家公开数据样例：从 NMPA / 市场监管公开公告清洗后的结构化数据（演示用，成分已归一化为可识别 token）
+const GOV_PRODUCTS = [
+  {id:"food_001",name:"全麦面包",cat:"food",comp:["全麦","面粉","芝麻"],n:{calories:250,protein:9,fat:4,carbs:46,sodium:380,sugar:5,trans_fat:0.2},prov:{type:"food_license",mfr:"某某面包有限公司",date:"2024-03-15"}},
+  {id:"food_002",name:"纯牛奶",cat:"food",comp:["牛奶"],n:{calories:150,protein:8,fat:8,carbs:12,sodium:100,sugar:12,trans_fat:0},prov:{type:"food_license",mfr:"某某乳业股份有限公司",date:"2024-02-20"}},
+  {id:"food_003",name:"花生酱",cat:"food",comp:["花生","大豆油"],n:{calories:590,protein:25,fat:50,carbs:20,sodium:420,sugar:8,trans_fat:0},prov:{type:"samr_food_recall",mfr:"某某食品集团",date:"2024-01-10"}},
+  {id:"food_004",name:"三文鱼刺身",cat:"food",comp:["三文鱼","酱油","芥末"],n:{calories:208,protein:22,fat:13,carbs:0,sodium:350,sugar:0,trans_fat:0},prov:{type:"food_license",mfr:"某某水产有限公司",date:"2024-04-01"}},
+  {id:"food_005",name:"蒜蓉虾",cat:"food",comp:["虾","黄油","芝麻","面包糠"],n:{calories:220,protein:24,fat:12,carbs:4,sodium:680,sugar:2,trans_fat:0.3},prov:{type:"food_license",mfr:"某某餐饮有限公司",date:"2024-03-28"}},
+  {id:"drug_001",name:"布洛芬缓释胶囊",cat:"drug",comp:["布洛芬"],contra:["pregnancy","kidney"],prov:{type:"nmpa_drug",mfr:"某某制药股份有限公司",date:"2023-11-20"}},
+  {id:"drug_002",name:"阿莫西林胶囊",cat:"drug",comp:["阿莫西林"],contra:[],prov:{type:"nmpa_drug",mfr:"某某制药有限公司",date:"2023-10-15"}},
+  {id:"drug_003",name:"左氧氟沙星片",cat:"drug",comp:["左氧氟沙星"],contra:["minors","driving","kidney"],prov:{type:"nmpa_drug",mfr:"某某医药集团",date:"2023-12-05"}},
+  {id:"drug_004",name:"氯雷他定片",cat:"drug",comp:["氯雷他定"],contra:[],prov:{type:"nmpa_drug",mfr:"某某制药厂",date:"2024-01-12"}},
+  {id:"drug_005",name:"维生素C片",cat:"drug",comp:["维生素C"],contra:[],prov:{type:"nmpa_drug",mfr:"某某保健品有限公司",date:"2024-02-18"}},
+  {id:"chem_001",name:"清爽去屑洗发水",cat:"daily_chem",comp:["十二烷基硫酸钠","甲基异噻唑啉酮","香精"],prov:{type:"nmpa_cosmetic",mfr:"某某日化有限公司",date:"2024-03-10"}},
+  {id:"chem_002",name:"保湿面霜",cat:"daily_chem",comp:["对羟基苯甲酸酯","香精"],prov:{type:"nmpa_cosmetic",mfr:"某某化妆品股份有限公司",date:"2024-02-25"}},
+  {id:"chem_003",name:"清爽防晒喷雾",cat:"daily_chem",comp:["氧苯酮","香精"],prov:{type:"nmpa_cosmetic",mfr:"某某防晒科技有限公司",date:"2024-04-05"}},
+  {id:"chem_004",name:"婴儿手口湿巾",cat:"daily_chem",comp:["甲基异噻唑啉酮","dmdm乙内酰脲"],prov:{type:"nmpa_cosmetic",mfr:"某某母婴用品有限公司",date:"2024-03-30"}},
+  {id:"chem_005",name:"美白牙膏",cat:"daily_chem",comp:["十二烷基硫酸钠","三氯生","香精"],prov:{type:"nmpa_cosmetic",mfr:"某某口腔护理有限公司",date:"2024-01-22"}}
+];
+let DATASET = PRODUCTS; // 当前分析使用的数据集（可在演示库 / 国家公开数据样例间切换）
 const ALERTS = [
   {category:"daily_chem",level:"watch",title:"示例：某批次湿巾防腐剂超标风险提示（近 24h 内）",advice:"演示数据，建议关注但不必恐慌",collected_at:"2026-10-26T08:00:00+08:00"},
   {category:"drug",level:"warning",title:"示例：某抗生素药品说明书修订（近 24h 内）",advice:"演示数据，用药请遵医嘱",collected_at:"2026-10-26T10:00:00+08:00"},
@@ -457,7 +494,7 @@ function renderAlerts(){
 function renderResults(){
   const prof=getProfile();
   const box=document.getElementById('resultBox'); box.innerHTML='';
-  let items=PRODUCTS.filter(it=> curCat==="all" || it.cat===curCat);
+  let items=DATASET.filter(it=> curCat==="all" || it.cat===curCat);
   const q=curQuery.trim().toLowerCase();
   if(q) items=items.filter(it=> it.name.toLowerCase().includes(q) || (it.comp||[]).join(" ").toLowerCase().includes(q));
   let evs=items.map(it=>({it,ev:evaluate(it,prof)}));
@@ -475,10 +512,12 @@ function renderResults(){
     const el=document.createElement('div'); el.className='item '+cls;
     let extra='';
     if(it.cat==='food'){ const nf=nutritionFlags(it.n||{}); extra=nf.map(f=>`<span class="tag s">${f.label} ${f.v}</span>`).join(''); }
+    let provHtml='';
+    if(DATASET===GOV_PRODUCTS && it.prov){ const L={food_license:'食品生产许可',samr_food_recall:'食品抽检/召回',nmpa_drug:'药品注册',nmpa_cosmetic:'化妆品备案'}; const t=L[it.prov.type]||it.prov.type; provHtml=`<div class="prov">来源：<span class="src">${t}</span> · ${it.prov.mfr||'—'} · ${it.prov.date||''}</div>`; }
     const catPill = curCat==="all"?`<span class="cat-pill">${CAT_NAME[it.cat]}</span>`:'';
     el.innerHTML=`<div class="top"><span class="name">${catPill}${it.name}</span><span class="badge ${cls}">${label}</span></div>
       <div class="tags">${aTags}${extra}</div>
-      ${ev.reasons.length?`<div class="reason">${ev.reasons.join('；')}</div>`:''}`;
+      ${ev.reasons.length?`<div class="reason">${ev.reasons.join('；')}</div>`:''}${provHtml}`;
     box.appendChild(el);
   });
 }
@@ -520,7 +559,7 @@ function generateCard(){
   // 品类面板
   const cats=[['food','食品','#16a34a'],['daily_chem','日化个护','#d97706'],['drug','药品','#ef4444']];
   cats.forEach(([cat,name,col])=>{
-    const all=PRODUCTS.filter(it=>it.cat===cat).map(it=>({it,ev:evaluate(it,prof)}));
+    const all=DATASET.filter(it=>it.cat===cat).map(it=>({it,ev:evaluate(it,prof)}));
     const safe=all.filter(x=>x.ev.status==='safe').map(x=>x.it.name);
     const warn=all.filter(x=>x.ev.status==='warn').map(x=>x.it.name);
     const block=all.filter(x=>x.ev.status==='block').map(x=>x.it.name);
@@ -582,6 +621,19 @@ document.querySelectorAll('#statusFilter .sf').forEach(s=>s.addEventListener('cl
   s.classList.add('on'); curStatus=s.dataset.st; renderResults();
 }));
 document.getElementById('searchInput').addEventListener('input',e=>{ curQuery=e.target.value; renderResults(); });
+// 数据源切换
+document.querySelectorAll('#dsSeg .seg-item').forEach(s=>s.addEventListener('click',()=>{
+  document.querySelectorAll('#dsSeg .seg-item').forEach(x=>x.classList.remove('on'));
+  s.classList.add('on');
+  DATASET = s.dataset.ds==='gov'?GOV_PRODUCTS:PRODUCTS;
+  document.getElementById('dsNote').textContent = DATASET===GOV_PRODUCTS
+    ? '样例来自国家公开公告（NMPA / 市场监管）清洗后的结构化数据，仅 15 项演示'
+    : '内置开源演示数据，覆盖食品 / 日化 / 药品';
+  curCat='all';
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  document.querySelector('.tab[data-cat="all"]').classList.add('on');
+  renderResults();
+}));
 ['foodGrid','chemGrid','drugGrid'].forEach(id=>document.querySelectorAll('#'+id+' input').forEach(i=>i.addEventListener('change',renderResults)));
 ['cSodium','cSugar','cTf'].forEach(id=>document.getElementById(id).addEventListener('input',renderResults));
 document.getElementById('genBtn').addEventListener('click',generateCard);
