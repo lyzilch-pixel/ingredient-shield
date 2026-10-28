@@ -256,6 +256,11 @@
         </div>
         <div class="constraint-row" style="margin-top:6px;">
           <button id="btnResetProfile" class="btn-secondary">重置画像</button>
+          <button id="btnExportProfile" class="btn-secondary">导出画像</button>
+          <label class="btn-secondary" style="cursor:pointer;">
+            导入画像
+            <input type="file" id="fileImportProfile" accept=".json" style="display:none;" onchange="handleImportProfile(event)">
+          </label>
         </div>
       </div>
     </details>
@@ -719,6 +724,43 @@ function initProfile(){
   const p = loadProfile();
   if(p){ applyProfile(p); }
 }
+
+// 导出画像为 JSON 文件
+function exportProfile(){
+  const prof = getProfile(); // 也会保存到 localStorage
+  const blob = new Blob([JSON.stringify(prof, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'ingredient-shield-profile.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// 导入画像 JSON 文件
+function handleImportProfile(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    try{
+      const prof = JSON.parse(ev.target.result);
+      // 基本格式校验
+      if(!prof || typeof prof !== 'object' || !Array.isArray(prof.ids) || !Array.isArray(prof.conds) || typeof prof.cons !== 'object'){
+        alert('文件格式不正确：缺少必要字段 (ids, conds, cons)');
+        return;
+      }
+      applyProfile(prof);
+      saveProfile(prof);
+      renderResults();
+      alert('画像导入成功 ✅');
+    }catch(err){
+      alert('导入失败：' + err.message);
+    }
+    e.target.value = ''; // 允许重复导入同名文件
+  };
+  reader.readAsText(file);
+}
 function evaluate(it,prof){
   const a=analyzeItem(it); const cat=it.cat; const reasons=[]; let status;
   if(cat==="food"){
@@ -976,11 +1018,13 @@ document.querySelectorAll('#dsSeg .seg-item').forEach(s=>s.addEventListener('cli
 ['foodGrid','chemGrid','drugGrid'].forEach(id=>document.querySelectorAll('#'+id+' input').forEach(i=>i.addEventListener('change',renderResults)));
 ['cSodium','cSugar','cCalories','cFat','cTf'].forEach(id=>document.getElementById(id).addEventListener('input',renderResults));
 document.getElementById('genBtn').addEventListener('click',generateCard);
-// G: 画像持久化 - 重置按钮
+// G: 画像持久化 - 重置/导出/导入
 document.getElementById('btnResetProfile').addEventListener('click',()=>{
   localStorage.removeItem('is_profile');
   location.reload();
 });
+document.getElementById('btnExportProfile').addEventListener('click',exportProfile);
+// 导入通过 onchange 直接触发 handleImportProfile，无需额外监听
 </script>
 </body>
 </html>
