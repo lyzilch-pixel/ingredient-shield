@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": "2.1.0",
-    "synced_at": "2026-10-27T14:54:57Z",
+    "synced_at": "2026-10-28T01:50:38Z",
     "source": "local sample feed: gov_feed_sample.csv",
     "disclaimer": "本文件由同步管线从公开公告格式数据清洗生成，为非官方演示数据，仅供参考，不构成医疗、用药或法律建议。",
     "counts": {
