@@ -1,16 +1,16 @@
 {
   "_meta": {
     "version": "2.1.0",
-    "synced_at": "2026-10-28T01:50:38Z",
+    "synced_at": "2026-10-28T08:50:48Z",
     "source": "local sample feed: gov_feed_sample.csv",
     "disclaimer": "本文件由同步管线从公开公告格式数据清洗生成，为非官方演示数据，仅供参考，不构成医疗、用药或法律建议。",
     "counts": {
-      "food": 14,
-      "daily_chem": 11,
-      "drug": 11
+      "food": 42,
+      "daily_chem": 31,
+      "drug": 31
     },
-    "hazard_matched": 23,
-    "total": 36
+    "hazard_matched": 66,
+    "total": 104
   },
   "products": [
     {
@@ -763,6 +763,1246 @@
       "source_type": "nmpa_drug",
       "approved_date": "2024-03-01",
       "manufacturer": "某某外用制剂公司"
+    },
+    {
+      "id": "food_sample_015",
+      "name": "鸡蛋糕",
+      "category": "food",
+      "components": [
+        "鸡蛋",
+        "小麦粉",
+        "白砂糖",
+        "黄油",
+        "牛奶"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f015",
+      "source_type": "food_license",
+      "approved_date": "2024-05-02",
+      "manufacturer": "某某烘焙食品厂"
+    },
+    {
+      "id": "food_sample_016",
+      "name": "芝士蛋糕",
+      "category": "food",
+      "components": [
+        "奶油奶酪",
+        "饼干底",
+        "鸡蛋",
+        "白砂糖"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f016",
+      "source_type": "food_license",
+      "approved_date": "2024-05-09",
+      "manufacturer": "某某乳品甜品有限公司"
+    },
+    {
+      "id": "food_sample_017",
+      "name": "坚果能量棒",
+      "category": "food",
+      "components": [
+        "杏仁",
+        "核桃",
+        "燕麦",
+        "蜂蜜",
+        "大豆分离蛋白"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含多种坚果，过敏人群慎用",
+      "source_url": "https://www.samr.gov.cn/food/license/f017",
+      "source_type": "food_license",
+      "approved_date": "2024-05-15",
+      "manufacturer": "某某健康食品股份"
+    },
+    {
+      "id": "food_sample_018",
+      "name": "虾仁蛋炒饭",
+      "category": "food",
+      "components": [
+        "米饭",
+        "鸡蛋",
+        "虾仁",
+        "豌豆",
+        "大豆油",
+        "酱油"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/recall/f018",
+      "source_type": "samr_food_recall",
+      "approved_date": "2024-04-22",
+      "manufacturer": "某某速食餐饮"
+    },
+    {
+      "id": "food_sample_019",
+      "name": "蟹黄堡",
+      "category": "food",
+      "components": [
+        "面包",
+        "蟹肉",
+        "蛋黄酱",
+        "生菜",
+        "番茄"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f019",
+      "source_type": "food_license",
+      "approved_date": "2024-06-01",
+      "manufacturer": "某某汉堡餐饮"
+    },
+    {
+      "id": "food_sample_020",
+      "name": "牛奶巧克力",
+      "category": "food",
+      "components": [
+        "可可液块",
+        "牛奶",
+        "白砂糖",
+        "大豆卵磷脂"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f020",
+      "source_type": "food_license",
+      "approved_date": "2024-05-20",
+      "manufacturer": "某某巧克力有限公司"
+    },
+    {
+      "id": "food_sample_021",
+      "name": "豆浆",
+      "category": "food",
+      "components": [
+        "非转基因大豆",
+        "水"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f021",
+      "source_type": "food_license",
+      "approved_date": "2024-06-10",
+      "manufacturer": "某某豆制品厂"
+    },
+    {
+      "id": "food_sample_022",
+      "name": "三文鱼寿司",
+      "category": "food",
+      "components": [
+        "米饭",
+        "三文鱼",
+        "海苔",
+        "酱油",
+        "芥末",
+        "芝麻"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "生食，孕妇及免疫低下者慎用",
+      "source_url": "https://www.samr.gov.cn/food/license/f022",
+      "source_type": "food_license",
+      "approved_date": "2024-06-12",
+      "manufacturer": "某某日料餐饮"
+    },
+    {
+      "id": "food_sample_023",
+      "name": "杏仁饼干",
+      "category": "food",
+      "components": [
+        "杏仁",
+        "小麦粉",
+        "黄油",
+        "白砂糖"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含坚果",
+      "source_url": "https://www.samr.gov.cn/food/license/f023",
+      "source_type": "food_license",
+      "approved_date": "2024-05-30",
+      "manufacturer": "某某饼干食品"
+    },
+    {
+      "id": "food_sample_024",
+      "name": "芝麻糊",
+      "category": "food",
+      "components": [
+        "黑芝麻",
+        "糯米",
+        "白砂糖",
+        "水"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f024",
+      "source_type": "food_license",
+      "approved_date": "2024-06-18",
+      "manufacturer": "某某谷物食品"
+    },
+    {
+      "id": "food_sample_025",
+      "name": "方便面",
+      "category": "food",
+      "components": [
+        "面饼",
+        "棕榈油",
+        "食盐",
+        "味精",
+        "酱油粉"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "高钠食品",
+      "source_url": "https://www.samr.gov.cn/food/recall/f025",
+      "source_type": "samr_food_recall",
+      "approved_date": "2024-03-11",
+      "manufacturer": "某某方便食品"
+    },
+    {
+      "id": "food_sample_026",
+      "name": "可乐",
+      "category": "food",
+      "components": [
+        "水",
+        "果葡糖浆",
+        "白砂糖",
+        "咖啡因",
+        "二氧化碳"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "高糖饮料",
+      "source_url": "https://www.samr.gov.cn/food/license/f026",
+      "source_type": "food_license",
+      "approved_date": "2024-06-20",
+      "manufacturer": "某某饮料有限公司"
+    },
+    {
+      "id": "food_sample_027",
+      "name": "炸鸡",
+      "category": "food",
+      "components": [
+        "鸡肉",
+        "小麦粉",
+        "大豆油",
+        "食盐",
+        "鸡蛋"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "油炸食品，含反式脂肪",
+      "source_url": "https://www.samr.gov.cn/food/recall/f027",
+      "source_type": "samr_food_recall",
+      "approved_date": "2024-04-30",
+      "manufacturer": "某某炸鸡连锁"
+    },
+    {
+      "id": "food_sample_028",
+      "name": "薯片",
+      "category": "food",
+      "components": [
+        "马铃薯",
+        "植物油",
+        "食盐"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f028",
+      "source_type": "food_license",
+      "approved_date": "2024-06-05",
+      "manufacturer": "某某膨化食品"
+    },
+    {
+      "id": "food_sample_029",
+      "name": "凯撒沙拉",
+      "category": "food",
+      "components": [
+        "生菜",
+        "帕玛森芝士",
+        "面包丁",
+        "鸡蛋",
+        "鳀鱼",
+        "沙拉酱"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含鱼、蛋、乳、麸质",
+      "source_url": "https://www.samr.gov.cn/food/license/f029",
+      "source_type": "food_license",
+      "approved_date": "2024-06-22",
+      "manufacturer": "某某轻食餐饮"
+    },
+    {
+      "id": "food_sample_030",
+      "name": "海鲜披萨",
+      "category": "food",
+      "components": [
+        "小麦粉",
+        "马苏里拉芝士",
+        "虾仁",
+        "蟹柳",
+        "番茄酱",
+        "鸡蛋"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含甲壳类、乳、蛋、麸质",
+      "source_url": "https://www.samr.gov.cn/food/license/f030",
+      "source_type": "food_license",
+      "approved_date": "2024-06-25",
+      "manufacturer": "某某披萨餐饮"
+    },
+    {
+      "id": "food_sample_031",
+      "name": "提拉米苏",
+      "category": "food",
+      "components": [
+        "马斯卡彭芝士",
+        "手指饼干",
+        "鸡蛋",
+        "咖啡",
+        "可可粉"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含生蛋、乳、麸质、咖啡因",
+      "source_url": "https://www.samr.gov.cn/food/license/f031",
+      "source_type": "food_license",
+      "approved_date": "2024-06-28",
+      "manufacturer": "某某甜品工坊"
+    },
+    {
+      "id": "food_sample_032",
+      "name": "麻薯",
+      "category": "food",
+      "components": [
+        "糯米粉",
+        "牛奶",
+        "白砂糖",
+        "黄油"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f032",
+      "source_type": "food_license",
+      "approved_date": "2024-07-01",
+      "manufacturer": "某某糕点厂"
+    },
+    {
+      "id": "food_sample_033",
+      "name": "麻辣香锅底料",
+      "category": "food",
+      "components": [
+        "大豆油",
+        "豆瓣酱",
+        "花椒",
+        "辣椒",
+        "味精",
+        "白砂糖"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "高钠",
+      "source_url": "https://www.samr.gov.cn/food/recall/f033",
+      "source_type": "samr_food_recall",
+      "approved_date": "2024-05-12",
+      "manufacturer": "某某调味品"
+    },
+    {
+      "id": "food_sample_034",
+      "name": "蛋黄酥",
+      "category": "food",
+      "components": [
+        "小麦粉",
+        "蛋黄",
+        "红豆沙",
+        "黄油",
+        "芝麻"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含蛋、麸质、芝麻",
+      "source_url": "https://www.samr.gov.cn/food/license/f034",
+      "source_type": "food_license",
+      "approved_date": "2024-07-05",
+      "manufacturer": "某某糕点食品"
+    },
+    {
+      "id": "food_sample_035",
+      "name": "花生牛轧糖",
+      "category": "food",
+      "components": [
+        "花生",
+        "麦芽糖",
+        "蛋白",
+        "奶粉"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含花生、乳",
+      "source_url": "https://www.samr.gov.cn/food/license/f035",
+      "source_type": "food_license",
+      "approved_date": "2024-07-08",
+      "manufacturer": "某某糖果厂"
+    },
+    {
+      "id": "food_sample_036",
+      "name": "咖喱块",
+      "category": "food",
+      "components": [
+        "棕榈油",
+        "小麦粉",
+        "香辛料",
+        "食盐",
+        "白砂糖",
+        "脱脂乳粉"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含麸质、乳",
+      "source_url": "https://www.samr.gov.cn/food/license/f036",
+      "source_type": "food_license",
+      "approved_date": "2024-07-10",
+      "manufacturer": "某某调味食品"
+    },
+    {
+      "id": "food_sample_037",
+      "name": "豆腐",
+      "category": "food",
+      "components": [
+        "非转基因大豆",
+        "凝固剂",
+        "水"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": null,
+      "source_url": "https://www.samr.gov.cn/food/license/f037",
+      "source_type": "food_license",
+      "approved_date": "2024-07-12",
+      "manufacturer": "某某豆制品厂"
+    },
+    {
+      "id": "food_sample_038",
+      "name": "酒心巧克力",
+      "category": "food",
+      "components": [
+        "可可液块",
+        "白砂糖",
+        "酒精",
+        "奶油"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含酒精，儿童与服药者禁用",
+      "source_url": "https://www.samr.gov.cn/food/license/f038",
+      "source_type": "food_license",
+      "approved_date": "2024-07-15",
+      "manufacturer": "某某酒心糖厂"
+    },
+    {
+      "id": "food_sample_039",
+      "name": "无牛奶添加米浆",
+      "category": "food",
+      "components": [
+        "大米",
+        "水",
+        "无牛奶添加",
+        "植物油"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "植物基，标注无牛奶添加",
+      "source_url": "https://www.samr.gov.cn/food/license/f039",
+      "source_type": "food_license",
+      "approved_date": "2024-07-18",
+      "manufacturer": "某某植物饮"
+    },
+    {
+      "id": "food_sample_040",
+      "name": "无麸质糙米饼干",
+      "category": "food",
+      "components": [
+        "糙米",
+        "大米",
+        "植物油",
+        "海盐"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "标注无麸质",
+      "source_url": "https://www.samr.gov.cn/food/license/f040",
+      "source_type": "food_license",
+      "approved_date": "2024-07-20",
+      "manufacturer": "某某无麸质食品"
+    },
+    {
+      "id": "food_sample_041",
+      "name": "燕麦植物饮",
+      "category": "food",
+      "components": [
+        "燕麦",
+        "水",
+        "植物油",
+        "无乳糖添加"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "植物基，标注无乳糖",
+      "source_url": "https://www.samr.gov.cn/food/license/f041",
+      "source_type": "food_license",
+      "approved_date": "2024-07-22",
+      "manufacturer": "某某植物饮"
+    },
+    {
+      "id": "food_sample_042",
+      "name": "凉拌海蜇",
+      "category": "food",
+      "components": [
+        "海蜇",
+        "酱油",
+        "芝麻",
+        "蒜",
+        "醋"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含芝麻，高钠",
+      "source_url": "https://www.samr.gov.cn/food/recall/f042",
+      "source_type": "samr_food_recall",
+      "approved_date": "2024-06-30",
+      "manufacturer": "某某水产凉菜"
+    },
+    {
+      "id": "chem_sample_012",
+      "name": "去屑洗发水",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "月桂醇硫酸酯钠",
+        "甲基异噻唑啉酮",
+        "香精",
+        "吡硫鎓锌"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 SLS、MIT、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c012",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-05-01",
+      "manufacturer": "某某日化"
+    },
+    {
+      "id": "chem_sample_013",
+      "name": "防晒霜 SPF50",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "氧化锌",
+        "二苯酮-3",
+        "甘油"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含氧苯酮",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c013",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-05-10",
+      "manufacturer": "某某防晒"
+    },
+    {
+      "id": "chem_sample_014",
+      "name": "植物染发剂",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "对苯二胺",
+        "乙醇胺",
+        "间苯二酚"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 PPD，染发前需皮试",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c014",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-05-18",
+      "manufacturer": "某某染发"
+    },
+    {
+      "id": "chem_sample_015",
+      "name": "婴儿湿巾",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "甘油",
+        "dmdm乙内酰脲",
+        "苯氧乙醇"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含甲醛释放体",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c015",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-05-22",
+      "manufacturer": "某某母婴"
+    },
+    {
+      "id": "chem_sample_016",
+      "name": "保湿面霜",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "甘油",
+        "羟苯甲酯",
+        "香精",
+        "角鲨烷"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 parabens、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c016",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-06-02",
+      "manufacturer": "某某护肤"
+    },
+    {
+      "id": "chem_sample_017",
+      "name": "抗菌牙膏",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "二氧化硅",
+        "月桂醇硫酸酯钠",
+        "三氯生",
+        "香精"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 SLS、三氯生",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c017",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-06-08",
+      "manufacturer": "某某口腔"
+    },
+    {
+      "id": "chem_sample_018",
+      "name": "淡香水",
+      "category": "daily_chem",
+      "components": [
+        "乙醇",
+        "香精",
+        "水",
+        "邻苯二甲酸二乙酯"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含香精、定香剂（邻苯二甲酸酯）",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c018",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-06-12",
+      "manufacturer": "某某香水"
+    },
+    {
+      "id": "chem_sample_019",
+      "name": "哑光口红",
+      "category": "daily_chem",
+      "components": [
+        "蓖麻油",
+        "二丁基羟基甲苯",
+        "二氧化钛",
+        "香精"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 BHT、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c019",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-06-15",
+      "manufacturer": "某某彩妆"
+    },
+    {
+      "id": "chem_sample_020",
+      "name": "沐浴露",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "月桂醇硫酸酯钠",
+        "椰油酰胺",
+        "香精",
+        "甲基异噻唑啉酮"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 SLS、MIT、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c020",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-06-20",
+      "manufacturer": "某某洗护"
+    },
+    {
+      "id": "chem_sample_021",
+      "name": "护手霜",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "甘油",
+        "羟苯甲酯",
+        "甲基异噻唑啉酮",
+        "香精"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 parabens、MIT、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c021",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-06-25",
+      "manufacturer": "某某护肤"
+    },
+    {
+      "id": "chem_sample_022",
+      "name": "免洗洗手液",
+      "category": "daily_chem",
+      "components": [
+        "乙醇",
+        "甘油",
+        "水",
+        "香精"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含酒精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c022",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-01",
+      "manufacturer": "某某消毒"
+    },
+    {
+      "id": "chem_sample_023",
+      "name": "水杨酸身体乳",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "水杨酸",
+        "甘油",
+        "苯氧乙醇"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含水杨酸（β-羟基酸）",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c023",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-05",
+      "manufacturer": "某某祛痘护肤"
+    },
+    {
+      "id": "chem_sample_024",
+      "name": "男士须后水",
+      "category": "daily_chem",
+      "components": [
+        "乙醇",
+        "水",
+        "香精",
+        "薄荷醇"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含酒精、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c024",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-08",
+      "manufacturer": "某某男士"
+    },
+    {
+      "id": "chem_sample_025",
+      "name": "儿童洗发水",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "椰油基甜菜碱",
+        "甘油",
+        "香精"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含香精，儿童款",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c025",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-10",
+      "manufacturer": "某某母婴"
+    },
+    {
+      "id": "chem_sample_026",
+      "name": "卸妆油",
+      "category": "daily_chem",
+      "components": [
+        "橄榄油",
+        "PEG-20 甘油月桂酸酯",
+        "香精",
+        "水"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c026",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-12",
+      "manufacturer": "某某卸妆"
+    },
+    {
+      "id": "chem_sample_027",
+      "name": "防晒喷雾",
+      "category": "daily_chem",
+      "components": [
+        "乙醇",
+        "奥克立林",
+        "二苯酮-3",
+        "香精"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含酒精、氧苯酮、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c027",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-15",
+      "manufacturer": "某某防晒"
+    },
+    {
+      "id": "chem_sample_028",
+      "name": "染发膏（黑）",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "对苯二胺",
+        "间苯二酚",
+        "丙二醇"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 PPD，过敏风险高",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c028",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-18",
+      "manufacturer": "某某染发"
+    },
+    {
+      "id": "chem_sample_029",
+      "name": "眼霜",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "甘油",
+        "羟苯丙酯",
+        "咖啡因",
+        "香精"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 parabens、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c029",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-20",
+      "manufacturer": "某某护肤"
+    },
+    {
+      "id": "chem_sample_030",
+      "name": "爽身粉",
+      "category": "daily_chem",
+      "components": [
+        "玉米淀粉",
+        "滑石粉",
+        "香精"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c030",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-22",
+      "manufacturer": "某某母婴"
+    },
+    {
+      "id": "chem_sample_031",
+      "name": "洗手液（泡沫）",
+      "category": "daily_chem",
+      "components": [
+        "水",
+        "月桂醇硫酸酯钠",
+        "甲基异噻唑啉酮",
+        "香精",
+        "甘油"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含 SLS、MIT、香精",
+      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c031",
+      "source_type": "nmpa_cosmetic",
+      "approved_date": "2024-07-25",
+      "manufacturer": "某某洗护"
+    },
+    {
+      "id": "drug_sample_012",
+      "name": "阿莫西林胶囊",
+      "category": "drug",
+      "components": [
+        "阿莫西林",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "青霉素类抗生素，青霉素过敏者禁用",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d012",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-05-01",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_013",
+      "name": "阿司匹林肠溶片",
+      "category": "drug",
+      "components": [
+        "阿司匹林",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "alcohol",
+        "driving"
+      ],
+      "warnings": "抗血小板药，用药期间禁酒，驾驶者慎用",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d013",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-05-08",
+      "manufacturer": "某某药业"
+    },
+    {
+      "id": "drug_sample_014",
+      "name": "复方新诺明片",
+      "category": "drug",
+      "components": [
+        "磺胺甲噁唑",
+        "甲氧苄啶"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "磺胺类药物，磺胺过敏者禁用",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d014",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-05-12",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_015",
+      "name": "甲硝唑片",
+      "category": "drug",
+      "components": [
+        "甲硝唑",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "alcohol"
+      ],
+      "warnings": "用药期间及停药后禁酒",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d015",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-05-15",
+      "manufacturer": "某某药业"
+    },
+    {
+      "id": "drug_sample_016",
+      "name": "头孢克肟胶囊",
+      "category": "drug",
+      "components": [
+        "头孢克肟",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "alcohol"
+      ],
+      "warnings": "头孢类，用药期间禁酒",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d016",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-05-18",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_017",
+      "name": "左氧氟沙星片",
+      "category": "drug",
+      "components": [
+        "左氧氟沙星",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "minors",
+        "driving"
+      ],
+      "warnings": "喹诺酮类，18 岁以下禁用，驾驶者慎用",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d017",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-05-22",
+      "manufacturer": "某某药业"
+    },
+    {
+      "id": "drug_sample_018",
+      "name": "布洛芬缓释胶囊",
+      "category": "drug",
+      "components": [
+        "布洛芬",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "pregnancy",
+        "kidney"
+      ],
+      "warnings": "孕妇及肾功能不全者慎用",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d018",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-05-25",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_019",
+      "name": "氯雷他定片",
+      "category": "drug",
+      "components": [
+        "氯雷他定",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "driving"
+      ],
+      "warnings": "抗组胺药，服药后勿驾驶",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d019",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-05-28",
+      "manufacturer": "某某药业"
+    },
+    {
+      "id": "drug_sample_020",
+      "name": "对乙酰氨基酚片",
+      "category": "drug",
+      "components": [
+        "对乙酰氨基酚",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "解热镇痛，肝功能不全者慎用",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d020",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-01",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_021",
+      "name": "蒙脱石散",
+      "category": "drug",
+      "components": [
+        "蒙脱石",
+        "葡萄糖"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "吸附性止泻，相对安全",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d021",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-05",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_022",
+      "name": "维生素 C 片",
+      "category": "drug",
+      "components": [
+        "维生素C",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "膳食补充剂",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d022",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-08",
+      "manufacturer": "某某药业"
+    },
+    {
+      "id": "drug_sample_023",
+      "name": "二甲双胍缓释片",
+      "category": "drug",
+      "components": [
+        "二甲双胍",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "diabetes"
+      ],
+      "warnings": "降糖药，糖尿病用药",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d023",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-12",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_024",
+      "name": "硝酸甘油片",
+      "category": "drug",
+      "components": [
+        "硝酸甘油",
+        "乳糖"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "hypertension"
+      ],
+      "warnings": "心绞痛急救，低血压者慎用",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d024",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-15",
+      "manufacturer": "某某药业"
+    },
+    {
+      "id": "drug_sample_025",
+      "name": "布洛芬混悬液（儿童）",
+      "category": "drug",
+      "components": [
+        "布洛芬",
+        "糖浆"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "minors"
+      ],
+      "warnings": "儿童解热镇痛",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d025",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-18",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_026",
+      "name": "枇杷止咳糖浆",
+      "category": "drug",
+      "components": [
+        "枇杷叶",
+        "桔梗",
+        "薄荷脑",
+        "蔗糖"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "含糖咳嗽糖浆",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d026",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-22",
+      "manufacturer": "某某中药"
+    },
+    {
+      "id": "drug_sample_027",
+      "name": "钙片",
+      "category": "drug",
+      "components": [
+        "碳酸钙",
+        "维生素D3"
+      ],
+      "nutrition": null,
+      "contraindications": [],
+      "warnings": "补钙制剂",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d027",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-25",
+      "manufacturer": "某某药业"
+    },
+    {
+      "id": "drug_sample_028",
+      "name": "褪黑素片",
+      "category": "drug",
+      "components": [
+        "褪黑素",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "driving"
+      ],
+      "warnings": "助眠，服药后勿驾驶操作",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d028",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-06-28",
+      "manufacturer": "某某保健"
+    },
+    {
+      "id": "drug_sample_029",
+      "name": "口服避孕药",
+      "category": "drug",
+      "components": [
+        "炔雌醇",
+        "左炔诺孕酮"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "pregnancy",
+        "lactation"
+      ],
+      "warnings": "激素类，孕妇及哺乳期禁用",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d029",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-07-01",
+      "manufacturer": "某某制药"
+    },
+    {
+      "id": "drug_sample_030",
+      "name": "头孢拉定胶囊",
+      "category": "drug",
+      "components": [
+        "头孢拉定",
+        "淀粉"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "alcohol"
+      ],
+      "warnings": "头孢类，用药期间禁酒",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d030",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-07-05",
+      "manufacturer": "某某药业"
+    },
+    {
+      "id": "drug_sample_031",
+      "name": "红花油（外用）",
+      "category": "drug",
+      "components": [
+        "水杨酸甲酯",
+        "桂叶油",
+        "薄荷脑"
+      ],
+      "nutrition": null,
+      "contraindications": [
+        "pregnancy"
+      ],
+      "warnings": "外用药，孕妇慎用，含水杨酸甲酯",
+      "source_url": "https://www.nmpa.gov.cn/drug/reg/d031",
+      "source_type": "nmpa_drug",
+      "approved_date": "2024-07-08",
+      "manufacturer": "某某外用药"
     }
   ]
 }
