@@ -14,6 +14,7 @@
 """
 import json
 import os
+import re
 
 _DATA_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _PATH = os.path.join(_DATA_DIR, "data", "components.json")
@@ -46,18 +47,58 @@ def hazard_category(id_):
     return h["category"] if h else None
 
 
+# 否定表述强标记（出现即视为"无/未添加"声明，不计入危害）
+NEGATION_STRONG = ("不含", "未含", "未添加", "不添加", "无添加", "free", "zero")
+# 子串匹配时排除的易误报单字键：麦（荞麦非麸质）、乳（乳酸/乳糖非乳源）、鱼（鱼香肉丝非鱼）
+SUBSTRING_BLOCKED_SINGLE = {"麦", "乳", "鱼"}
+# 可作为子串匹配的安全单字键
+SUBSTRING_SAFE_SINGLE = {"蛋", "虾", "蟹"}
+_HAZARD_KEYWORDS = set(COMPONENT_RULES.keys()) | set(HAZARD_INDEX.keys())
+
+
+def _normalize_component(c):
+    """成分名归一化：去括号及说明、去标点/分隔符、转小写，便于稳健匹配。"""
+    c = (c or "").strip()
+    c = re.sub(r"[（(][^)）]*[)）]", "", c)  # 去掉（说明）
+    c = re.sub(r"[，,、\s]", "", c)
+    return c.lower()
+
+
+def _is_negation(norm):
+    """判断归一化后的成分是否为否定/无添加声明。"""
+    if any(m in norm for m in NEGATION_STRONG):
+        return True
+    # "无 + 危害关键词" 视为否定声明（无牛奶 / 无麸质），避免误报
+    if "无" in norm and any(k and k in norm for k in _HAZARD_KEYWORDS):
+        return True
+    return False
+
+
 def match_hazards(component_list):
-    """根据成分列表推导确定性危害集合。
+    """根据成分列表推导确定性危害集合（精确匹配 + 安全子串 + 否定识别）。
 
     返回 {hazard_id: [触发成分...]}
     """
     result = {}
     for comp in component_list or []:
-        comp = comp.strip()
-        if comp in COMPONENT_RULES:
-            for hid in COMPONENT_RULES[comp]:
+        norm = _normalize_component(comp)
+        if not norm or _is_negation(norm):
+            continue
+        # 1) 精确匹配
+        if norm in COMPONENT_RULES:
+            for hid in COMPONENT_RULES[norm]:
                 if hid:
                     result.setdefault(hid, []).append(comp)
+        # 2) 安全子串匹配（多字键全开；单字键仅放行安全集）
+        for key, hids in COMPONENT_RULES.items():
+            if not hids or key == norm:
+                continue
+            if len(key) == 1 and key not in SUBSTRING_SAFE_SINGLE:
+                continue
+            if key in norm:
+                for hid in hids:
+                    if hid:
+                        result.setdefault(hid, []).append(comp)
     return result
 
 

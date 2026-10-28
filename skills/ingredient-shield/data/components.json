@@ -6,7 +6,7 @@
     "disclaimer": "本文件为开源演示知识库，非任何品牌或监管官方数据，仅供参考，不构成医疗、用药或法律建议。"
   },
   "hazards": [
-    {"id": "gluten", "zh": "麸质谷物", "en": "Cereals containing gluten", "category": "allergen", "mandatory_china": true, "common_sources": ["小麦", "黑麦", "大麦", "燕麦"]},
+    {"id": "gluten", "zh": "麸质谷物", "en": "Cereals containing gluten", "category": "allergen", "mandatory_china": true, "common_sources": ["小麦", "黑麦", "大麦"]},
     {"id": "crustaceans", "zh": "甲壳类", "en": "Crustaceans", "category": "allergen", "mandatory_china": true, "common_sources": ["虾", "蟹", "龙虾"]},
     {"id": "fish", "zh": "鱼类", "en": "Fish", "category": "allergen", "mandatory_china": true, "common_sources": ["鱼", "鳕鱼", "三文鱼"]},
     {"id": "eggs", "zh": "蛋类", "en": "Eggs", "category": "allergen", "mandatory_china": true, "common_sources": ["鸡蛋", "蛋黄", "蛋白"]},
@@ -31,6 +31,7 @@
     {"id": "oxybenzone", "zh": "氧苯酮", "en": "Oxybenzone", "category": "substance", "mandatory_china": false, "common_sources": ["化学防晒剂"]},
     {"id": "coal_tar", "zh": "煤焦油/染发剂", "en": "Coal tar dye", "category": "substance", "mandatory_china": false, "common_sources": ["永久染发剂", "焦油洗发水"]},
     {"id": "bha_bht", "zh": "丁基羟基茴香醚/甲苯", "en": "BHA/BHT", "category": "substance", "mandatory_china": false, "common_sources": ["油脂抗氧化剂", "口红"]},
+    {"id": "retinol", "zh": "维A类（视黄醇）", "en": "Retinol / Retinoid", "category": "substance", "mandatory_china": false, "common_sources": ["抗老/祛痘护肤品", "维A酸类外用药"]},
 
     {"id": "penicillin", "zh": "青霉素类", "en": "Penicillins", "category": "drug_allergy", "mandatory_china": false, "common_sources": ["阿莫西林", "青霉素注射剂"]},
     {"id": "aspirin", "zh": "阿司匹林/水杨酸类", "en": "Aspirin/Salicylates", "category": "drug_allergy", "mandatory_china": false, "common_sources": ["阿司匹林", "水杨酸甲酯"]},
@@ -56,7 +57,7 @@
     "大豆": ["soy"], "豆制品": ["soy"], "大豆油": ["soy"], "味噌": ["soy"],
     "杏仁": ["treenuts"], "核桃": ["treenuts"], "腰果": ["treenuts"], "榛子": ["treenuts"],
     "芹菜": ["celery"], "芥末": ["mustard"], "亚硫酸盐": ["sulphites"], "羽扇豆": ["lupin"], "贝类": ["molluscs"], "鱿鱼": ["molluscs"], "章鱼": ["molluscs"],
-    "全麦": ["gluten"], "意面": ["gluten"], "燕麦": ["gluten"],
+    "全麦": ["gluten"], "意面": ["gluten"],
 
     "甲基异噻唑啉酮": ["mit"], "卡松": ["mit"], "凯松": ["mit"],
     "香精": ["fragrance"], "香料": ["fragrance"], "parfum": ["fragrance"],
@@ -71,7 +72,25 @@
 
     "阿莫西林": ["penicillin"], "青霉素": ["penicillin"],
     "阿司匹林": ["aspirin"], "水杨酸": ["aspirin"],
-    "磺胺": ["sulfa"], "磺胺甲噁唑": ["sulfa"]
+    "磺胺": ["sulfa"], "磺胺甲噁唑": ["sulfa"],
+
+    "麸质": ["gluten"], "大麦": ["gluten"], "黑麦": ["gluten"],
+    "奶油": ["milk"], "牛乳": ["milk"], "炼乳": ["milk"], "酸奶": ["milk"], "奶粉": ["milk"],
+    "蛋清": ["eggs"], "鹌鹑蛋": ["eggs"], "皮蛋": ["eggs"],
+    "纳豆": ["soy"], "豆腐": ["soy"], "豆奶": ["soy"], "黄豆": ["soy"], "毛豆": ["soy"],
+    "开心果": ["treenuts"], "碧根果": ["treenuts"], "巴旦木": ["treenuts"], "夏威夷果": ["treenuts"], "松子": ["treenuts"],
+    "金枪鱼": ["fish"], "带鱼": ["fish"], "鲈鱼": ["fish"],
+    "螃蟹": ["crustaceans"], "基围虾": ["crustaceans"],
+    "扇贝": ["molluscs"], "牡蛎": ["molluscs"],
+    "香芹": ["celery"],
+
+    "苯氧乙醇": ["sensitizer"], "氯苯甘醚": ["sensitizer"],
+    "羟苯乙酯": ["parabens"], "羟苯丙酯": ["parabens"], "羟丁酯": ["parabens"],
+    "水杨酸甲酯": ["aspirin"],
+    "视黄醇": ["retinol"], "维a酸": ["retinol"], "a醇": ["retinol"],
+
+    "氨苄西林": ["penicillin"], "哌拉西林": ["penicillin"], "苯唑西林": ["penicillin"],
+    "磺胺嘧啶": ["sulfa"], "柳氮磺吡啶": ["sulfa"]
   },
   "cross_contact_risks": [
     {"equipment": "油炸设备", "note": "薯条与炸鸡、鱼柳等共用油炸设备，存在鱼/甲壳类交叉污染风险", "related_hazards": ["fish", "crustaceans"], "applies_to_keyword": ["薯条", "炸鸡"]},

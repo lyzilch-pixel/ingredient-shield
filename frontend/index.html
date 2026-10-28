@@ -179,6 +179,12 @@
   .prov { font-size: 12.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; border-top: 1px dashed var(--line); padding-top: 6px; }
   .prov .src { color: var(--accent); font-weight: 600; }
   .prov a.src { color: var(--accent); font-weight: 600; text-decoration: underline; }
+  .combo-grid { display: flex; flex-direction: column; gap: 10px; }
+  .combo { border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.5; }
+  .combo.block { background: #fff1f0; border: 1px solid #ffccc7; color: #a8071a; }
+  .combo.warn { background: #fffbe6; border: 1px solid #ffe58f; color: #ad6800; }
+  .combo-detail { font-size: 12.5px; font-weight: 400; margin-top: 4px; opacity: .92; }
+  .combo-empty { font-size: 13px; color: var(--gray); padding: 8px 2px; }
   /* 窄屏：数据来源区域改为纵向堆叠，分段控件占满宽度并允许内部换行，避免撑破外框 */
   @media (max-width: 560px){
     .ds-toggle { flex-direction: column; align-items: stretch; gap: 8px; }
@@ -273,6 +279,13 @@
     <div id="resultBox" class="result-grid"></div>
   </div>
 
+  <!-- 3.5 组合风险 -->
+  <div class="card">
+    <h2><span class="num">⚠</span>组合风险预警</h2>
+    <div class="sec-title">跨品类 / 跨产品叠加暴露：服药期间接触含酒精产品、水杨酸内外叠加、孕期接触风险物质等（仅当命中你的画像或清单内药品时提示）</div>
+    <div id="comboBox" class="combo-grid"></div>
+  </div>
+
   <!-- 4. 分享卡 -->
   <div class="card">
     <h2><span class="num">4</span>我的安全清单</h2>
@@ -301,38 +314,42 @@ const HAZ = {
   sls:{zh:"十二烷基硫酸盐",cat:"sensitizer"},fragrance:{zh:"香精/香料",cat:"sensitizer"},
   formaldehyde_releaser:{zh:"甲醛释放体",cat:"substance"},triclosan:{zh:"三氯生",cat:"substance"},
   phthalates:{zh:"邻苯二甲酸酯",cat:"substance"},oxybenzone:{zh:"氧苯酮",cat:"substance"},
-  coal_tar:{zh:"煤焦油/染发剂",cat:"substance"},bha_bht:{zh:"BHA/BHT",cat:"substance"},
+  coal_tar:{zh:"煤焦油/染发剂",cat:"substance"},bha_bht:{zh:"BHA/BHT",cat:"substance"},retinol:{zh:"维A类（视黄醇）",cat:"substance"},
   penicillin:{zh:"青霉素类",cat:"drug_allergy"},aspirin:{zh:"阿司匹林类",cat:"drug_allergy"},sulfa:{zh:"磺胺类",cat:"drug_allergy"},
   pregnancy:{zh:"孕期",cat:"condition"},lactation:{zh:"哺乳期",cat:"condition"},hypertension:{zh:"高血压",cat:"condition"},
   diabetes:{zh:"糖尿病",cat:"condition"},kidney:{zh:"肾功能不全",cat:"condition"},minors:{zh:"未成年",cat:"condition"},
   alcohol:{zh:"服药禁酒",cat:"condition"},driving:{zh:"服药勿驾驶",cat:"condition"}
 };
 const FOOD_ALLERGEN = ["gluten","crustaceans","fish","eggs","peanuts","soy","milk","treenuts","celery","mustard","sesame","sulphites","lupin","molluscs"];
-const CHEM_HAZ = ["mit","parabens","sls","fragrance","formaldehyde_releaser","triclosan","phthalates","oxybenzone","coal_tar","bha_bht"];
+const CHEM_HAZ = ["mit","parabens","sls","fragrance","formaldehyde_releaser","triclosan","phthalates","oxybenzone","coal_tar","bha_bht","retinol"];
 const DRUG_ALLERGY = ["penicillin","aspirin","sulfa"];
 const CONDITIONS = ["pregnancy","lactation","hypertension","diabetes","kidney","minors","alcohol","driving"];
-const HIGH_SUB = {"formaldehyde_releaser":1,"coal_tar":1};
+const HIGH_SUB = {"formaldehyde_releaser":1,"coal_tar":1,"retinol":1};
 
 const ING_RULES = {
-  "小麦":["gluten"],"面粉":["gluten"],"面包":["gluten"],"面团":["gluten"],"麦":["gluten"],"面糊":["gluten"],"酱油":["soy","gluten"],"麸":["gluten"],"全麦":["gluten"],"意面":["gluten"],"燕麦":["gluten"],
+  "小麦":["gluten"],"面粉":["gluten"],"面包":["gluten"],"面团":["gluten"],"麦":["gluten"],"面糊":["gluten"],"酱油":["soy","gluten"],"麸":["gluten"],"全麦":["gluten"],"意面":["gluten"],"麸质":["gluten"],"大麦":["gluten"],"黑麦":["gluten"],
   "芝麻":["sesame"],"白芝麻":["sesame"],"黑芝麻":["sesame"],
   "牛肉":[],"鸡肉":[],"猪肉":[],"土豆":[],"玉米":[],"苹果":[],"生菜":[],"洋葱":[],"番茄":[],"黄瓜":[],"番茄酱":[],
-  "鱼":["fish"],"鳕鱼":["fish"],"三文鱼":["fish"],"虾":["crustaceans"],"蟹":["crustaceans"],"龙虾":["crustaceans"],
-  "芝士":["milk"],"奶酪":["milk"],"牛奶":["milk"],"乳":["milk"],"黄油":["milk"],"乳清":["milk"],"冰淇淋":["milk"],"奶昔":["milk"],
-  "鸡蛋":["eggs"],"蛋黄":["eggs"],"蛋白":["eggs"],"蛋":["eggs"],
+  "鱼":["fish"],"鳕鱼":["fish"],"三文鱼":["fish"],"金枪鱼":["fish"],"带鱼":["fish"],"鲈鱼":["fish"],"虾":["crustaceans"],"蟹":["crustaceans"],"龙虾":["crustaceans"],"螃蟹":["crustaceans"],"基围虾":["crustaceans"],"贝类":["molluscs"],"鱿鱼":["molluscs"],"章鱼":["molluscs"],"扇贝":["molluscs"],"牡蛎":["molluscs"],
+  "芝士":["milk"],"奶酪":["milk"],"牛奶":["milk"],"乳":["milk"],"黄油":["milk"],"乳清":["milk"],"冰淇淋":["milk"],"奶昔":["milk"],"奶油":["milk"],"牛乳":["milk"],"炼乳":["milk"],"酸奶":["milk"],"奶粉":["milk"],
+  "鸡蛋":["eggs"],"蛋黄":["eggs"],"蛋白":["eggs"],"蛋":["eggs"],"蛋清":["eggs"],"鹌鹑蛋":["eggs"],"皮蛋":["eggs"],
   "花生":["peanuts"],"花生酱":["peanuts"],
-  "大豆":["soy"],"豆制品":["soy"],"大豆油":["soy"],"味噌":["soy"],
-  "杏仁":["treenuts"],"核桃":["treenuts"],"腰果":["treenuts"],"榛子":["treenuts"],
-  "芹菜":["celery"],"芥末":["mustard"],"亚硫酸盐":["sulphites"],"羽扇豆":["lupin"],"贝类":["molluscs"],"鱿鱼":["molluscs"],"章鱼":["molluscs"],
+  "大豆":["soy"],"豆制品":["soy"],"大豆油":["soy"],"味噌":["soy"],"纳豆":["soy"],"豆腐":["soy"],"豆奶":["soy"],"黄豆":["soy"],"毛豆":["soy"],
+  "杏仁":["treenuts"],"核桃":["treenuts"],"腰果":["treenuts"],"榛子":["treenuts"],"开心果":["treenuts"],"碧根果":["treenuts"],"巴旦木":["treenuts"],"夏威夷果":["treenuts"],"松子":["treenuts"],
+  "芹菜":["celery"],"香芹":["celery"],"芥末":["mustard"],"亚硫酸盐":["sulphites"],"羽扇豆":["lupin"],
   "甲基异噻唑啉酮":["mit"],"卡松":["mit"],"凯松":["mit"],
   "香精":["fragrance"],"香料":["fragrance"],"parfum":["fragrance"],
   "十二烷基硫酸钠":["sls"],"月桂醇硫酸酯钠":["sls"],"sls":["sls"],
-  "对羟基苯甲酸酯":["parabens"],"羟苯甲酯":["parabens"],"paraben":["parabens"],
+  "对羟基苯甲酸酯":["parabens"],"羟苯甲酯":["parabens"],"paraben":["parabens"],"羟苯乙酯":["parabens"],"羟苯丙酯":["parabens"],"羟丁酯":["parabens"],
   "dmdm乙内酰脲":["formaldehyde_releaser"],"咪唑烷基脲":["formaldehyde_releaser"],"季铵盐-15":["formaldehyde_releaser"],
   "三氯生":["triclosan"],"邻苯二甲酸二乙酯":["phthalates"],"邻苯二甲酸酯":["phthalates"],"定香剂":["phthalates"],
   "氧苯酮":["oxybenzone"],"二苯酮-3":["oxybenzone"],"煤焦油":["coal_tar"],"对苯二胺":["coal_tar"],"ppd":["coal_tar"],
   "丁基羟基茴香醚":["bha_bht"],"二丁基羟基甲苯":["bha_bht"],"bha":["bha_bht"],"bht":["bha_bht"],
-  "阿莫西林":["penicillin"],"青霉素":["penicillin"],"阿司匹林":["aspirin"],"水杨酸":["aspirin"],"磺胺":["sulfa"],"磺胺甲噁唑":["sulfa"]
+  "苯氧乙醇":["sensitizer"],"氯苯甘醚":["sensitizer"],
+  "视黄醇":["retinol"],"维a酸":["retinol"],"a醇":["retinol"],
+  "阿莫西林":["penicillin"],"青霉素":["penicillin"],"氨苄西林":["penicillin"],"哌拉西林":["penicillin"],"苯唑西林":["penicillin"],
+  "阿司匹林":["aspirin"],"水杨酸":["aspirin"],"水杨酸甲酯":["aspirin"],
+  "磺胺":["sulfa"],"磺胺甲噁唑":["sulfa"],"磺胺嘧啶":["sulfa"],"柳氮磺吡啶":["sulfa"]
 };
 const CROSS = [
   {note:"油炸设备共用，存在鱼/甲壳类交叉污染风险",rel:["fish","crustaceans"],kw:["薯条","炸鸡"]},
@@ -475,8 +492,36 @@ const ALERTS = [
 ];
 
 // ===== 引擎逻辑（与 Python 对齐）=====
+// 匹配升级：归一化 + 安全子串 + 否定识别（与 Python 引擎对齐）
+const NEGATION_STRONG = ["不含","未含","未添加","不添加","无添加","free","zero"];
+const SUBSTRING_SAFE_SINGLE = {"蛋":1,"虾":1,"蟹":1}; // 仅放行安全单字键；麦/乳/鱼 仅走精确，避免荞麦/乳酸/鱼香肉丝 误报
+const _HAZARD_KEYWORDS = (function(){ const s=new Set(); for(const k in ING_RULES) s.add(k); for(const k in HAZ) s.add(k); return s; })();
+function _normComp(c){
+  if(!c) return "";
+  c = String(c).trim();
+  c = c.replace(/[（(][^)）]*[)）]/g, ""); // 去掉（说明）
+  c = c.replace(/[，,、\s]/g, "");
+  return c.toLowerCase();
+}
+function _isNegation(norm){
+  for(const m of NEGATION_STRONG){ if(norm.indexOf(m) >= 0) return true; }
+  if(norm.indexOf("无") >= 0){ for(const k of _HAZARD_KEYWORDS){ if(k && norm.indexOf(k) >= 0) return true; } }
+  return false;
+}
 function matchHazards(comp){
-  const r={}; (comp||[]).forEach(c=>{ if(ING_RULES[c]) ING_RULES[c].forEach(h=>{ if(h)(r[h]=r[h]||[]).push(c); }); }); return r;
+  const r={};
+  (comp||[]).forEach(c=>{
+    const norm = _normComp(c);
+    if(!norm || _isNegation(norm)) return; // 否定/无添加声明不计入危害
+    if(ING_RULES[norm]) ING_RULES[norm].forEach(h=>{ if(h)(r[h]=r[h]||[]).push(c); }); // 精确匹配
+    for(const key in ING_RULES){ // 安全子串匹配
+      const hids = ING_RULES[key];
+      if(!hids || key === norm) continue;
+      if(key.length === 1 && !SUBSTRING_SAFE_SINGLE[key]) continue;
+      if(norm.indexOf(key) >= 0) hids.forEach(h=>{ if(h)(r[h]=r[h]||[]).push(c); });
+    }
+  });
+  return r;
 }
 function matchCross(comp,name){
   const text=(name||"")+" "+(comp||[]).join(" "); const r={};
@@ -487,6 +532,50 @@ function analyzeItem(it){
   const contains=matchHazards(it.comp), may=matchCross(it.comp,it.name);
   const names=[...new Set([...Object.keys(contains),...Object.keys(may)])].map(id=>HAZ[id]?HAZ[id].zh:id);
   return {contains,may,names};
+}
+// ===== 跨品类组合风险（E）=====
+const ALCOHOL_TOKENS = ["酒精","乙醇"];
+function hasAlcohol(it){ return (it.comp||[]).some(c=>{ const n=_normComp(c); return ALCOHOL_TOKENS.some(t=>n.indexOf(t)>=0); }); }
+const COMBO_RISKY_CHEM = ["coal_tar","retinol","formaldehyde_releaser"];
+function analyzeCombinations(evs, prof){
+  const warns=[];
+  const aOf={}; evs.forEach(x=>{ aOf[x.it.id]=analyzeItem(x.it); });
+  const drugs = evs.filter(x=>x.it.cat==="drug");
+  const chems = evs.filter(x=>x.it.cat==="daily_chem");
+  const others= evs.filter(x=>x.it.cat!=="drug");
+  const hasCond = c => prof.conds.includes(c) || drugs.some(x=>(x.it.contra||[]).includes(c));
+  // 1) 酒精：含酒精的非药品 + 禁酒/驾驶条件
+  const alcoholItems = others.filter(x=>hasAlcohol(x.it));
+  if(alcoholItems.length && (hasCond("alcohol")||hasCond("driving"))){
+    const names = alcoholItems.map(x=>x.it.name);
+    warns.push({level:"block", title: hasCond("driving")?"服药驾驶 + 含酒精产品":"服药禁酒 + 含酒精产品",
+      detail:"含酒精：" + names.join("、") + "。酒精会干扰药效或加重中枢抑制，请避免同用。"});
+  }
+  // 2) 水杨酸叠加：药品含水杨酸类 + 日化含水杨酸
+  const drugAspirin = drugs.filter(x=>aOf[x.it.id].contains.aspirin);
+  const chemAspirin = chems.filter(x=>aOf[x.it.id].contains.aspirin);
+  if(drugAspirin.length && chemAspirin.length){
+    warns.push({level:"warn", title:"水杨酸叠加暴露",
+      detail:"药品 " + drugAspirin.map(x=>x.it.name).join("、") + " 与日化 " + chemAspirin.map(x=>x.it.name).join("、") + " 均含水杨酸类，内服+外用叠加需留意。"});
+  }
+  // 3) 孕期跨品类：仅看用户画像（是否怀孕），不因清单内有"孕妇慎用"药品而对非孕用户报警
+  if(prof.conds.includes("pregnancy")){
+    const risky = chems.filter(x=>COMBO_RISKY_CHEM.some(h=>aOf[x.it.id].contains[h]));
+    if(risky.length){
+      warns.push({level:"block", title:"孕期接触风险物质",
+        detail:"日化 " + risky.map(x=>x.it.name).join("、") + " 含孕期需谨慎成分（染发剂/维A类/甲醛释放体），请遵医嘱。"});
+    }
+  }
+  return warns;
+}
+function renderCombinations(warns){
+  const box=document.getElementById('comboBox'); if(!box) return;
+  if(!warns.length){ box.innerHTML='<div class="combo-empty">未识别到跨品类组合风险 ✅（设置画像或清单含相关药品后会自动提示）</div>'; return; }
+  box.innerHTML = warns.map(w=>{
+    const cls = w.level==='block'?'block':'warn';
+    const icon = w.level==='block'?'⛔':'⚠️';
+    return `<div class="combo ${cls}">${icon} <b>${w.title}</b><div class="combo-detail">${w.detail}</div></div>`;
+  }).join('');
 }
 function nutritionFlags(n){
   const flags=[]; const T={sodium:{h:800,w:600},sugar:{h:15,w:10},trans_fat:{h:0.5,w:0},calories:{h:700,w:500},fat:{h:30,w:25}};
@@ -560,8 +649,10 @@ function renderResults(){
   let items=DATASET.filter(it=> curCat==="all" || it.cat===curCat);
   const q=curQuery.trim().toLowerCase();
   if(q) items=items.filter(it=> it.name.toLowerCase().includes(q) || (it.comp||[]).join(" ").toLowerCase().includes(q));
-  let evs=items.map(it=>({it,ev:evaluate(it,prof)}));
-  const c={safe:0,warn:0,block:0}; evs.forEach(x=>c[x.ev.status]++); updateSummary(c, items.length);
+  let allEvs=items.map(it=>({it,ev:evaluate(it,prof)}));
+  const c={safe:0,warn:0,block:0}; allEvs.forEach(x=>c[x.ev.status]++); updateSummary(c, items.length);
+  renderCombinations(analyzeCombinations(allEvs, prof));
+  let evs=allEvs;
   if(curStatus!=="all") evs=evs.filter(x=>x.ev.status===curStatus);
   evs.sort((a,b)=> (CAT_ORDER[a.it.cat]-CAT_ORDER[b.it.cat]) || (rank(a.ev.status)-rank(b.ev.status)) || a.it.name.localeCompare(b.it.name));
   if(!evs.length){ box.innerHTML='<div class="empty">没有匹配的产品，试试调整筛选条件或搜索关键词。</div>'; return; }

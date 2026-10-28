@@ -1,6 +1,6 @@
 # 国家公开数据「定期同步」架构说明
 
-> 对应需求：国家公开数据样例从「固定 15 项」升级为「可定期同步、规模可扩展」的真实演示管线。
+> 对应需求：国家公开数据样例从「固定 15 项内嵌样例」升级为「可定期同步、规模可扩展」的真实演示管线；当前内置样例已扩至 **104 项**（食品 42 / 日化 31 / 药品 31）。
 
 ## 1. 设计目标与约束
 
@@ -31,7 +31,7 @@
 
 | 文件 | 作用 |
 |------|------|
-| `skills/ingredient-shield/data/gov_feed_sample.csv` | 公开公告格式样例 feed（列：id,name,category,components,nutrition,contraindications,warnings,source_url,source_type,approved_date,manufacturer）。当前含 36 项（食品 14 / 日化 11 / 药品 11）。 |
+| `skills/ingredient-shield/data/gov_feed_sample.csv` | 公开公告格式样例 feed（列：id,name,category,components,nutrition,contraindications,warnings,source_url,source_type,approved_date,manufacturer）。当前含 104 项（食品 42 / 日化 31 / 药品 31）。 |
 | `skills/ingredient-shield/engine/data_source.py` | `GovPublicDataSource`：CSV/JSON 自动识别、按表头归一化、UTF-8 BOM 处理。 |
 | `skills/ingredient-shield/engine/sync_gov_data.py` | 同步脚本：读取数据源 → 归一化 → 输出 `gov_products.json`（含 `_meta`：版本、synced_at、分类计数、命中危害规则数、来源说明）。支持 `SOURCE_URL` 环境变量接入远程 feed。 |
 | `docs/gov_products.json` | 发布副本，供 Pages 运行时同域拉取。 |
@@ -49,8 +49,33 @@
 ## 5. 验证方式
 
 - 本地静态服务 `docs/` 后打开页面，切换「国家公开数据」：
-  - 分段标签显示「国家公开数据（36 项）」；
-  - 备注显示「已同步 36 项 · 更新于 <UTC 时间>（国家公开公告清洗，非官方演示数据）」；
-  - 结果卡片含 36 项，且每项带「📄 溯源：来源类型 · 企业 · 日期」。
+  - 分段标签显示「国家公开数据（104 项）」；
+  - 备注显示「已同步 104 项 · 更新于 <UTC 时间>（国家公开公告清洗，非官方演示数据）」；
+  - 结果卡片含 104 项，且每项带「📄 溯源：来源类型 · 企业 · 日期」。
 - 断网 / 拉取失败时：自动回退内嵌 15 项样例，备注提示「内嵌样例 15 项（实时同步暂不可用，已回退到本地样例）」。
 - `python3 skills/ingredient-shield/engine/sync_gov_data.py` 本地可独立运行，输出计数与 `synced_at`。
+
+---
+
+## 6. 近期能力升级（匹配精度 A + 跨品类组合风险 E）
+
+为回应"公开数据是否过少"与"分析可优化 / 深化"两点，本轮在**保持「定期同步」架构不变**的前提下，做了三件事：
+
+### 6.1 样例扩容到 104 项
+- `gov_feed_sample.csv` 由 36 项扩至 **104 项**（食品 42 / 日化 31 / 药品 31），并补充「否定式成分」（如 无牛奶添加、无麸质）与「组合风险样本」（含酒精、乙醇、水杨酸、服药禁酒等），提升演示可信度与覆盖度。
+- 重新生成 `gov_products.json`（skills 与 docs 各一份），`hazard_matched` 约 67 项。
+
+### 6.2 A · 成分匹配精度升级
+- **归一化**：去括号注释、去标点/空格、统一小写，避免「全脂牛奶」与「牛奶」匹配不一致。
+- **安全子串匹配**：阻断歧义单字键（麦 / 乳 / 鱼），仅放行安全单字键（蛋 / 虾 / 蟹），避免「燕麦」误命中「麦」、「乳酸」误命中「乳」。
+- **否定检测**：识别「不含 / 未添加 / 无添加 / free / 无+X」，避免「无牛奶添加」误标含奶。
+- **扩充映射**：新增约 30 条成分→危害映射（麸质族、乳制品族、蛋类、甲壳类、坚果、鱼类、维 A 类 / 视黄醇等），危害注册表新增 `retinol`。
+
+### 6.3 E · 跨品类组合风险引擎
+- 新增前端 `analyzeCombinations` + 后端镜像 `engine/combination.py`，覆盖三类高风险叠加：
+  1. **含酒精产品 + 服药禁酒 / 勿驾驶**（block）；
+  2. **水杨酸 / 阿司匹林 内服 + 外用叠加暴露**（warn）；
+  3. **孕期画像 + 接触高风险日化物质**（煤焦油 / 视黄醇 / 甲醛释放体）（block）。
+- 仅在用户画像命中时触发，不误报未孕用户；组合风险卡独立成节（「⚠ 组合风险预警」），与主分析并列。
+
+> 前端 `index.html` 与 Python 引擎逻辑一致，已用 Playwright 回归验证：104 项样本、子串 / 否定匹配、3 类组合风险、移动端零溢出、拉取失败回退 15 项内嵌样例（全部通过）。
