@@ -7,10 +7,36 @@
 
 结论仅作提示，非医疗建议。
 """
-from .component_db import analyze_item
+from .component_db import analyze_item, _normalize_component
 
 ALCOHOL_TOKENS = ("酒精", "乙醇")
 COMBO_RISKY_CHEM = ("coal_tar", "retinol", "formaldehyde_releaser")
+# C：药品相互作用知识库（与前端 DRUG_INTERACTIONS 对齐）。
+# a/b 可为危害 id（如 aspirin）或成分关键词（如 碳酸钙）
+# a/b 使用真实数据中的成分关键词（与前端 DRUG_INTERACTIONS 对齐）。
+# 注意：实际产品成分以中文登记（如 布洛芬 / 左氧氟沙星 / 红霉素），
+# 这些英文 hazard id 既不在 COMPONENT_RULES 中、也无法作为子串命中中文成分，
+# 因此这里统一用中文成分关键词，确保 _drug_match 子串回退能命中。
+DRUG_INTERACTIONS = [
+    {"a": "aspirin", "b": "布洛芬", "level": "warn", "title": "阿司匹林 + 布洛芬",
+     "detail": "同属 NSAID，联用增加消化道出血与肾损伤风险，避免同时服用。"},
+    {"a": "左氧氟沙星", "b": "布洛芬", "level": "block", "title": "左氧氟沙星 + 布洛芬",
+     "detail": "氟喹诺酮类与 NSAID 联用增加中枢神经系统不良反应及肌腱断裂风险。"},
+    {"a": "左氧氟沙星", "b": "aspirin", "level": "warn", "title": "左氧氟沙星 + 阿司匹林",
+     "detail": "氟喹诺酮类与 NSAID 联用增加不良反应风险，请遵医嘱。"},
+    {"a": "碳酸钙", "b": "左氧氟沙星", "level": "warn", "title": "钙剂 + 左氧氟沙星",
+     "detail": "钙 / 镁 / 铁剂与喹诺酮类抗生素同服显著减少吸收，建议间隔 2 小时。"},
+    {"a": "碳酸钙", "b": "红霉素", "level": "warn", "title": "钙剂 + 红霉素",
+     "detail": "钙剂可能影响大环内酯类吸收，建议间隔服用。"},
+]
+
+
+def _drug_match(it, token):
+    """判断药品 it 是否命中相互作用项 token（危害 id 或成分关键词，与前端 _drugMatch 对齐）。"""
+    if token in analyze_item(it)["contains"]:
+        return True
+    n = _normalize_component(token)
+    return any(n in _normalize_component(c) for c in it.get("components", []))
 
 
 def analyze_combinations(items, profile):
@@ -61,5 +87,14 @@ def analyze_combinations(items, profile):
             cn = "、".join(it["name"] for it in risky)
             warns.append({"level": "block", "title": "孕期接触风险物质",
                           "detail": f"日化 {cn} 含孕期需谨慎成分（染发剂/维A类/甲醛释放体），请遵医嘱。"})
+
+    # 4) 药品相互作用（C）：清单内两种药品存在已知相互作用
+    for inter in DRUG_INTERACTIONS:
+        a_hits = [it for it in drugs if _drug_match(it, inter["a"])]
+        b_hits = [it for it in drugs if _drug_match(it, inter["b"])]
+        if a_hits and b_hits:
+            names = sorted({it["name"] for it in (a_hits + b_hits)})
+            warns.append({"level": inter["level"], "title": "药品相互作用：" + inter["title"],
+                          "detail": inter["detail"] + "（涉及：" + "、".join(names) + "）"})
 
     return warns

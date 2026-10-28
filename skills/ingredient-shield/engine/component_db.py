@@ -164,6 +164,59 @@ def check_profile(item_analysis, user_hazard_ids):
     }
 
 
+# B：营养深度 —— 成人每日参考摄入量（与前端 NUTRI_DRI 对齐）
+NUTRI_DRI = {"sodium": 2000, "sugar": 50, "calories": 2000, "fat": 60}  # mg / g / kcal / g
+# 单品营养高 / 偏高阈值（与前端 nutritionFlags 对齐）
+_NUTRI_THRESHOLD = {
+    "sodium": {"high": 800, "warn": 600, "unit": "mg"},
+    "sugar": {"high": 15, "warn": 10, "unit": "g"},
+    "trans_fat": {"high": 0.5, "warn": 0, "unit": "g"},
+    "calories": {"high": 700, "warn": 500, "unit": "kcal"},
+    "fat": {"high": 30, "warn": 25, "unit": "g"},
+}
+
+
+def nutrition_flags(nutrition):
+    """根据单品营养值推导高 / 偏高标记（与前端 nutritionFlags 对齐）。
+    nutrition：{calories,protein,fat,carbs,sodium,sugar,trans_fat}
+    返回 [{"key","level","label","value","unit","pct"}]
+    """
+    flags = []
+    for key, t in _NUTRI_THRESHOLD.items():
+        v = nutrition.get(key)
+        if v is None:
+            continue
+        level = "high" if v > t["high"] else ("warn" if v > t["warn"] else None)
+        if level:
+            labels = {
+                "sodium": "高钠" if level == "high" else "钠偏高",
+                "sugar": "高糖" if level == "high" else "糖偏高",
+                "trans_fat": "含反式脂肪",
+                "calories": "高热量" if level == "high" else "热量偏高",
+                "fat": "高脂" if level == "high" else "脂肪偏高",
+            }
+            pct = round(v / NUTRI_DRI[key] * 100) if NUTRI_DRI.get(key) else None
+            flags.append({"key": key, "level": level, "label": labels[key],
+                          "value": v, "unit": t["unit"], "pct": pct})
+    return flags
+
+
+def nutrition_eval(nutrition, constraints):
+    """按用户营养约束判断单品是否未达标（与前端 evaluate 营养段对齐）。
+    constraints：{sodium_max,sugar_max,calories_max,fat_max,trans_fat_max}
+    返回 {"fail":bool,"failed":[key...]}
+    """
+    n = nutrition or {}
+    failed = []
+    for ckey, maxv in constraints.items():
+        if maxv is None:
+            continue
+        nkey = ckey[:-4] if ckey.endswith("_max") else ckey  # sugar_max -> sugar
+        if n.get(nkey) is not None and n[nkey] > maxv:
+            failed.append(nkey)
+    return {"fail": len(failed) > 0, "failed": failed}
+
+
 if __name__ == "__main__":
     sample = {"id": "peanut-butter", "name": "花生酱", "category": "food",
               "components": ["花生", "大豆油", "糖"]}

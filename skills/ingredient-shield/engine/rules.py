@@ -6,6 +6,8 @@
 - 用户画像匹配（跨品类规避：过敏原 + 致敏原 + 药品过敏 + 健康禁忌 + 营养约束）
 - 安全消费清单生成（供前端分享，跨品类汇总）
 
+H：可解释性 - evaluate_item 返回 reason_details 结构化理由。
+
 所有结论均附带"数据来自开源知识库，非官方，仅供参考"标识，符合合规要求。
 """
 from . import component_db, nutrition, product_safety, drug_safety, provenance
@@ -13,22 +15,25 @@ from .profile import SafetyProfile
 
 
 def evaluate_item(item, profile):
-    """对单个产品做跨品类风险评定。
+    """对单个产品做跨品类风险评定（含 H 可解释性）。
 
     返回 {
       "id","name","category",
       "status": "safe" | "warn" | "block",
       "hazard_names": [zh...],
-      "reasons": [说明...],
+      "reasons": [说明...],           # 兼容旧逻辑纯文本
+      "reason_details": [...],        # H 结构化理由
       "analysis": 各品类附加分析,
     }
     """
     cat = item.get("category")
     hazard_ids = profile.hazard_ids
     conditions = profile.conditions
+    nutri_constraints = profile.nutrition_constraints
 
     base = component_db.analyze_item(item)
     reasons = []
+    reason_details = []
 
     if cat == "food":
         prof = component_db.check_profile(base, hazard_ids)
@@ -43,22 +48,62 @@ def evaluate_item(item, profile):
             nut_fail.append("含反式脂肪")
         if cons.get("calories_max") is not None and nut.get("calories", 0) > cons["calories_max"]:
             nut_fail.append(f"热量 {nut.get('calories')}kcal 超上限 {cons['calories_max']}kcal")
+        if cons.get("fat_max") is not None and nut.get("fat", 0) > cons["fat_max"]:
+            nut_fail.append(f"脂肪 {nut.get('fat')}g 超上限 {cons['fat_max']}g")
         for r in nut_fail:
             reasons.append(f"营养约束：{r}")
         status = "block" if (prof["blocked_by"] or nut_fail) else ("warn" if prof["warn_by"] else "safe")
         analysis = {"nutrition_flags": nutrition.analyze_nutrition(nut)}
 
+        # H：食品可解释性
+        for hid in prof["blocked_by"]:
+            meta = component_db.get_hazard(hid)
+            comps = (base["contains"].get(hid) or [])[:3]
+            reason_details.append({
+                "type": "allergy", "level": "block",
+                "text": f"过敏原 {meta['zh'] if meta else hid}（来自：{'、'.join(comps)}）"
+            })
+        for hid in prof["warn_by"]:
+            meta = component_db.get_hazard(hid)
+            comps = (base["may_contain"].get(hid) or [])[:3]
+            reason_details.append({
+                "type": "cross_contact", "level": "warn",
+                "text": f"可能含 {meta['zh'] if meta else hid}（交叉接触：{'、'.join(comps)}）"
+            })
+        labels = {"sodium": "钠", "sugar": "糖", "trans_fat": "反式脂肪", "calories": "热量", "fat": "脂肪"}
+        for ckey, maxv in cons.items():
+            if maxv is None:
+                continue
+            nkey = ckey[:-4] if ckey.endswith("_max") else ckey
+            if nut.get(nkey) is not None and nut[nkey] > maxv:
+                reason_details.append({
+                    "type": "nutrition", "level": "block",
+                    "text": f"营养约束未满足：{labels.get(nkey, nkey)} {nut[nkey]} 超过上限 {maxv}"
+                })
+
     elif cat == "daily_chem":
-        prof = component_db.check_profile(base, hazard_ids)
-        ps = product_safety.analyze(item)
-        for f in ps["flags"]:
-            reasons.append(f"风险物质：{f['name']}（{f['level']}）")
-        status = "block" if prof["blocked_by"] else ("warn" if (prof["warn_by"] or ps["flags"]) else "safe")
+        # H：使用 product_safety.analyze（含 reason_details）
+        ps = product_safety.analyze(
+            item,
+            user_hazard_ids=hazard_ids,
+            profile_conditions=conditions,
+            profile_nutri_constraints=nutri_constraints
+        )
+        reasons = ps["reasons"]           # 兼容旧逻辑
+        reason_details = ps["reason_details"]  # H 结构化
+        status = ps["status"]
         analysis = {"substance_flags": ps["flags"]}
 
     elif cat == "drug":
         ds = drug_safety.analyze(item, user_conditions=conditions, user_hazard_ids=hazard_ids)
-        reasons.extend(ds["reasons"])
+        reasons = ds["reasons"]
+        # H：药品可解释性（转为统一结构）
+        reason_details = [
+            {"type": "contraindication" if "禁忌" in r else ("allergy" if "过敏" in r else "cross_contact"),
+             "level": "block" if "禁忌" in r or "过敏" in r else "warn",
+             "text": r}
+            for r in ds["reasons"]
+        ]
         status = "block" if ds["blocked"] else ("warn" if ds["warn_hazards"] else "safe")
         analysis = {"drug": ds}
     else:
@@ -73,6 +118,7 @@ def evaluate_item(item, profile):
         "status": status,
         "hazard_names": base["hazard_names"],
         "reasons": reasons,
+        "reason_details": reason_details,
         "analysis": analysis,
     }
 
