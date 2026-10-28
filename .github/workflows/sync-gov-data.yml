@@ -34,21 +34,24 @@ jobs:
           # 若设置了名为 GOV_FEED_URL 的仓库 Secret（指向你授权的真实公开 feed，支持 .json/.csv），
           # 同步脚本会改用该远程数据源；未设置则使用内置样例 feed。
           SOURCE_URL: ${{ secrets.GOV_FEED_URL }}
+          # 预警同步源（可选，设置为 ALERTS_FEED_URL Secret）
+          ALERTS_SOURCE_URL: ${{ secrets.ALERTS_FEED_URL }}
         run: |
           python3 skills/ingredient-shield/engine/sync_gov_data.py
 
       - name: 发布到 docs/（Pages 运行时拉取位置）
         run: |
           cp skills/ingredient-shield/data/gov_products.json docs/gov_products.json
+          cp skills/ingredient-shield/data/gov_alerts.json docs/gov_alerts.json
 
       - name: 提交变更（如有）
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add skills/ingredient-shield/data/gov_products.json docs/gov_products.json
+          git add skills/ingredient-shield/data/gov_products.json docs/gov_products.json skills/ingredient-shield/data/gov_alerts.json docs/gov_alerts.json
           if git diff --cached --quiet; then
             echo "数据无变化，跳过提交。"
           else
-            git commit -m "chore: 定期同步国家公开数据 ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+            git commit -m "chore: 定期同步国家公开数据/预警 ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
             git push
           fi
