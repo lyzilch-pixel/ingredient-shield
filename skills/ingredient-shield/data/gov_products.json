@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": "2.1.0",
-    "synced_at": "2026-10-28T08:50:48Z",
+    "synced_at": "2026-10-29T08:15:17Z",
     "source": "local sample feed: gov_feed_sample.csv",
     "disclaimer": "本文件由同步管线从公开公告格式数据清洗生成，为非官方演示数据，仅供参考，不构成医疗、用药或法律建议。",
     "counts": {
@@ -35,7 +35,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/xxxxx",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-03-15",
       "manufacturer": "某某面包有限公司"
@@ -58,7 +58,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/yyyyy",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-02-20",
       "manufacturer": "某某乳业股份有限公司"
@@ -84,7 +84,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/recall/zzzzz",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "samr_food_recall",
       "approved_date": "2024-01-10",
       "manufacturer": "某某食品集团"
@@ -109,7 +109,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/aaaaa",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-04-01",
       "manufacturer": "某某水产有限公司"
@@ -136,7 +136,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/bbbbb",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-03-28",
       "manufacturer": "某某餐饮有限公司"
@@ -160,7 +160,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/ccccd",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-02-28",
       "manufacturer": "某某乳业股份有限公司"
@@ -185,7 +185,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/dddde",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-01-22",
       "manufacturer": "某某谷物食品公司"
@@ -211,7 +211,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/recall/eeeef",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "samr_food_recall",
       "approved_date": "2023-12-15",
       "manufacturer": "某某休闲食品公司"
@@ -237,7 +237,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/ffffg",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-03-05",
       "manufacturer": "某某速冻食品公司"
@@ -262,7 +262,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/ggggh",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-02-10",
       "manufacturer": "某某海产公司"
@@ -287,7 +287,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/hhhhi",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-01-30",
       "manufacturer": "某某茶饮公司"
@@ -313,7 +313,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/recall/iiiij",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "samr_food_recall",
       "approved_date": "2023-11-28",
       "manufacturer": "某某进出口公司"
@@ -337,7 +337,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/jjjjk",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-04-10",
       "manufacturer": "某某乳业股份有限公司"
@@ -363,7 +363,7 @@
       },
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/kkkkl",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-03-18",
       "manufacturer": "某某调味食品公司"
@@ -383,7 +383,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/hhhhh",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-03-10",
       "manufacturer": "某某日化有限公司"
@@ -403,7 +403,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/iiiii",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-02-25",
       "manufacturer": "某某化妆品股份有限公司"
@@ -421,7 +421,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/jjjjj",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-04-05",
       "manufacturer": "某某防晒科技有限公司"
@@ -440,7 +440,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/kkkkk",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-03-30",
       "manufacturer": "某某母婴用品有限公司"
@@ -460,7 +460,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/lllll",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-01-22",
       "manufacturer": "某某口腔护理有限公司"
@@ -478,7 +478,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/mmmmm",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-02-08",
       "manufacturer": "某某美发用品公司"
@@ -495,7 +495,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/nnnnn",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-03-12",
       "manufacturer": "某某家化股份有限公司"
@@ -513,7 +513,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/ooooo",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-01-18",
       "manufacturer": "某某个人护理公司"
@@ -530,7 +530,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/ppppp",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-04-12",
       "manufacturer": "某某香氛有限公司"
@@ -548,7 +548,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/qqqqq",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-02-02",
       "manufacturer": "某某化妆品股份有限公司"
@@ -566,7 +566,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/filing/rrrrr",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-03-22",
       "manufacturer": "某某清洁用品公司"
@@ -586,7 +586,7 @@
         "kidney"
       ],
       "warnings": "孕妇及哺乳期妇女禁用；肾功能不全者慎用",
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/ccccc",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2023-11-20",
       "manufacturer": "某某制药股份有限公司"
@@ -603,7 +603,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/ddddd",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2023-10-15",
       "manufacturer": "某某制药有限公司"
@@ -624,7 +624,7 @@
         "kidney"
       ],
       "warnings": "未成年人禁用；服药期间禁止驾驶；肾功能不全调整剂量",
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/eeeee",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2023-12-05",
       "manufacturer": "某某医药集团"
@@ -641,7 +641,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/fffff",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-01-12",
       "manufacturer": "某某制药厂"
@@ -658,7 +658,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/ggggg",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-02-18",
       "manufacturer": "某某保健品有限公司"
@@ -677,7 +677,7 @@
         "pregnancy"
       ],
       "warnings": "服药期间及停药后禁酒；孕妇禁用",
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/hhhhh2",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2023-09-30",
       "manufacturer": "某某制药有限公司"
@@ -693,7 +693,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/iiiii2",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-01-05",
       "manufacturer": "某某药业股份有限公司"
@@ -709,7 +709,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/jjjjj2",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2023-12-20",
       "manufacturer": "某某制药厂"
@@ -725,7 +725,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/kkkkk2",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-02-28",
       "manufacturer": "某某药业有限公司"
@@ -743,7 +743,7 @@
         "hypertension"
       ],
       "warnings": "高血压患者在医生指导下慎用",
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/lllll2",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2023-11-08",
       "manufacturer": "某某制药股份有限公司"
@@ -759,7 +759,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.nmpa.gov.cn/drug/approval/mmmmm2",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-03-01",
       "manufacturer": "某某外用制剂公司"
@@ -778,7 +778,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f015",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-05-02",
       "manufacturer": "某某烘焙食品厂"
@@ -796,7 +796,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f016",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-05-09",
       "manufacturer": "某某乳品甜品有限公司"
@@ -815,7 +815,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含多种坚果，过敏人群慎用",
-      "source_url": "https://www.samr.gov.cn/food/license/f017",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-05-15",
       "manufacturer": "某某健康食品股份"
@@ -835,7 +835,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/recall/f018",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "samr_food_recall",
       "approved_date": "2024-04-22",
       "manufacturer": "某某速食餐饮"
@@ -854,7 +854,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f019",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-01",
       "manufacturer": "某某汉堡餐饮"
@@ -872,7 +872,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f020",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-05-20",
       "manufacturer": "某某巧克力有限公司"
@@ -888,7 +888,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f021",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-10",
       "manufacturer": "某某豆制品厂"
@@ -908,7 +908,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "生食，孕妇及免疫低下者慎用",
-      "source_url": "https://www.samr.gov.cn/food/license/f022",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-12",
       "manufacturer": "某某日料餐饮"
@@ -926,7 +926,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含坚果",
-      "source_url": "https://www.samr.gov.cn/food/license/f023",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-05-30",
       "manufacturer": "某某饼干食品"
@@ -944,7 +944,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f024",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-18",
       "manufacturer": "某某谷物食品"
@@ -963,7 +963,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "高钠食品",
-      "source_url": "https://www.samr.gov.cn/food/recall/f025",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "samr_food_recall",
       "approved_date": "2024-03-11",
       "manufacturer": "某某方便食品"
@@ -982,7 +982,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "高糖饮料",
-      "source_url": "https://www.samr.gov.cn/food/license/f026",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-20",
       "manufacturer": "某某饮料有限公司"
@@ -1001,7 +1001,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "油炸食品，含反式脂肪",
-      "source_url": "https://www.samr.gov.cn/food/recall/f027",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "samr_food_recall",
       "approved_date": "2024-04-30",
       "manufacturer": "某某炸鸡连锁"
@@ -1018,7 +1018,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f028",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-05",
       "manufacturer": "某某膨化食品"
@@ -1038,7 +1038,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含鱼、蛋、乳、麸质",
-      "source_url": "https://www.samr.gov.cn/food/license/f029",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-22",
       "manufacturer": "某某轻食餐饮"
@@ -1058,7 +1058,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含甲壳类、乳、蛋、麸质",
-      "source_url": "https://www.samr.gov.cn/food/license/f030",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-25",
       "manufacturer": "某某披萨餐饮"
@@ -1077,7 +1077,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含生蛋、乳、麸质、咖啡因",
-      "source_url": "https://www.samr.gov.cn/food/license/f031",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-06-28",
       "manufacturer": "某某甜品工坊"
@@ -1095,7 +1095,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f032",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-01",
       "manufacturer": "某某糕点厂"
@@ -1115,7 +1115,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "高钠",
-      "source_url": "https://www.samr.gov.cn/food/recall/f033",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "samr_food_recall",
       "approved_date": "2024-05-12",
       "manufacturer": "某某调味品"
@@ -1134,7 +1134,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含蛋、麸质、芝麻",
-      "source_url": "https://www.samr.gov.cn/food/license/f034",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-05",
       "manufacturer": "某某糕点食品"
@@ -1152,7 +1152,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含花生、乳",
-      "source_url": "https://www.samr.gov.cn/food/license/f035",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-08",
       "manufacturer": "某某糖果厂"
@@ -1172,7 +1172,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含麸质、乳",
-      "source_url": "https://www.samr.gov.cn/food/license/f036",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-10",
       "manufacturer": "某某调味食品"
@@ -1189,7 +1189,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": null,
-      "source_url": "https://www.samr.gov.cn/food/license/f037",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-12",
       "manufacturer": "某某豆制品厂"
@@ -1207,7 +1207,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含酒精，儿童与服药者禁用",
-      "source_url": "https://www.samr.gov.cn/food/license/f038",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-15",
       "manufacturer": "某某酒心糖厂"
@@ -1225,7 +1225,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "植物基，标注无牛奶添加",
-      "source_url": "https://www.samr.gov.cn/food/license/f039",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-18",
       "manufacturer": "某某植物饮"
@@ -1243,7 +1243,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "标注无麸质",
-      "source_url": "https://www.samr.gov.cn/food/license/f040",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-20",
       "manufacturer": "某某无麸质食品"
@@ -1261,7 +1261,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "植物基，标注无乳糖",
-      "source_url": "https://www.samr.gov.cn/food/license/f041",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "food_license",
       "approved_date": "2024-07-22",
       "manufacturer": "某某植物饮"
@@ -1280,7 +1280,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含芝麻，高钠",
-      "source_url": "https://www.samr.gov.cn/food/recall/f042",
+      "source_url": "https://www.samr.gov.cn/",
       "source_type": "samr_food_recall",
       "approved_date": "2024-06-30",
       "manufacturer": "某某水产凉菜"
@@ -1299,7 +1299,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 SLS、MIT、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c012",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-05-01",
       "manufacturer": "某某日化"
@@ -1317,7 +1317,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含氧苯酮",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c013",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-05-10",
       "manufacturer": "某某防晒"
@@ -1335,7 +1335,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 PPD，染发前需皮试",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c014",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-05-18",
       "manufacturer": "某某染发"
@@ -1353,7 +1353,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含甲醛释放体",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c015",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-05-22",
       "manufacturer": "某某母婴"
@@ -1372,7 +1372,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 parabens、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c016",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-06-02",
       "manufacturer": "某某护肤"
@@ -1391,7 +1391,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 SLS、三氯生",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c017",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-06-08",
       "manufacturer": "某某口腔"
@@ -1409,7 +1409,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含香精、定香剂（邻苯二甲酸酯）",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c018",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-06-12",
       "manufacturer": "某某香水"
@@ -1427,7 +1427,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 BHT、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c019",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-06-15",
       "manufacturer": "某某彩妆"
@@ -1446,7 +1446,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 SLS、MIT、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c020",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-06-20",
       "manufacturer": "某某洗护"
@@ -1465,7 +1465,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 parabens、MIT、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c021",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-06-25",
       "manufacturer": "某某护肤"
@@ -1483,7 +1483,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含酒精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c022",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-01",
       "manufacturer": "某某消毒"
@@ -1501,7 +1501,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含水杨酸（β-羟基酸）",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c023",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-05",
       "manufacturer": "某某祛痘护肤"
@@ -1519,7 +1519,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含酒精、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c024",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-08",
       "manufacturer": "某某男士"
@@ -1537,7 +1537,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含香精，儿童款",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c025",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-10",
       "manufacturer": "某某母婴"
@@ -1555,7 +1555,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c026",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-12",
       "manufacturer": "某某卸妆"
@@ -1573,7 +1573,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含酒精、氧苯酮、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c027",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-15",
       "manufacturer": "某某防晒"
@@ -1591,7 +1591,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 PPD，过敏风险高",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c028",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-18",
       "manufacturer": "某某染发"
@@ -1610,7 +1610,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 parabens、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c029",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-20",
       "manufacturer": "某某护肤"
@@ -1627,7 +1627,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c030",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-22",
       "manufacturer": "某某母婴"
@@ -1646,7 +1646,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含 SLS、MIT、香精",
-      "source_url": "https://www.nmpa.gov.cn/cosmetic/record/c031",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_cosmetic",
       "approved_date": "2024-07-25",
       "manufacturer": "某某洗护"
@@ -1662,7 +1662,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "青霉素类抗生素，青霉素过敏者禁用",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d012",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-05-01",
       "manufacturer": "某某制药"
@@ -1681,7 +1681,7 @@
         "driving"
       ],
       "warnings": "抗血小板药，用药期间禁酒，驾驶者慎用",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d013",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-05-08",
       "manufacturer": "某某药业"
@@ -1697,7 +1697,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "磺胺类药物，磺胺过敏者禁用",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d014",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-05-12",
       "manufacturer": "某某制药"
@@ -1715,7 +1715,7 @@
         "alcohol"
       ],
       "warnings": "用药期间及停药后禁酒",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d015",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-05-15",
       "manufacturer": "某某药业"
@@ -1733,7 +1733,7 @@
         "alcohol"
       ],
       "warnings": "头孢类，用药期间禁酒",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d016",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-05-18",
       "manufacturer": "某某制药"
@@ -1752,7 +1752,7 @@
         "driving"
       ],
       "warnings": "喹诺酮类，18 岁以下禁用，驾驶者慎用",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d017",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-05-22",
       "manufacturer": "某某药业"
@@ -1771,7 +1771,7 @@
         "kidney"
       ],
       "warnings": "孕妇及肾功能不全者慎用",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d018",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-05-25",
       "manufacturer": "某某制药"
@@ -1789,7 +1789,7 @@
         "driving"
       ],
       "warnings": "抗组胺药，服药后勿驾驶",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d019",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-05-28",
       "manufacturer": "某某药业"
@@ -1805,7 +1805,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "解热镇痛，肝功能不全者慎用",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d020",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-01",
       "manufacturer": "某某制药"
@@ -1821,7 +1821,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "吸附性止泻，相对安全",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d021",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-05",
       "manufacturer": "某某制药"
@@ -1837,7 +1837,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "膳食补充剂",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d022",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-08",
       "manufacturer": "某某药业"
@@ -1855,7 +1855,7 @@
         "diabetes"
       ],
       "warnings": "降糖药，糖尿病用药",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d023",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-12",
       "manufacturer": "某某制药"
@@ -1873,7 +1873,7 @@
         "hypertension"
       ],
       "warnings": "心绞痛急救，低血压者慎用",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d024",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-15",
       "manufacturer": "某某药业"
@@ -1891,7 +1891,7 @@
         "minors"
       ],
       "warnings": "儿童解热镇痛",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d025",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-18",
       "manufacturer": "某某制药"
@@ -1909,7 +1909,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "含糖咳嗽糖浆",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d026",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-22",
       "manufacturer": "某某中药"
@@ -1925,7 +1925,7 @@
       "nutrition": null,
       "contraindications": [],
       "warnings": "补钙制剂",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d027",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-25",
       "manufacturer": "某某药业"
@@ -1943,7 +1943,7 @@
         "driving"
       ],
       "warnings": "助眠，服药后勿驾驶操作",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d028",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-06-28",
       "manufacturer": "某某保健"
@@ -1962,7 +1962,7 @@
         "lactation"
       ],
       "warnings": "激素类，孕妇及哺乳期禁用",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d029",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-07-01",
       "manufacturer": "某某制药"
@@ -1980,7 +1980,7 @@
         "alcohol"
       ],
       "warnings": "头孢类，用药期间禁酒",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d030",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-07-05",
       "manufacturer": "某某药业"
@@ -1999,7 +1999,7 @@
         "pregnancy"
       ],
       "warnings": "外用药，孕妇慎用，含水杨酸甲酯",
-      "source_url": "https://www.nmpa.gov.cn/drug/reg/d031",
+      "source_url": "https://www.nmpa.gov.cn/",
       "source_type": "nmpa_drug",
       "approved_date": "2024-07-08",
       "manufacturer": "某某外用药"

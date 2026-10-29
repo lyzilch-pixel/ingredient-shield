@@ -1,105 +1,105 @@
-id,name,category,components,nutrition,contraindications,warnings,source_url,source_type,approved_date,manufacturer
-food_sample_001,全麦面包,food,全麦面粉;水;酵母;食盐;芝麻,"{""calories"":250,""protein"":9,""fat"":4,""carbs"":46,""sodium"":380,""sugar"":5,""trans_fat"":0.2}",,,https://www.samr.gov.cn/food/license/xxxxx,food_license,2024-03-15,某某面包有限公司
-food_sample_002,纯牛奶,food,生牛乳,"{""calories"":150,""protein"":8,""fat"":8,""carbs"":12,""sodium"":100,""sugar"":12,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/yyyyy,food_license,2024-02-20,某某乳业股份有限公司
-food_sample_003,花生酱,food,花生;大豆油;白糖;食盐,"{""calories"":590,""protein"":25,""fat"":50,""carbs"":20,""sodium"":420,""sugar"":8,""trans_fat"":0}",,,https://www.samr.gov.cn/food/recall/zzzzz,samr_food_recall,2024-01-10,某某食品集团
-food_sample_004,三文鱼刺身,food,三文鱼;酱油;芥末,"{""calories"":208,""protein"":22,""fat"":13,""carbs"":0,""sodium"":350,""sugar"":0,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/aaaaa,food_license,2024-04-01,某某水产有限公司
-food_sample_005,蒜蓉虾,food,虾;大蒜;黄油;芝麻;面包糠,"{""calories"":220,""protein"":24,""fat"":12,""carbs"":4,""sodium"":680,""sugar"":2,""trans_fat"":0.3}",,,https://www.samr.gov.cn/food/license/bbbbb,food_license,2024-03-28,某某餐饮有限公司
-food_sample_006,低脂酸奶,food,牛奶;白砂糖,"{""calories"":70,""protein"":3.5,""fat"":1.5,""carbs"":9,""sodium"":50,""sugar"":8,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/ccccd,food_license,2024-02-28,某某乳业股份有限公司
-food_sample_007,即食燕麦片,food,燕麦;全麦;坚果碎,"{""calories"":380,""protein"":13,""fat"":7,""carbs"":65,""sodium"":10,""sugar"":12,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/dddde,food_license,2024-01-22,某某谷物食品公司
-food_sample_008,巧克力榛子酱,food,榛子;可可;牛奶;白砂糖,"{""calories"":540,""protein"":8,""fat"":32,""carbs"":50,""sodium"":40,""sugar"":45,""trans_fat"":0}",,,https://www.samr.gov.cn/food/recall/eeeef,samr_food_recall,2023-12-15,某某休闲食品公司
-food_sample_009,速冻水饺（韭菜猪肉）,food,面粉;猪肉;韭菜;鸡蛋,"{""calories"":230,""protein"":10,""fat"":9,""carbs"":28,""sodium"":520,""sugar"":2,""trans_fat"":0.4}",,,https://www.samr.gov.cn/food/license/ffffg,food_license,2024-03-05,某某速冻食品公司
-food_sample_010,海苔零食,food,紫菜;酱油;芝麻,"{""calories"":180,""protein"":8,""fat"":3,""carbs"":28,""sodium"":900,""sugar"":3,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/ggggh,food_license,2024-02-10,某某海产公司
-food_sample_011,蜂蜜柚子茶,food,蜂蜜;柚子;水,"{""calories"":120,""protein"":0,""fat"":0,""carbs"":30,""sodium"":5,""sugar"":28,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/hhhhi,food_license,2024-01-30,某某茶饮公司
-food_sample_012,进口坚果礼盒,food,杏仁;腰果;核桃;榛子,"{""calories"":600,""protein"":18,""fat"":50,""carbs"":22,""sodium"":15,""sugar"":6,""trans_fat"":0}",,,https://www.samr.gov.cn/food/recall/iiiij,samr_food_recall,2023-11-28,某某进出口公司
-food_sample_013,儿童成长奶粉,food,生牛乳;植物油,"{""calories"":500,""protein"":20,""fat"":22,""carbs"":38,""sodium"":250,""sugar"":30,""trans_fat"":0}",,,https://www.samr.gov.cn/food/license/jjjjk,food_license,2024-04-10,某某乳业股份有限公司
-food_sample_014,麻辣火锅底料,food,牛油;辣椒;芝麻;豆瓣酱,"{""calories"":700,""protein"":6,""fat"":72,""carbs"":10,""sodium"":3200,""sugar"":4,""trans_fat"":1.5}",,,https://www.samr.gov.cn/food/license/kkkkl,food_license,2024-03-18,某某调味食品公司
-chem_sample_001,清爽去屑洗发水,daily_chem,水;十二烷基硫酸钠;月桂酰胺丙基甜菜碱;甲基异噻唑啉酮;香精;甘油,,,,https://www.nmpa.gov.cn/cosmetic/filing/hhhhh,nmpa_cosmetic,2024-03-10,某某日化有限公司
-chem_sample_002,保湿面霜,daily_chem,水;甘油;二甲基硅油;对羟基苯甲酸酯;香精;维生素E,,,,https://www.nmpa.gov.cn/cosmetic/filing/iiiii,nmpa_cosmetic,2024-02-25,某某化妆品股份有限公司
-chem_sample_003,清爽防晒喷雾,daily_chem,水;氧苯酮;酒精;香精,,,,https://www.nmpa.gov.cn/cosmetic/filing/jjjjj,nmpa_cosmetic,2024-04-05,某某防晒科技有限公司
-chem_sample_004,婴儿手口湿巾,daily_chem,水;甘油;甲基异噻唑啉酮;DMDM乙内酰脲;柠檬酸,,,,https://www.nmpa.gov.cn/cosmetic/filing/kkkkk,nmpa_cosmetic,2024-03-30,某某母婴用品有限公司
-chem_sample_005,美白牙膏,daily_chem,水;水合硅石;十二烷基硫酸钠;三氯生;香精;氟化钠,,,,https://www.nmpa.gov.cn/cosmetic/filing/lllll,nmpa_cosmetic,2024-01-22,某某口腔护理有限公司
-chem_sample_006,植物染发剂,daily_chem,水;对苯二胺;煤焦油;香精,,,,https://www.nmpa.gov.cn/cosmetic/filing/mmmmm,nmpa_cosmetic,2024-02-08,某某美发用品公司
-chem_sample_007,洗衣液,daily_chem,水;十二烷基硫酸钠;香精,,,,https://www.nmpa.gov.cn/cosmetic/filing/nnnnn,nmpa_cosmetic,2024-03-12,某某家化股份有限公司
-chem_sample_008,护手霜,daily_chem,水;甘油;对羟基苯甲酸酯;香精,,,,https://www.nmpa.gov.cn/cosmetic/filing/ooooo,nmpa_cosmetic,2024-01-18,某某个人护理公司
-chem_sample_009,香水,daily_chem,酒精;香精;定香剂,,,,https://www.nmpa.gov.cn/cosmetic/filing/ppppp,nmpa_cosmetic,2024-04-12,某某香氛有限公司
-chem_sample_010,身体乳,daily_chem,水;甘油;对羟基苯甲酸酯;香精,,,,https://www.nmpa.gov.cn/cosmetic/filing/qqqqq,nmpa_cosmetic,2024-02-02,某某化妆品股份有限公司
-chem_sample_011,洗手液,daily_chem,水;十二烷基硫酸钠;香精;甲基异噻唑啉酮,,,,https://www.nmpa.gov.cn/cosmetic/filing/rrrrr,nmpa_cosmetic,2024-03-22,某某清洁用品公司
-drug_sample_001,布洛芬缓释胶囊,drug,布洛芬;微晶纤维素;羟丙甲纤维素,,pregnancy;kidney,孕妇及哺乳期妇女禁用；肾功能不全者慎用,https://www.nmpa.gov.cn/drug/approval/ccccc,nmpa_drug,2023-11-20,某某制药股份有限公司
-drug_sample_002,阿莫西林胶囊,drug,阿莫西林三水合物;玉米淀粉;硬脂酸镁,,,,https://www.nmpa.gov.cn/drug/approval/ddddd,nmpa_drug,2023-10-15,某某制药有限公司
-drug_sample_003,左氧氟沙星片,drug,左氧氟沙星;微晶纤维素;羧甲淀粉钠,,minors;driving;kidney,未成年人禁用；服药期间禁止驾驶；肾功能不全调整剂量,https://www.nmpa.gov.cn/drug/approval/eeeee,nmpa_drug,2023-12-05,某某医药集团
-drug_sample_004,氯雷他定片,drug,氯雷他定;乳糖;玉米淀粉,,,,https://www.nmpa.gov.cn/drug/approval/fffff,nmpa_drug,2024-01-12,某某制药厂
-drug_sample_005,维生素C片,drug,维生素C;淀粉;糊精,,,,https://www.nmpa.gov.cn/drug/approval/ggggg,nmpa_drug,2024-02-18,某某保健品有限公司
-drug_sample_006,甲硝唑片,drug,甲硝唑;淀粉,,alcohol;pregnancy,服药期间及停药后禁酒；孕妇禁用,https://www.nmpa.gov.cn/drug/approval/hhhhh2,nmpa_drug,2023-09-30,某某制药有限公司
-drug_sample_007,头孢克肟颗粒,drug,头孢克肟;糖,,,,https://www.nmpa.gov.cn/drug/approval/iiiii2,nmpa_drug,2024-01-05,某某药业股份有限公司
-drug_sample_008,对乙酰氨基酚片,drug,对乙酰氨基酚;淀粉,,,,https://www.nmpa.gov.cn/drug/approval/jjjjj2,nmpa_drug,2023-12-20,某某制药厂
-drug_sample_009,蒙脱石散,drug,蒙脱石;糖,,,,https://www.nmpa.gov.cn/drug/approval/kkkkk2,nmpa_drug,2024-02-28,某某药业有限公司
-drug_sample_010,阿司匹林肠溶片,drug,阿司匹林;淀粉,,hypertension,高血压患者在医生指导下慎用,https://www.nmpa.gov.cn/drug/approval/lllll2,nmpa_drug,2023-11-08,某某制药股份有限公司
-drug_sample_011,红霉素软膏,drug,红霉素;黄凡士林,,,,https://www.nmpa.gov.cn/drug/approval/mmmmm2,nmpa_drug,2024-03-01,某某外用制剂公司
-food_sample_015,鸡蛋糕,food,鸡蛋;小麦粉;白砂糖;黄油;牛奶,"{calories:320,protein:7,fat:12,carbs:48,sodium:210,sugar:22,trans_fat:0.4}",,,https://www.samr.gov.cn/food/license/f015,food_license,2024-05-02,某某烘焙食品厂
-food_sample_016,芝士蛋糕,food,奶油奶酪;饼干底;鸡蛋;白砂糖,"{calories:350,protein:8,fat:20,carbs:34,sodium:260,sugar:26,trans_fat:0.3}",,,https://www.samr.gov.cn/food/license/f016,food_license,2024-05-09,某某乳品甜品有限公司
-food_sample_017,坚果能量棒,food,杏仁;核桃;燕麦;蜂蜜;大豆分离蛋白,"{calories:410,protein:14,fat:18,carbs:44,sodium:120,sugar:18,trans_fat:0}",,含多种坚果，过敏人群慎用,https://www.samr.gov.cn/food/license/f017,food_license,2024-05-15,某某健康食品股份
-food_sample_018,虾仁蛋炒饭,food,米饭;鸡蛋;虾仁;豌豆;大豆油;酱油,"{calories:290,protein:15,fat:9,carbs:38,sodium:720,sugar:3,trans_fat:0}",,,https://www.samr.gov.cn/food/recall/f018,samr_food_recall,2024-04-22,某某速食餐饮
-food_sample_019,蟹黄堡,food,面包;蟹肉;蛋黄酱;生菜;番茄,"{calories:380,protein:16,fat:18,carbs:36,sodium:810,sugar:6,trans_fat:0.5}",,,https://www.samr.gov.cn/food/license/f019,food_license,2024-06-01,某某汉堡餐饮
-food_sample_020,牛奶巧克力,food,可可液块;牛奶;白砂糖;大豆卵磷脂,"{calories:540,protein:8,fat:30,carbs:52,sodium:90,sugar:48,trans_fat:0.2}",,,https://www.samr.gov.cn/food/license/f020,food_license,2024-05-20,某某巧克力有限公司
-food_sample_021,豆浆,food,非转基因大豆;水,"{calories:54,protein:3.6,fat:1.8,carbs:4,sodium:5,sugar:1,trans_fat:0}",,,https://www.samr.gov.cn/food/license/f021,food_license,2024-06-10,某某豆制品厂
-food_sample_022,三文鱼寿司,food,米饭;三文鱼;海苔;酱油;芥末;芝麻,"{calories:200,protein:12,fat:6,carbs:26,sodium:430,sugar:4,trans_fat:0}",,生食，孕妇及免疫低下者慎用,https://www.samr.gov.cn/food/license/f022,food_license,2024-06-12,某某日料餐饮
-food_sample_023,杏仁饼干,food,杏仁;小麦粉;黄油;白砂糖,"{calories:470,protein:9,fat:22,carbs:58,sodium:180,sugar:24,trans_fat:0.3}",,含坚果,https://www.samr.gov.cn/food/license/f023,food_license,2024-05-30,某某饼干食品
-food_sample_024,芝麻糊,food,黑芝麻;糯米;白砂糖;水,"{calories:260,protein:6,fat:9,carbs:40,sodium:30,sugar:20,trans_fat:0}",,,https://www.samr.gov.cn/food/license/f024,food_license,2024-06-18,某某谷物食品
-food_sample_025,方便面,food,面饼;棕榈油;食盐;味精;酱油粉,"{calories:470,protein:9,fat:22,carbs:58,sodium:1850,sugar:3,trans_fat:1.2}",,高钠食品,https://www.samr.gov.cn/food/recall/f025,samr_food_recall,2024-03-11,某某方便食品
-food_sample_026,可乐,food,水;果葡糖浆;白砂糖;咖啡因;二氧化碳,"{calories:180,protein:0,fat:0,carbs:45,sodium:20,sugar:44,trans_fat:0}",,高糖饮料,https://www.samr.gov.cn/food/license/f026,food_license,2024-06-20,某某饮料有限公司
-food_sample_027,炸鸡,food,鸡肉;小麦粉;大豆油;食盐;鸡蛋,"{calories:620,protein:28,fat:38,carbs:34,sodium:980,sugar:2,trans_fat:2.1}",,油炸食品，含反式脂肪,https://www.samr.gov.cn/food/recall/f027,samr_food_recall,2024-04-30,某某炸鸡连锁
-food_sample_028,薯片,food,马铃薯;植物油;食盐,"{calories:540,protein:7,fat:34,carbs:52,sodium:620,sugar:1,trans_fat:0.8}",,,https://www.samr.gov.cn/food/license/f028,food_license,2024-06-05,某某膨化食品
-food_sample_029,凯撒沙拉,food,生菜;帕玛森芝士;面包丁;鸡蛋;鳀鱼;沙拉酱,"{calories:280,protein:11,fat:20,carbs:14,sodium:560,sugar:3,trans_fat:0.2}",,含鱼、蛋、乳、麸质,https://www.samr.gov.cn/food/license/f029,food_license,2024-06-22,某某轻食餐饮
-food_sample_030,海鲜披萨,food,小麦粉;马苏里拉芝士;虾仁;蟹柳;番茄酱;鸡蛋,"{calories:560,protein:24,fat:22,carbs:62,sodium:1050,sugar:8,trans_fat:0.6}",,含甲壳类、乳、蛋、麸质,https://www.samr.gov.cn/food/license/f030,food_license,2024-06-25,某某披萨餐饮
-food_sample_031,提拉米苏,food,马斯卡彭芝士;手指饼干;鸡蛋;咖啡;可可粉,"{calories:360,protein:7,fat:21,carbs:36,sodium:150,sugar:28,trans_fat:0.3}",,含生蛋、乳、麸质、咖啡因,https://www.samr.gov.cn/food/license/f031,food_license,2024-06-28,某某甜品工坊
-food_sample_032,麻薯,food,糯米粉;牛奶;白砂糖;黄油,"{calories:300,protein:4,fat:8,carbs:55,sodium:80,sugar:22,trans_fat:0.2}",,,https://www.samr.gov.cn/food/license/f032,food_license,2024-07-01,某某糕点厂
-food_sample_033,麻辣香锅底料,food,大豆油;豆瓣酱;花椒;辣椒;味精;白砂糖,"{calories:420,protein:6,fat:38,carbs:16,sodium:2200,sugar:8,trans_fat:0.5}",,高钠,https://www.samr.gov.cn/food/recall/f033,samr_food_recall,2024-05-12,某某调味品
-food_sample_034,蛋黄酥,food,小麦粉;蛋黄;红豆沙;黄油;芝麻,"{calories:390,protein:8,fat:18,carbs:50,sodium:220,sugar:24,trans_fat:0.4}",,含蛋、麸质、芝麻,https://www.samr.gov.cn/food/license/f034,food_license,2024-07-05,某某糕点食品
-food_sample_035,花生牛轧糖,food,花生;麦芽糖;蛋白;奶粉,"{calories:450,protein:10,fat:16,carbs:64,sodium:90,sugar:50,trans_fat:0}",,含花生、乳,https://www.samr.gov.cn/food/license/f035,food_license,2024-07-08,某某糖果厂
-food_sample_036,咖喱块,food,棕榈油;小麦粉;香辛料;食盐;白砂糖;脱脂乳粉,"{calories:380,protein:5,fat:22,carbs:42,sodium:1300,sugar:10,trans_fat:0.4}",,含麸质、乳,https://www.samr.gov.cn/food/license/f036,food_license,2024-07-10,某某调味食品
-food_sample_037,豆腐,food,非转基因大豆;凝固剂;水,"{calories:80,protein:8,fat:4,carbs:3,sodium:10,sugar:0,trans_fat:0}",,,https://www.samr.gov.cn/food/license/f037,food_license,2024-07-12,某某豆制品厂
-food_sample_038,酒心巧克力,food,可可液块;白砂糖;酒精;奶油,"{calories:520,protein:6,fat:28,carbs:50,sodium:60,sugar:46,trans_fat:0.2}",,含酒精，儿童与服药者禁用,https://www.samr.gov.cn/food/license/f038,food_license,2024-07-15,某某酒心糖厂
-food_sample_039,无牛奶添加米浆,food,大米;水;无牛奶添加;植物油,"{calories:60,protein:1,fat:2,carbs:10,sodium:10,sugar:2,trans_fat:0}",,植物基，标注无牛奶添加,https://www.samr.gov.cn/food/license/f039,food_license,2024-07-18,某某植物饮
-food_sample_040,无麸质糙米饼干,food,糙米;大米;植物油;海盐,"{calories:430,protein:6,fat:16,carbs:66,sodium:240,sugar:4,trans_fat:0.3}",,标注无麸质,https://www.samr.gov.cn/food/license/f040,food_license,2024-07-20,某某无麸质食品
-food_sample_041,燕麦植物饮,food,燕麦;水;植物油;无乳糖添加,"{calories:70,protein:2,fat:3,carbs:9,sodium:30,sugar:4,trans_fat:0}",,植物基，标注无乳糖,https://www.samr.gov.cn/food/license/f041,food_license,2024-07-22,某某植物饮
-food_sample_042,凉拌海蜇,food,海蜇;酱油;芝麻;蒜;醋,"{calories:90,protein:8,fat:3,carbs:6,sodium:1100,sugar:3,trans_fat:0}",,含芝麻，高钠,https://www.samr.gov.cn/food/recall/f042,samr_food_recall,2024-06-30,某某水产凉菜
-chem_sample_012,去屑洗发水,daily_chem,水;月桂醇硫酸酯钠;甲基异噻唑啉酮;香精;吡硫鎓锌,,,含 SLS、MIT、香精,https://www.nmpa.gov.cn/cosmetic/record/c012,nmpa_cosmetic,2024-05-01,某某日化
-chem_sample_013,防晒霜 SPF50,daily_chem,水;氧化锌;二苯酮-3;甘油,,,含氧苯酮,https://www.nmpa.gov.cn/cosmetic/record/c013,nmpa_cosmetic,2024-05-10,某某防晒
-chem_sample_014,植物染发剂,daily_chem,水;对苯二胺;乙醇胺;间苯二酚,,,含 PPD，染发前需皮试,https://www.nmpa.gov.cn/cosmetic/record/c014,nmpa_cosmetic,2024-05-18,某某染发
-chem_sample_015,婴儿湿巾,daily_chem,水;甘油;dmdm乙内酰脲;苯氧乙醇,,,含甲醛释放体,https://www.nmpa.gov.cn/cosmetic/record/c015,nmpa_cosmetic,2024-05-22,某某母婴
-chem_sample_016,保湿面霜,daily_chem,水;甘油;羟苯甲酯;香精;角鲨烷,,,含 parabens、香精,https://www.nmpa.gov.cn/cosmetic/record/c016,nmpa_cosmetic,2024-06-02,某某护肤
-chem_sample_017,抗菌牙膏,daily_chem,水;二氧化硅;月桂醇硫酸酯钠;三氯生;香精,,,含 SLS、三氯生,https://www.nmpa.gov.cn/cosmetic/record/c017,nmpa_cosmetic,2024-06-08,某某口腔
-chem_sample_018,淡香水,daily_chem,乙醇;香精;水;邻苯二甲酸二乙酯,,,含香精、定香剂（邻苯二甲酸酯）,https://www.nmpa.gov.cn/cosmetic/record/c018,nmpa_cosmetic,2024-06-12,某某香水
-chem_sample_019,哑光口红,daily_chem,蓖麻油;二丁基羟基甲苯;二氧化钛;香精,,,含 BHT、香精,https://www.nmpa.gov.cn/cosmetic/record/c019,nmpa_cosmetic,2024-06-15,某某彩妆
-chem_sample_020,沐浴露,daily_chem,水;月桂醇硫酸酯钠;椰油酰胺;香精;甲基异噻唑啉酮,,,含 SLS、MIT、香精,https://www.nmpa.gov.cn/cosmetic/record/c020,nmpa_cosmetic,2024-06-20,某某洗护
-chem_sample_021,护手霜,daily_chem,水;甘油;羟苯甲酯;甲基异噻唑啉酮;香精,,,含 parabens、MIT、香精,https://www.nmpa.gov.cn/cosmetic/record/c021,nmpa_cosmetic,2024-06-25,某某护肤
-chem_sample_022,免洗洗手液,daily_chem,乙醇;甘油;水;香精,,,含酒精,https://www.nmpa.gov.cn/cosmetic/record/c022,nmpa_cosmetic,2024-07-01,某某消毒
-chem_sample_023,水杨酸身体乳,daily_chem,水;水杨酸;甘油;苯氧乙醇,,,含水杨酸（β-羟基酸）,https://www.nmpa.gov.cn/cosmetic/record/c023,nmpa_cosmetic,2024-07-05,某某祛痘护肤
-chem_sample_024,男士须后水,daily_chem,乙醇;水;香精;薄荷醇,,,含酒精、香精,https://www.nmpa.gov.cn/cosmetic/record/c024,nmpa_cosmetic,2024-07-08,某某男士
-chem_sample_025,儿童洗发水,daily_chem,水;椰油基甜菜碱;甘油;香精,,,含香精，儿童款,https://www.nmpa.gov.cn/cosmetic/record/c025,nmpa_cosmetic,2024-07-10,某某母婴
-chem_sample_026,卸妆油,daily_chem,橄榄油;PEG-20 甘油月桂酸酯;香精;水,,,含香精,https://www.nmpa.gov.cn/cosmetic/record/c026,nmpa_cosmetic,2024-07-12,某某卸妆
-chem_sample_027,防晒喷雾,daily_chem,乙醇;奥克立林;二苯酮-3;香精,,,含酒精、氧苯酮、香精,https://www.nmpa.gov.cn/cosmetic/record/c027,nmpa_cosmetic,2024-07-15,某某防晒
-chem_sample_028,染发膏（黑）,daily_chem,水;对苯二胺;间苯二酚;丙二醇,,,含 PPD，过敏风险高,https://www.nmpa.gov.cn/cosmetic/record/c028,nmpa_cosmetic,2024-07-18,某某染发
-chem_sample_029,眼霜,daily_chem,水;甘油;羟苯丙酯;咖啡因;香精,,,含 parabens、香精,https://www.nmpa.gov.cn/cosmetic/record/c029,nmpa_cosmetic,2024-07-20,某某护肤
-chem_sample_030,爽身粉,daily_chem,玉米淀粉;滑石粉;香精,,,含香精,https://www.nmpa.gov.cn/cosmetic/record/c030,nmpa_cosmetic,2024-07-22,某某母婴
-chem_sample_031,洗手液（泡沫）,daily_chem,水;月桂醇硫酸酯钠;甲基异噻唑啉酮;香精;甘油,,,含 SLS、MIT、香精,https://www.nmpa.gov.cn/cosmetic/record/c031,nmpa_cosmetic,2024-07-25,某某洗护
-drug_sample_012,阿莫西林胶囊,drug,阿莫西林;淀粉,,,青霉素类抗生素，青霉素过敏者禁用,https://www.nmpa.gov.cn/drug/reg/d012,nmpa_drug,2024-05-01,某某制药
-drug_sample_013,阿司匹林肠溶片,drug,阿司匹林;淀粉,,alcohol;driving,抗血小板药，用药期间禁酒，驾驶者慎用,https://www.nmpa.gov.cn/drug/reg/d013,nmpa_drug,2024-05-08,某某药业
-drug_sample_014,复方新诺明片,drug,磺胺甲噁唑;甲氧苄啶,,,磺胺类药物，磺胺过敏者禁用,https://www.nmpa.gov.cn/drug/reg/d014,nmpa_drug,2024-05-12,某某制药
-drug_sample_015,甲硝唑片,drug,甲硝唑;淀粉,,alcohol,用药期间及停药后禁酒,https://www.nmpa.gov.cn/drug/reg/d015,nmpa_drug,2024-05-15,某某药业
-drug_sample_016,头孢克肟胶囊,drug,头孢克肟;淀粉,,alcohol,头孢类，用药期间禁酒,https://www.nmpa.gov.cn/drug/reg/d016,nmpa_drug,2024-05-18,某某制药
-drug_sample_017,左氧氟沙星片,drug,左氧氟沙星;淀粉,,minors;driving,喹诺酮类，18 岁以下禁用，驾驶者慎用,https://www.nmpa.gov.cn/drug/reg/d017,nmpa_drug,2024-05-22,某某药业
-drug_sample_018,布洛芬缓释胶囊,drug,布洛芬;淀粉,,pregnancy;kidney,孕妇及肾功能不全者慎用,https://www.nmpa.gov.cn/drug/reg/d018,nmpa_drug,2024-05-25,某某制药
-drug_sample_019,氯雷他定片,drug,氯雷他定;淀粉,,driving,抗组胺药，服药后勿驾驶,https://www.nmpa.gov.cn/drug/reg/d019,nmpa_drug,2024-05-28,某某药业
-drug_sample_020,对乙酰氨基酚片,drug,对乙酰氨基酚;淀粉,,,解热镇痛，肝功能不全者慎用,https://www.nmpa.gov.cn/drug/reg/d020,nmpa_drug,2024-06-01,某某制药
-drug_sample_021,蒙脱石散,drug,蒙脱石;葡萄糖,,,吸附性止泻，相对安全,https://www.nmpa.gov.cn/drug/reg/d021,nmpa_drug,2024-06-05,某某制药
-drug_sample_022,维生素 C 片,drug,维生素C;淀粉,,,膳食补充剂,https://www.nmpa.gov.cn/drug/reg/d022,nmpa_drug,2024-06-08,某某药业
-drug_sample_023,二甲双胍缓释片,drug,二甲双胍;淀粉,,diabetes,降糖药，糖尿病用药,https://www.nmpa.gov.cn/drug/reg/d023,nmpa_drug,2024-06-12,某某制药
-drug_sample_024,硝酸甘油片,drug,硝酸甘油;乳糖,,hypertension,心绞痛急救，低血压者慎用,https://www.nmpa.gov.cn/drug/reg/d024,nmpa_drug,2024-06-15,某某药业
-drug_sample_025,布洛芬混悬液（儿童）,drug,布洛芬;糖浆,,minors,儿童解热镇痛,https://www.nmpa.gov.cn/drug/reg/d025,nmpa_drug,2024-06-18,某某制药
-drug_sample_026,枇杷止咳糖浆,drug,枇杷叶;桔梗;薄荷脑;蔗糖,,,含糖咳嗽糖浆,https://www.nmpa.gov.cn/drug/reg/d026,nmpa_drug,2024-06-22,某某中药
-drug_sample_027,钙片,drug,碳酸钙;维生素D3,,,补钙制剂,https://www.nmpa.gov.cn/drug/reg/d027,nmpa_drug,2024-06-25,某某药业
-drug_sample_028,褪黑素片,drug,褪黑素;淀粉,,driving,助眠，服药后勿驾驶操作,https://www.nmpa.gov.cn/drug/reg/d028,nmpa_drug,2024-06-28,某某保健
-drug_sample_029,口服避孕药,drug,炔雌醇;左炔诺孕酮,,pregnancy;lactation,激素类，孕妇及哺乳期禁用,https://www.nmpa.gov.cn/drug/reg/d029,nmpa_drug,2024-07-01,某某制药
-drug_sample_030,头孢拉定胶囊,drug,头孢拉定;淀粉,,alcohol,头孢类，用药期间禁酒,https://www.nmpa.gov.cn/drug/reg/d030,nmpa_drug,2024-07-05,某某药业
-drug_sample_031,红花油（外用）,drug,水杨酸甲酯;桂叶油;薄荷脑,,pregnancy,外用药，孕妇慎用，含水杨酸甲酯,https://www.nmpa.gov.cn/drug/reg/d031,nmpa_drug,2024-07-08,某某外用药
+﻿id,name,category,components,nutrition,contraindications,warnings,source_url,source_type,approved_date,manufacturer
+food_sample_001,全麦面包,food,全麦面粉;水;酵母;食盐;芝麻,"{""calories"":250,""protein"":9,""fat"":4,""carbs"":46,""sodium"":380,""sugar"":5,""trans_fat"":0.2}",,,https://www.samr.gov.cn/,food_license,2024-03-15,某某面包有限公司
+food_sample_002,纯牛奶,food,生牛乳,"{""calories"":150,""protein"":8,""fat"":8,""carbs"":12,""sodium"":100,""sugar"":12,""trans_fat"":0}",,,https://www.samr.gov.cn/,food_license,2024-02-20,某某乳业股份有限公司
+food_sample_003,花生酱,food,花生;大豆油;白糖;食盐,"{""calories"":590,""protein"":25,""fat"":50,""carbs"":20,""sodium"":420,""sugar"":8,""trans_fat"":0}",,,https://www.samr.gov.cn/,samr_food_recall,2024-01-10,某某食品集团
+food_sample_004,三文鱼刺身,food,三文鱼;酱油;芥末,"{""calories"":208,""protein"":22,""fat"":13,""carbs"":0,""sodium"":350,""sugar"":0,""trans_fat"":0}",,,https://www.samr.gov.cn/,food_license,2024-04-01,某某水产有限公司
+food_sample_005,蒜蓉虾,food,虾;大蒜;黄油;芝麻;面包糠,"{""calories"":220,""protein"":24,""fat"":12,""carbs"":4,""sodium"":680,""sugar"":2,""trans_fat"":0.3}",,,https://www.samr.gov.cn/,food_license,2024-03-28,某某餐饮有限公司
+food_sample_006,低脂酸奶,food,牛奶;白砂糖,"{""calories"":70,""protein"":3.5,""fat"":1.5,""carbs"":9,""sodium"":50,""sugar"":8,""trans_fat"":0}",,,https://www.samr.gov.cn/,food_license,2024-02-28,某某乳业股份有限公司
+food_sample_007,即食燕麦片,food,燕麦;全麦;坚果碎,"{""calories"":380,""protein"":13,""fat"":7,""carbs"":65,""sodium"":10,""sugar"":12,""trans_fat"":0}",,,https://www.samr.gov.cn/,food_license,2024-01-22,某某谷物食品公司
+food_sample_008,巧克力榛子酱,food,榛子;可可;牛奶;白砂糖,"{""calories"":540,""protein"":8,""fat"":32,""carbs"":50,""sodium"":40,""sugar"":45,""trans_fat"":0}",,,https://www.samr.gov.cn/,samr_food_recall,2023-12-15,某某休闲食品公司
+food_sample_009,速冻水饺（韭菜猪肉）,food,面粉;猪肉;韭菜;鸡蛋,"{""calories"":230,""protein"":10,""fat"":9,""carbs"":28,""sodium"":520,""sugar"":2,""trans_fat"":0.4}",,,https://www.samr.gov.cn/,food_license,2024-03-05,某某速冻食品公司
+food_sample_010,海苔零食,food,紫菜;酱油;芝麻,"{""calories"":180,""protein"":8,""fat"":3,""carbs"":28,""sodium"":900,""sugar"":3,""trans_fat"":0}",,,https://www.samr.gov.cn/,food_license,2024-02-10,某某海产公司
+food_sample_011,蜂蜜柚子茶,food,蜂蜜;柚子;水,"{""calories"":120,""protein"":0,""fat"":0,""carbs"":30,""sodium"":5,""sugar"":28,""trans_fat"":0}",,,https://www.samr.gov.cn/,food_license,2024-01-30,某某茶饮公司
+food_sample_012,进口坚果礼盒,food,杏仁;腰果;核桃;榛子,"{""calories"":600,""protein"":18,""fat"":50,""carbs"":22,""sodium"":15,""sugar"":6,""trans_fat"":0}",,,https://www.samr.gov.cn/,samr_food_recall,2023-11-28,某某进出口公司
+food_sample_013,儿童成长奶粉,food,生牛乳;植物油,"{""calories"":500,""protein"":20,""fat"":22,""carbs"":38,""sodium"":250,""sugar"":30,""trans_fat"":0}",,,https://www.samr.gov.cn/,food_license,2024-04-10,某某乳业股份有限公司
+food_sample_014,麻辣火锅底料,food,牛油;辣椒;芝麻;豆瓣酱,"{""calories"":700,""protein"":6,""fat"":72,""carbs"":10,""sodium"":3200,""sugar"":4,""trans_fat"":1.5}",,,https://www.samr.gov.cn/,food_license,2024-03-18,某某调味食品公司
+chem_sample_001,清爽去屑洗发水,daily_chem,水;十二烷基硫酸钠;月桂酰胺丙基甜菜碱;甲基异噻唑啉酮;香精;甘油,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-03-10,某某日化有限公司
+chem_sample_002,保湿面霜,daily_chem,水;甘油;二甲基硅油;对羟基苯甲酸酯;香精;维生素E,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-02-25,某某化妆品股份有限公司
+chem_sample_003,清爽防晒喷雾,daily_chem,水;氧苯酮;酒精;香精,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-04-05,某某防晒科技有限公司
+chem_sample_004,婴儿手口湿巾,daily_chem,水;甘油;甲基异噻唑啉酮;DMDM乙内酰脲;柠檬酸,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-03-30,某某母婴用品有限公司
+chem_sample_005,美白牙膏,daily_chem,水;水合硅石;十二烷基硫酸钠;三氯生;香精;氟化钠,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-01-22,某某口腔护理有限公司
+chem_sample_006,植物染发剂,daily_chem,水;对苯二胺;煤焦油;香精,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-02-08,某某美发用品公司
+chem_sample_007,洗衣液,daily_chem,水;十二烷基硫酸钠;香精,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-03-12,某某家化股份有限公司
+chem_sample_008,护手霜,daily_chem,水;甘油;对羟基苯甲酸酯;香精,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-01-18,某某个人护理公司
+chem_sample_009,香水,daily_chem,酒精;香精;定香剂,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-04-12,某某香氛有限公司
+chem_sample_010,身体乳,daily_chem,水;甘油;对羟基苯甲酸酯;香精,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-02-02,某某化妆品股份有限公司
+chem_sample_011,洗手液,daily_chem,水;十二烷基硫酸钠;香精;甲基异噻唑啉酮,,,,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-03-22,某某清洁用品公司
+drug_sample_001,布洛芬缓释胶囊,drug,布洛芬;微晶纤维素;羟丙甲纤维素,,pregnancy;kidney,孕妇及哺乳期妇女禁用；肾功能不全者慎用,https://www.nmpa.gov.cn/,nmpa_drug,2023-11-20,某某制药股份有限公司
+drug_sample_002,阿莫西林胶囊,drug,阿莫西林三水合物;玉米淀粉;硬脂酸镁,,,,https://www.nmpa.gov.cn/,nmpa_drug,2023-10-15,某某制药有限公司
+drug_sample_003,左氧氟沙星片,drug,左氧氟沙星;微晶纤维素;羧甲淀粉钠,,minors;driving;kidney,未成年人禁用；服药期间禁止驾驶；肾功能不全调整剂量,https://www.nmpa.gov.cn/,nmpa_drug,2023-12-05,某某医药集团
+drug_sample_004,氯雷他定片,drug,氯雷他定;乳糖;玉米淀粉,,,,https://www.nmpa.gov.cn/,nmpa_drug,2024-01-12,某某制药厂
+drug_sample_005,维生素C片,drug,维生素C;淀粉;糊精,,,,https://www.nmpa.gov.cn/,nmpa_drug,2024-02-18,某某保健品有限公司
+drug_sample_006,甲硝唑片,drug,甲硝唑;淀粉,,alcohol;pregnancy,服药期间及停药后禁酒；孕妇禁用,https://www.nmpa.gov.cn/,nmpa_drug,2023-09-30,某某制药有限公司
+drug_sample_007,头孢克肟颗粒,drug,头孢克肟;糖,,,,https://www.nmpa.gov.cn/,nmpa_drug,2024-01-05,某某药业股份有限公司
+drug_sample_008,对乙酰氨基酚片,drug,对乙酰氨基酚;淀粉,,,,https://www.nmpa.gov.cn/,nmpa_drug,2023-12-20,某某制药厂
+drug_sample_009,蒙脱石散,drug,蒙脱石;糖,,,,https://www.nmpa.gov.cn/,nmpa_drug,2024-02-28,某某药业有限公司
+drug_sample_010,阿司匹林肠溶片,drug,阿司匹林;淀粉,,hypertension,高血压患者在医生指导下慎用,https://www.nmpa.gov.cn/,nmpa_drug,2023-11-08,某某制药股份有限公司
+drug_sample_011,红霉素软膏,drug,红霉素;黄凡士林,,,,https://www.nmpa.gov.cn/,nmpa_drug,2024-03-01,某某外用制剂公司
+food_sample_015,鸡蛋糕,food,鸡蛋;小麦粉;白砂糖;黄油;牛奶,"{calories:320,protein:7,fat:12,carbs:48,sodium:210,sugar:22,trans_fat:0.4}",,,https://www.samr.gov.cn/,food_license,2024-05-02,某某烘焙食品厂
+food_sample_016,芝士蛋糕,food,奶油奶酪;饼干底;鸡蛋;白砂糖,"{calories:350,protein:8,fat:20,carbs:34,sodium:260,sugar:26,trans_fat:0.3}",,,https://www.samr.gov.cn/,food_license,2024-05-09,某某乳品甜品有限公司
+food_sample_017,坚果能量棒,food,杏仁;核桃;燕麦;蜂蜜;大豆分离蛋白,"{calories:410,protein:14,fat:18,carbs:44,sodium:120,sugar:18,trans_fat:0}",,含多种坚果，过敏人群慎用,https://www.samr.gov.cn/,food_license,2024-05-15,某某健康食品股份
+food_sample_018,虾仁蛋炒饭,food,米饭;鸡蛋;虾仁;豌豆;大豆油;酱油,"{calories:290,protein:15,fat:9,carbs:38,sodium:720,sugar:3,trans_fat:0}",,,https://www.samr.gov.cn/,samr_food_recall,2024-04-22,某某速食餐饮
+food_sample_019,蟹黄堡,food,面包;蟹肉;蛋黄酱;生菜;番茄,"{calories:380,protein:16,fat:18,carbs:36,sodium:810,sugar:6,trans_fat:0.5}",,,https://www.samr.gov.cn/,food_license,2024-06-01,某某汉堡餐饮
+food_sample_020,牛奶巧克力,food,可可液块;牛奶;白砂糖;大豆卵磷脂,"{calories:540,protein:8,fat:30,carbs:52,sodium:90,sugar:48,trans_fat:0.2}",,,https://www.samr.gov.cn/,food_license,2024-05-20,某某巧克力有限公司
+food_sample_021,豆浆,food,非转基因大豆;水,"{calories:54,protein:3.6,fat:1.8,carbs:4,sodium:5,sugar:1,trans_fat:0}",,,https://www.samr.gov.cn/,food_license,2024-06-10,某某豆制品厂
+food_sample_022,三文鱼寿司,food,米饭;三文鱼;海苔;酱油;芥末;芝麻,"{calories:200,protein:12,fat:6,carbs:26,sodium:430,sugar:4,trans_fat:0}",,生食，孕妇及免疫低下者慎用,https://www.samr.gov.cn/,food_license,2024-06-12,某某日料餐饮
+food_sample_023,杏仁饼干,food,杏仁;小麦粉;黄油;白砂糖,"{calories:470,protein:9,fat:22,carbs:58,sodium:180,sugar:24,trans_fat:0.3}",,含坚果,https://www.samr.gov.cn/,food_license,2024-05-30,某某饼干食品
+food_sample_024,芝麻糊,food,黑芝麻;糯米;白砂糖;水,"{calories:260,protein:6,fat:9,carbs:40,sodium:30,sugar:20,trans_fat:0}",,,https://www.samr.gov.cn/,food_license,2024-06-18,某某谷物食品
+food_sample_025,方便面,food,面饼;棕榈油;食盐;味精;酱油粉,"{calories:470,protein:9,fat:22,carbs:58,sodium:1850,sugar:3,trans_fat:1.2}",,高钠食品,https://www.samr.gov.cn/,samr_food_recall,2024-03-11,某某方便食品
+food_sample_026,可乐,food,水;果葡糖浆;白砂糖;咖啡因;二氧化碳,"{calories:180,protein:0,fat:0,carbs:45,sodium:20,sugar:44,trans_fat:0}",,高糖饮料,https://www.samr.gov.cn/,food_license,2024-06-20,某某饮料有限公司
+food_sample_027,炸鸡,food,鸡肉;小麦粉;大豆油;食盐;鸡蛋,"{calories:620,protein:28,fat:38,carbs:34,sodium:980,sugar:2,trans_fat:2.1}",,油炸食品，含反式脂肪,https://www.samr.gov.cn/,samr_food_recall,2024-04-30,某某炸鸡连锁
+food_sample_028,薯片,food,马铃薯;植物油;食盐,"{calories:540,protein:7,fat:34,carbs:52,sodium:620,sugar:1,trans_fat:0.8}",,,https://www.samr.gov.cn/,food_license,2024-06-05,某某膨化食品
+food_sample_029,凯撒沙拉,food,生菜;帕玛森芝士;面包丁;鸡蛋;鳀鱼;沙拉酱,"{calories:280,protein:11,fat:20,carbs:14,sodium:560,sugar:3,trans_fat:0.2}",,含鱼、蛋、乳、麸质,https://www.samr.gov.cn/,food_license,2024-06-22,某某轻食餐饮
+food_sample_030,海鲜披萨,food,小麦粉;马苏里拉芝士;虾仁;蟹柳;番茄酱;鸡蛋,"{calories:560,protein:24,fat:22,carbs:62,sodium:1050,sugar:8,trans_fat:0.6}",,含甲壳类、乳、蛋、麸质,https://www.samr.gov.cn/,food_license,2024-06-25,某某披萨餐饮
+food_sample_031,提拉米苏,food,马斯卡彭芝士;手指饼干;鸡蛋;咖啡;可可粉,"{calories:360,protein:7,fat:21,carbs:36,sodium:150,sugar:28,trans_fat:0.3}",,含生蛋、乳、麸质、咖啡因,https://www.samr.gov.cn/,food_license,2024-06-28,某某甜品工坊
+food_sample_032,麻薯,food,糯米粉;牛奶;白砂糖;黄油,"{calories:300,protein:4,fat:8,carbs:55,sodium:80,sugar:22,trans_fat:0.2}",,,https://www.samr.gov.cn/,food_license,2024-07-01,某某糕点厂
+food_sample_033,麻辣香锅底料,food,大豆油;豆瓣酱;花椒;辣椒;味精;白砂糖,"{calories:420,protein:6,fat:38,carbs:16,sodium:2200,sugar:8,trans_fat:0.5}",,高钠,https://www.samr.gov.cn/,samr_food_recall,2024-05-12,某某调味品
+food_sample_034,蛋黄酥,food,小麦粉;蛋黄;红豆沙;黄油;芝麻,"{calories:390,protein:8,fat:18,carbs:50,sodium:220,sugar:24,trans_fat:0.4}",,含蛋、麸质、芝麻,https://www.samr.gov.cn/,food_license,2024-07-05,某某糕点食品
+food_sample_035,花生牛轧糖,food,花生;麦芽糖;蛋白;奶粉,"{calories:450,protein:10,fat:16,carbs:64,sodium:90,sugar:50,trans_fat:0}",,含花生、乳,https://www.samr.gov.cn/,food_license,2024-07-08,某某糖果厂
+food_sample_036,咖喱块,food,棕榈油;小麦粉;香辛料;食盐;白砂糖;脱脂乳粉,"{calories:380,protein:5,fat:22,carbs:42,sodium:1300,sugar:10,trans_fat:0.4}",,含麸质、乳,https://www.samr.gov.cn/,food_license,2024-07-10,某某调味食品
+food_sample_037,豆腐,food,非转基因大豆;凝固剂;水,"{calories:80,protein:8,fat:4,carbs:3,sodium:10,sugar:0,trans_fat:0}",,,https://www.samr.gov.cn/,food_license,2024-07-12,某某豆制品厂
+food_sample_038,酒心巧克力,food,可可液块;白砂糖;酒精;奶油,"{calories:520,protein:6,fat:28,carbs:50,sodium:60,sugar:46,trans_fat:0.2}",,含酒精，儿童与服药者禁用,https://www.samr.gov.cn/,food_license,2024-07-15,某某酒心糖厂
+food_sample_039,无牛奶添加米浆,food,大米;水;无牛奶添加;植物油,"{calories:60,protein:1,fat:2,carbs:10,sodium:10,sugar:2,trans_fat:0}",,植物基，标注无牛奶添加,https://www.samr.gov.cn/,food_license,2024-07-18,某某植物饮
+food_sample_040,无麸质糙米饼干,food,糙米;大米;植物油;海盐,"{calories:430,protein:6,fat:16,carbs:66,sodium:240,sugar:4,trans_fat:0.3}",,标注无麸质,https://www.samr.gov.cn/,food_license,2024-07-20,某某无麸质食品
+food_sample_041,燕麦植物饮,food,燕麦;水;植物油;无乳糖添加,"{calories:70,protein:2,fat:3,carbs:9,sodium:30,sugar:4,trans_fat:0}",,植物基，标注无乳糖,https://www.samr.gov.cn/,food_license,2024-07-22,某某植物饮
+food_sample_042,凉拌海蜇,food,海蜇;酱油;芝麻;蒜;醋,"{calories:90,protein:8,fat:3,carbs:6,sodium:1100,sugar:3,trans_fat:0}",,含芝麻，高钠,https://www.samr.gov.cn/,samr_food_recall,2024-06-30,某某水产凉菜
+chem_sample_012,去屑洗发水,daily_chem,水;月桂醇硫酸酯钠;甲基异噻唑啉酮;香精;吡硫鎓锌,,,含 SLS、MIT、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-05-01,某某日化
+chem_sample_013,防晒霜 SPF50,daily_chem,水;氧化锌;二苯酮-3;甘油,,,含氧苯酮,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-05-10,某某防晒
+chem_sample_014,植物染发剂,daily_chem,水;对苯二胺;乙醇胺;间苯二酚,,,含 PPD，染发前需皮试,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-05-18,某某染发
+chem_sample_015,婴儿湿巾,daily_chem,水;甘油;dmdm乙内酰脲;苯氧乙醇,,,含甲醛释放体,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-05-22,某某母婴
+chem_sample_016,保湿面霜,daily_chem,水;甘油;羟苯甲酯;香精;角鲨烷,,,含 parabens、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-06-02,某某护肤
+chem_sample_017,抗菌牙膏,daily_chem,水;二氧化硅;月桂醇硫酸酯钠;三氯生;香精,,,含 SLS、三氯生,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-06-08,某某口腔
+chem_sample_018,淡香水,daily_chem,乙醇;香精;水;邻苯二甲酸二乙酯,,,含香精、定香剂（邻苯二甲酸酯）,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-06-12,某某香水
+chem_sample_019,哑光口红,daily_chem,蓖麻油;二丁基羟基甲苯;二氧化钛;香精,,,含 BHT、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-06-15,某某彩妆
+chem_sample_020,沐浴露,daily_chem,水;月桂醇硫酸酯钠;椰油酰胺;香精;甲基异噻唑啉酮,,,含 SLS、MIT、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-06-20,某某洗护
+chem_sample_021,护手霜,daily_chem,水;甘油;羟苯甲酯;甲基异噻唑啉酮;香精,,,含 parabens、MIT、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-06-25,某某护肤
+chem_sample_022,免洗洗手液,daily_chem,乙醇;甘油;水;香精,,,含酒精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-01,某某消毒
+chem_sample_023,水杨酸身体乳,daily_chem,水;水杨酸;甘油;苯氧乙醇,,,含水杨酸（β-羟基酸）,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-05,某某祛痘护肤
+chem_sample_024,男士须后水,daily_chem,乙醇;水;香精;薄荷醇,,,含酒精、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-08,某某男士
+chem_sample_025,儿童洗发水,daily_chem,水;椰油基甜菜碱;甘油;香精,,,含香精，儿童款,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-10,某某母婴
+chem_sample_026,卸妆油,daily_chem,橄榄油;PEG-20 甘油月桂酸酯;香精;水,,,含香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-12,某某卸妆
+chem_sample_027,防晒喷雾,daily_chem,乙醇;奥克立林;二苯酮-3;香精,,,含酒精、氧苯酮、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-15,某某防晒
+chem_sample_028,染发膏（黑）,daily_chem,水;对苯二胺;间苯二酚;丙二醇,,,含 PPD，过敏风险高,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-18,某某染发
+chem_sample_029,眼霜,daily_chem,水;甘油;羟苯丙酯;咖啡因;香精,,,含 parabens、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-20,某某护肤
+chem_sample_030,爽身粉,daily_chem,玉米淀粉;滑石粉;香精,,,含香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-22,某某母婴
+chem_sample_031,洗手液（泡沫）,daily_chem,水;月桂醇硫酸酯钠;甲基异噻唑啉酮;香精;甘油,,,含 SLS、MIT、香精,https://www.nmpa.gov.cn/,nmpa_cosmetic,2024-07-25,某某洗护
+drug_sample_012,阿莫西林胶囊,drug,阿莫西林;淀粉,,,青霉素类抗生素，青霉素过敏者禁用,https://www.nmpa.gov.cn/,nmpa_drug,2024-05-01,某某制药
+drug_sample_013,阿司匹林肠溶片,drug,阿司匹林;淀粉,,alcohol;driving,抗血小板药，用药期间禁酒，驾驶者慎用,https://www.nmpa.gov.cn/,nmpa_drug,2024-05-08,某某药业
+drug_sample_014,复方新诺明片,drug,磺胺甲噁唑;甲氧苄啶,,,磺胺类药物，磺胺过敏者禁用,https://www.nmpa.gov.cn/,nmpa_drug,2024-05-12,某某制药
+drug_sample_015,甲硝唑片,drug,甲硝唑;淀粉,,alcohol,用药期间及停药后禁酒,https://www.nmpa.gov.cn/,nmpa_drug,2024-05-15,某某药业
+drug_sample_016,头孢克肟胶囊,drug,头孢克肟;淀粉,,alcohol,头孢类，用药期间禁酒,https://www.nmpa.gov.cn/,nmpa_drug,2024-05-18,某某制药
+drug_sample_017,左氧氟沙星片,drug,左氧氟沙星;淀粉,,minors;driving,喹诺酮类，18 岁以下禁用，驾驶者慎用,https://www.nmpa.gov.cn/,nmpa_drug,2024-05-22,某某药业
+drug_sample_018,布洛芬缓释胶囊,drug,布洛芬;淀粉,,pregnancy;kidney,孕妇及肾功能不全者慎用,https://www.nmpa.gov.cn/,nmpa_drug,2024-05-25,某某制药
+drug_sample_019,氯雷他定片,drug,氯雷他定;淀粉,,driving,抗组胺药，服药后勿驾驶,https://www.nmpa.gov.cn/,nmpa_drug,2024-05-28,某某药业
+drug_sample_020,对乙酰氨基酚片,drug,对乙酰氨基酚;淀粉,,,解热镇痛，肝功能不全者慎用,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-01,某某制药
+drug_sample_021,蒙脱石散,drug,蒙脱石;葡萄糖,,,吸附性止泻，相对安全,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-05,某某制药
+drug_sample_022,维生素 C 片,drug,维生素C;淀粉,,,膳食补充剂,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-08,某某药业
+drug_sample_023,二甲双胍缓释片,drug,二甲双胍;淀粉,,diabetes,降糖药，糖尿病用药,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-12,某某制药
+drug_sample_024,硝酸甘油片,drug,硝酸甘油;乳糖,,hypertension,心绞痛急救，低血压者慎用,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-15,某某药业
+drug_sample_025,布洛芬混悬液（儿童）,drug,布洛芬;糖浆,,minors,儿童解热镇痛,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-18,某某制药
+drug_sample_026,枇杷止咳糖浆,drug,枇杷叶;桔梗;薄荷脑;蔗糖,,,含糖咳嗽糖浆,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-22,某某中药
+drug_sample_027,钙片,drug,碳酸钙;维生素D3,,,补钙制剂,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-25,某某药业
+drug_sample_028,褪黑素片,drug,褪黑素;淀粉,,driving,助眠，服药后勿驾驶操作,https://www.nmpa.gov.cn/,nmpa_drug,2024-06-28,某某保健
+drug_sample_029,口服避孕药,drug,炔雌醇;左炔诺孕酮,,pregnancy;lactation,激素类，孕妇及哺乳期禁用,https://www.nmpa.gov.cn/,nmpa_drug,2024-07-01,某某制药
+drug_sample_030,头孢拉定胶囊,drug,头孢拉定;淀粉,,alcohol,头孢类，用药期间禁酒,https://www.nmpa.gov.cn/,nmpa_drug,2024-07-05,某某药业
+drug_sample_031,红花油（外用）,drug,水杨酸甲酯;桂叶油;薄荷脑,,pregnancy,外用药，孕妇慎用，含水杨酸甲酯,https://www.nmpa.gov.cn/,nmpa_drug,2024-07-08,某某外用药
